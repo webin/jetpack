@@ -21,8 +21,37 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 		<div class="page-content configure">
 			<?php
 			$sync = Jetpack::init()->sync;
+
+			$synced = array(
+				'post_types'    => array(),
+				'comment_types' => array(),
+				'options'       => array(),
+			);
+
+			foreach ( $sync->sync_conditions['posts'] as $module_slug => $what_is_synced ) {
+				foreach ( $what_is_synced['post_types'] as $post_type ) {
+					foreach ( $what_is_synced['post_stati'] as $post_status ) {
+						$synced['post_types'][ $post_type ][ $post_status ][] = $module_slug;
+					}
+				}
+			}
+
+			foreach ( $sync->sync_conditions['comments'] as $module_slug => $what_is_synced ) {
+				foreach ( $what_is_synced['comment_types'] as $comment_type ) {
+					foreach ( $what_is_synced['comment_stati'] as $comment_status ) {
+						$synced['comment_types'][ $comment_type ][ $comment_status ][] = $module_slug;
+					}
+				}
+			}
+
+			foreach ( $sync->sync_options as $module_slug => $options ) {
+				foreach ( $options as $option_name ) {
+					$synced['options'][ $option_name ][] = $module_slug;
+				}
+			}
+
 			echo '<pre>';
-			var_dump( $sync );
+			var_dump( $synced );
 			echo '</pre>';
 			?>
 		</div><!-- /.content -->

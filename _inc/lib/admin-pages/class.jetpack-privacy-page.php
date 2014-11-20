@@ -1,8 +1,7 @@
 <?php
 include_once( 'class.jetpack-admin-page.php' );
 
-// Builds the settings page and its menu
-class Jetpack_Settings_Page extends Jetpack_Admin_Page {
+class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 	// Show the settings page only when Jetpack is connected or in dev mode
 	protected $dont_show_if_not_active = false;
 	function add_page_actions( $hook ) {} // There are no page specific actions to attach to the menu

@@ -51,17 +51,75 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 			}
 			?>
 
-			<table class="wp-list-table widefat jetpack-sync-options-table">
+			<table class="wp-list-table widefat jetpack-sync-posts-table">
+				<thead>
+				<tr>
+					<th scope="col"><?php esc_html_e( 'Post Type', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Post Status', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Needed By', 'jetpack' ); ?></th>
+				</tr>
+				</thead>
+				<tfoot>
+				<tr>
+					<th scope="col"><?php esc_html_e( 'Post Type', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Post Status', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Needed By', 'jetpack' ); ?></th>
+				</tr>
+				</tfoot>
+				<tbody>
+				<?php $alternate = 0; ?>
+				<?php foreach ( $synced['posts'] as $post_type => $post_type_data ) : ?>
+					<?php foreach ( $post_type_data as $post_status => $module_slugs ) : ?>
+						<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
+							<th scope="row"><?php echo esc_html( $post_type ); ?></th>
+							<th scope="row"><?php echo esc_html( $post_status ); ?></th>
+							<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
+						</tr>
+					<?php endforeach; ?>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<table class="wp-list-table widefat jetpack-sync-comments-table">
+				<thead>
+				<tr>
+					<th scope="col"><?php esc_html_e( 'Comment Type', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Comment Status', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Needed By', 'jetpack' ); ?></th>
+				</tr>
+				</thead>
+				<tfoot>
+				<tr>
+					<th scope="col"><?php esc_html_e( 'Comment Type', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Comment Status', 'jetpack' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Needed By', 'jetpack' ); ?></th>
+				</tr>
+				</tfoot>
+				<tbody>
+				<?php $alternate = 0; ?>
+				<?php foreach ( $synced['comments'] as $comment_type => $comment_type_data ) : ?>
+					<?php foreach ( $comment_type_data as $comment_status => $module_slugs ) : ?>
+						<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
+							<th scope="row"><?php echo esc_html( $comment_type ); ?></th>
+							<th scope="row"><?php echo esc_html( $comment_status ); ?></th>
+							<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
+						</tr>
+					<?php endforeach; ?>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<table class="wp-list-table widefat jetpack-sync-options-table" style="width: auto;">
 				<thead>
 					<tr>
-						<th scope="col" class=""><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
-						<th scope="col"><?php esc_html_e( 'Needed By Module(s)', 'jetpack' ); ?></th>
+						<th scope="col"><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
+						<th scope="col"><?php esc_html_e( 'Needed By', 'jetpack' ); ?></th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
 						<th scope="col"><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
-						<th scope="col"><?php esc_html_e( 'Needed By Module(s)', 'jetpack' ); ?></th>
+						<th scope="col"><?php esc_html_e( 'Needed By', 'jetpack' ); ?></th>
 					</tr>
 				</tfoot>
 				<tbody>

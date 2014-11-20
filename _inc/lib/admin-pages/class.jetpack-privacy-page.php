@@ -80,7 +80,11 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 				</tfoot>
 				<tbody>
 				<?php $alternate = 0; ?>
-				<?php foreach ( $synced['post_types'] as $post_type => $post_type_data ) : ?>
+				<?php if ( empty( $synced['post_types'] ) ) : ?>
+					<tr class="no-items">
+						<th scope="row" colspan="3"><?php esc_html_e( 'None', 'jetpack' ); ?></th>
+					</tr>
+				<?php else : foreach ( $synced['post_types'] as $post_type => $post_type_data ) : ?>
 					<?php foreach ( $post_type_data as $post_status => $module_slugs ) : ?>
 						<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
 							<th scope="row"><?php echo esc_html( $post_type ); ?></th>
@@ -88,7 +92,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 							<td><?php echo self::render_module_names_list( $module_slugs ); ?></td>
 						</tr>
 					<?php endforeach; ?>
-				<?php endforeach; ?>
+				<?php endforeach; endif; ?>
 				</tbody>
 			</table>
 
@@ -110,7 +114,11 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 				</tfoot>
 				<tbody>
 				<?php $alternate = 0; ?>
-				<?php foreach ( $synced['comment_types'] as $comment_type => $comment_type_data ) : ?>
+				<?php if ( empty( $synced['comment_types'] ) ) : ?>
+					<tr class="no-items">
+						<th scope="row" colspan="3"><?php esc_html_e( 'None', 'jetpack' ); ?></th>
+					</tr>
+				<?php else : foreach ( $synced['comment_types'] as $comment_type => $comment_type_data ) : ?>
 					<?php foreach ( $comment_type_data as $comment_status => $module_slugs ) : ?>
 						<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
 							<th scope="row"><?php echo esc_html( $comment_type ); ?></th>
@@ -118,7 +126,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 							<td><?php echo self::render_module_names_list( $module_slugs ); ?></td>
 						</tr>
 					<?php endforeach; ?>
-				<?php endforeach; ?>
+				<?php endforeach; endif; ?>
 				</tbody>
 			</table>
 

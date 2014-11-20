@@ -154,12 +154,6 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-
-			<?php
-			echo '<pre>';
-			var_dump( $synced );
-			echo '</pre>';
-			?>
 		</div><!-- /.content -->
 	<?php
 	}

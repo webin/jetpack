@@ -11,8 +11,19 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 		return add_submenu_page( null, __( 'Jetpack Privacy', 'jetpack' ), __( 'Privacy', 'jetpack' ), 'jetpack_manage_modules', 'jetpack_privacy', array( $this, 'render' ) );
 	}
 
-	// Renders the module list table where you can use bulk action or row
-	// actions to activate/deactivate and configure modules
+	static function render_module_names_list( $module_slugs ) {
+		$module_names = array();
+		foreach ( (array) $module_slugs as $module_slug ) {
+			if ( 'jetpack' === $module_slug ) {
+				$module_names[] = esc_html__( 'Jetpack Core', 'jetpack' );
+				continue;
+			}
+			$module = Jetpack::get_module( $module_slug );
+			$module_names[] = esc_html( $module['name'] );
+		}
+		echo implode( '<br />', $module_names );
+	}
+
 	function page_render() {
 		$list_table = new Jetpack_Modules_List_Table;
 		?>
@@ -73,7 +84,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 						<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
 							<th scope="row"><?php echo esc_html( $post_type ); ?></th>
 							<th scope="row"><?php echo esc_html( $post_status ); ?></th>
-							<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
+							<td><?php echo self::render_module_names_list( $module_slugs ); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php endforeach; ?>
@@ -102,7 +113,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 						<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
 							<th scope="row"><?php echo esc_html( $comment_type ); ?></th>
 							<th scope="row"><?php echo esc_html( $comment_status ); ?></th>
-							<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
+							<td><?php echo self::render_module_names_list( $module_slugs ); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php endforeach; ?>
@@ -127,7 +138,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 					<?php foreach ( $synced['options'] as $option_name => $module_slugs ) : ?>
 					<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
 						<th scope="row"><?php echo esc_html( $option_name ); ?></th>
-						<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
+						<td><?php echo self::render_module_names_list( $module_slugs ); ?></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

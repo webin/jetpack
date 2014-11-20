@@ -62,6 +62,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 			}
 			?>
 
+			<h3><?php esc_html_e( 'Synced Posts', 'jetpack' ); ?></h3>
 			<table class="wp-list-table widefat jetpack-sync-posts-table">
 				<thead>
 				<tr>
@@ -91,6 +92,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 				</tbody>
 			</table>
 
+			<h3><?php esc_html_e( 'Synced Comments', 'jetpack' ); ?></h3>
 			<table class="wp-list-table widefat jetpack-sync-comments-table">
 				<thead>
 				<tr>
@@ -120,6 +122,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 				</tbody>
 			</table>
 
+			<h3><?php esc_html_e( 'Synced Options', 'jetpack' ); ?></h3>
 			<table class="wp-list-table widefat jetpack-sync-options-table" style="width: auto;">
 				<thead>
 					<tr>

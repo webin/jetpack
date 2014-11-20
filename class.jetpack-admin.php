@@ -26,10 +26,12 @@ class Jetpack_Admin {
 
 		jetpack_require_lib( 'admin-pages/class.jetpack-landing-page' );
 		jetpack_require_lib( 'admin-pages/class.jetpack-settings-page' );
+		jetpack_require_lib( 'admin-pages/class.jetpack-privacy-page' );
 
 		// Initialize objects building landing and settings pages
-		$this->landing_page = new Jetpack_Landing_Page;
+		$this->landing_page  = new Jetpack_Landing_Page;
 		$this->settings_page = new Jetpack_Settings_Page;
+		$this->privacy_page  = new Jetpack_Privacy_Page;
 
 		// Add hooks for admin menus
 		add_action( 'admin_menu',                    array( $this->landing_page, 'add_actions' ), 998 );

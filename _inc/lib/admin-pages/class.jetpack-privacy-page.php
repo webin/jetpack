@@ -18,7 +18,7 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 		?>
 		<div class="clouds-sm"></div>
 		<?php do_action( 'jetpack_notices' ) ?>
-		<div class="page-content configure">
+		<div class="page-content" style="padding: 0 1em;">
 			<?php
 			$sync = Jetpack::init()->sync;
 
@@ -51,10 +51,10 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 			}
 			?>
 
-			<table class="jetpack-sync-options-table">
+			<table class="wp-list-table widefat jetpack-sync-options-table">
 				<thead>
 					<tr>
-						<th scope="col"><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
+						<th scope="col" class=""><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
 						<th scope="col"><?php esc_html_e( 'Needed By Module(s)', 'jetpack' ); ?></th>
 					</tr>
 				</thead>
@@ -65,8 +65,9 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 					</tr>
 				</tfoot>
 				<tbody>
+					<?php $alternate = 0; ?>
 					<?php foreach ( $synced['options'] as $option_name => $module_slugs ) : ?>
-					<tr>
+					<tr class="<?php echo ( $alternate = 1 - $alternate ) ? 'alternate' : ''; ?>">
 						<th scope="row"><?php echo esc_html( $option_name ); ?></th>
 						<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
 					</tr>

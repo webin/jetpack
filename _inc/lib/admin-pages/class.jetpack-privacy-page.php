@@ -49,7 +49,32 @@ class Jetpack_Privacy_Page extends Jetpack_Admin_Page {
 					$synced['options'][ $option_name ][] = $module_slug;
 				}
 			}
+			?>
 
+			<table class="jetpack-sync-options-table">
+				<thead>
+					<tr>
+						<th scope="col"><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
+						<th scope="col"><?php esc_html_e( 'Needed By Module(s)', 'jetpack' ); ?></th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th scope="col"><?php esc_html_e( 'Option Name', 'jetpack' ); ?></th>
+						<th scope="col"><?php esc_html_e( 'Needed By Module(s)', 'jetpack' ); ?></th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<?php foreach ( $synced['options'] as $option_name => $module_slugs ) : ?>
+					<tr>
+						<th scope="row"><?php echo esc_html( $option_name ); ?></th>
+						<td><?php echo nl2br( esc_html( implode( "\r\n", $module_slugs ) ) ); ?></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<?php
 			echo '<pre>';
 			var_dump( $synced );
 			echo '</pre>';

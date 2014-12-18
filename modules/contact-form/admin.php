@@ -758,3 +758,75 @@ function grunion_omnisearch_add_providers() {
 		new Jetpack_Omnisearch_Grunion;
 	}
 }
+
+/*
+ * Add a dashboard widget that shows new feedback
+ *
+ * @since 
+ */
+
+function feedback_form_add_dashboard_widget() {
+	if ( ! current_user_can( 'edit_posts' ) )
+		return;
+
+	add_meta_box( 'feedback-dashboard-widget', __( 'Recent Feedback Submissions', 'jetpack' ), 'feedback_dashboard_widget_display', 'dashboard', 'side', 'low');
+}
+add_action( 'wp_dashboard_setup', 'feedback_form_add_dashboard_widget' );
+
+/**
+ * Display list of recent contact form submissions
+ *
+ * @since
+ *
+ * @todo get the avatar (if email set), spam/trash on hover
+ */
+
+function feedback_dashboard_widget_display() {
+	$query_args = array(
+		'post_type'      => 'feedback',
+		'orderby'        => 'date',
+		'posts_per_page' => 5,
+		'no_found_rows'  => true,
+		'cache_results'  => false,
+	);
+	$posts = new WP_Query( $query_args );
+
+	if ( $posts->have_posts() ) {
+
+
+		echo '<div class="feedback-activity-block">';
+
+		echo '<ul>';
+
+		$today    = date( 'Y-m-d', current_time( 'timestamp' ) );
+		$tomorrow = date( 'Y-m-d', strtotime( '+1 day', current_time( 'timestamp' ) ) );
+
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
+
+			$feedback_avatar = get_avatar( '', 50 );
+
+			$time = get_the_time( 'U' );
+			if ( date( 'Y-m-d', $time ) == $today ) {
+				$relative = __( 'Today' );
+			} elseif ( date( 'Y-m-d', $time ) == $tomorrow ) {
+				$relative = __( 'Tomorrow' );
+			} else {
+				/* translators: date and time format for recent posts on the dashboard, see http://php.net/date */
+				$relative = date_i18n( __( 'M jS' ), $time );
+			}
+
+			/* translators: 1: Avatar, 2: The message before the more tag, 3. Date, 4. Time */
+			$format = __( '<div class="feedback-avatar">%1$s</div><div class="dashboard-feedback-wrap"><blockquote>%2$s</blockquote><span class="feedback-widget-date-time">%3$s, %4$s </span></div>' );
+			printf( "<li class='feedback-dashboard-list'>$format</li>", $feedback_avatar, get_the_excerpt(''), $relative, get_the_time() );
+
+		}
+		echo '</ul>';
+		echo '<ul class="subsubsub"><li><a href="wp-admin/edit.php?post_type=feedback">View all</a></li></ul>';
+		echo '</div>';
+
+	} else {
+		return;
+	}
+
+}

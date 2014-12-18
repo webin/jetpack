@@ -807,6 +807,10 @@ function feedback_dashboard_widget_display() {
 			global $post;
 			$get_form_fields = Grunion_Contact_Form_Plugin::parse_fields_from_content( $post->ID );
 
+			echo '<pre>';
+			print_r( $get_form_fields );
+			echo '</pre>';
+
 			$feedback_avatar = get_avatar( $get_form_fields['_feedback_author_email'], 50 );
 
 			$time = get_the_time( 'U' );
@@ -817,13 +821,18 @@ function feedback_dashboard_widget_display() {
 			} else {
 				/* translators: date and time format for recent posts on the dashboard, see http://php.net/date */
 				$relative = date_i18n( __( 'M jS' ), $time );
-			}
+			} ?>
 
-			/* translators: 1: Avatar, 2: The message before the more tag, 3. Date, 4. Time */
-			$format = __( '<div class="feedback-avatar">%1$s</div><div class="dashboard-feedback-wrap"><blockquote>%2$s</blockquote><span class="feedback-widget-date-time">%3$s, %4$s </span></div>' );
-			printf( "<li class='feedback-dashboard-list'>$format</li>", $feedback_avatar, get_the_excerpt(''), $relative, get_the_time() );
-
-		}
+			<li class="feedback-dashboard-list">
+				<div class="feedback-avatar"><?php echo $feedback_avatar; ?></div>
+				<div class="dashboard-feedback-wrap">
+					<span class="feedback-meta"><?php echo $get_form_fields['_feedback_subject'] ?></span>
+					<blockquote><?php echo get_the_excerpt('') ?></blockquote>
+					<span class="feedback-meta">Submitted <?php echo $relative . ' at ' . get_the_time(); ?> from <?php echo $get_form_fields['_feedback_author'] ?></span>
+				</div>
+			</li>
+			
+		<?php }
 		echo '</ul>';
 		echo '<ul class="subsubsub"><li><a href="wp-admin/edit.php?post_type=feedback">View all</a></li></ul>';
 		echo '</div>';
@@ -854,6 +863,12 @@ function feedback_dashboard_head() { ?>
 
 		.feedback-avatar {
 			float: left;
+		}
+
+		.feedback-meta {
+			line-height: 1.5em;
+			margin-top: 0;
+			color: #666;
 		}
 
 		.feedback-widget-date-time {

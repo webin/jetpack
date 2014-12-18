@@ -807,11 +807,8 @@ function feedback_dashboard_widget_display() {
 			global $post;
 			$get_form_fields = Grunion_Contact_Form_Plugin::parse_fields_from_content( $post->ID );
 
-			echo '<pre>';
-			print_r( $get_form_fields );
-			echo '</pre>';
-
 			$feedback_avatar = get_avatar( $get_form_fields['_feedback_author_email'], 50 );
+			$form_url        = isset( $post->post_parent ) ? get_permalink( $post->post_parent ) : null;
 
 			$time = get_the_time( 'U' );
 			if ( date( 'Y-m-d', $time ) == $today ) {
@@ -826,12 +823,12 @@ function feedback_dashboard_widget_display() {
 			<li class="feedback-dashboard-list">
 				<div class="feedback-avatar"><?php echo $feedback_avatar; ?></div>
 				<div class="dashboard-feedback-wrap">
-					<span class="feedback-meta"><?php echo $get_form_fields['_feedback_subject'] ?></span>
+					<span class="feedback-meta"><a href="<?php echo $form_url; ?>"><?php echo $get_form_fields['_feedback_subject'] ?></a></span>
 					<blockquote><?php echo get_the_excerpt('') ?></blockquote>
 					<span class="feedback-meta">Submitted <?php echo $relative . ' at ' . get_the_time(); ?> from <?php echo $get_form_fields['_feedback_author'] ?></span>
 				</div>
 			</li>
-			
+
 		<?php }
 		echo '</ul>';
 		echo '<ul class="subsubsub"><li><a href="wp-admin/edit.php?post_type=feedback">View all</a></li></ul>';

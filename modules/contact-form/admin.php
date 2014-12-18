@@ -833,3 +833,61 @@ function feedback_dashboard_widget_display() {
 	}
 
 }
+
+
+/*
+ * Feedback widget styling
+ *
+ * called by feedback_form_add_dashboard_widget();
+ */
+add_action( 'admin_head', 'feedback_dashboard_head' ); //for feedback widget CSS
+function feedback_dashboard_head() { ?>
+	<style type="text/css">
+		#feedback-dashboard-widget .inside {
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+
+		#feedback-dashboard-widget .hndle {
+			border-bottom: 0px;
+		}
+
+		.feedback-avatar {
+			float: left;
+		}
+
+		.feedback-widget-date-time {
+			margin: 1em 0 0;
+		}
+
+		.feedback-activity-block ul {
+			margin: 0;
+		}
+
+		.dashboard-feedback-wrap {
+			overflow: hidden;
+			word-wrap: break-word;
+			padding-left: 1em;
+		}
+
+		.dashboard-feedback-wrap blockquote {
+			margin-top: 0;
+			margin-left: 0;
+		}
+		.feedback-dashboard-list {
+			padding: 1em;
+			min-height: 50px;
+			webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.06);
+			box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.06);
+			background: #FAFAFA;
+			margin: 0;
+		}
+
+		.subsubsub{
+			float: none;
+			border-top: 1px solid #EEE;
+			margin-top: 0;
+			padding: 8px 12px;
+		}
+	</style>
+<?php } ?>

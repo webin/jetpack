@@ -762,7 +762,7 @@ function grunion_omnisearch_add_providers() {
 /*
  * Add a dashboard widget that shows new feedback
  *
- * @since 
+ * @since
  */
 
 function feedback_form_add_dashboard_widget() {
@@ -804,7 +804,10 @@ function feedback_dashboard_widget_display() {
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
 
-			$feedback_avatar = get_avatar( '', 50 );
+			global $post;
+			$get_form_fields = Grunion_Contact_Form_Plugin::parse_fields_from_content( $post->ID );
+
+			$feedback_avatar = get_avatar( $get_form_fields['_feedback_author_email'], 50 );
 
 			$time = get_the_time( 'U' );
 			if ( date( 'Y-m-d', $time ) == $today ) {

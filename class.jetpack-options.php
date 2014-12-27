@@ -83,25 +83,13 @@ class Jetpack_Options {
 	 * @return mixed
 	 */
 	public static function get_autoloaded_option( $name, $default = false ) {
-		if ( in_array( $name, self::get_option_names( 'non_compact' ) ) ) {
-			$option = 'jetpack_' . trim( $name );
-
-			// Go the long way if any plugin that is `pre_option_{$option}`.
-			if ( has_filter( "pre_option_{$option}" ) ) {
-				return get_option( $option, $default );
-			}
-
-			// If it's loaded into $alloptions, it won't trigger a db query.
-			$alloptions = wp_load_alloptions();
-			if ( isset( $alloptions[ $option ] ) ) {
-				return get_option( $option, $default );
-			} else {
-				return apply_filters( "default_option_{$option}", $default );
-			}
-		}
 		// Pass through compact and unrecognized options.  Compact options wouldn't trigger an additional
 		// db query, as they're just looking for an array index in `jetpack_options`
-		return self::get_option( $name, $default );
+		if ( ! in_array( $name, self::get_option_names( 'non_compact' ) ) ) {
+			return self::get_option( $name, $default );
+		}
+		$option = 'jetpack_' . trim( $name );
+		return get_autoloaded_option( $option, $default );
 	}
 
 	/**

@@ -63,3 +63,34 @@ function youtube_sanitize_url( $url ) {
 	return $url;
 }
 endif;
+
+if ( ! function_exists( 'get_autoloaded_option' ) ) :
+/**
+ * Very similar to `get_option()` except if the option isn't loaded in with `$alloptions`, it returns
+ * the default value and doesn't trigger an extra db query in case the option isn't set or findable
+ * in the object cache.
+ *
+ * @param string $name    Option name
+ * @param mixed  $default (optional) The default value passed back if not found
+ * @return mixed
+ */
+function get_autoloaded_option( $option, $default = false ) {
+	$option = trim( $option );
+
+	// Go the long way if any plugins are hooking on to `pre_option_{$option}`.
+	/** This filter is documented in wp-includes/option.php */
+	if ( has_filter( 'pre_option_' . $option ) ) {
+		return get_option( $option, $default );
+	}
+
+	// If it's loaded into $alloptions, it's safe to call `get_option()` directly,
+	// as it won't trigger an additional db query.
+	$alloptions = wp_load_alloptions();
+	if ( isset( $alloptions[ $option ] ) ) {
+		return get_option( $option, $default );
+	} else {
+		/** This filter is documented in wp-includes/option.php */
+		return apply_filters( 'default_option_' . $option, $default );
+	}
+}
+endif;

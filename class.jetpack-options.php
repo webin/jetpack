@@ -86,10 +86,8 @@ class Jetpack_Options {
 		if ( in_array( $name, self::get_option_names( 'non_compact' ) ) ) {
 			$option = 'jetpack_' . trim( $name );
 
-			// Go the long way if any plugin that is modifying the return value with filters!
-			// We're not skipping on `default_option_{$option}` though, as we're applying that
-			// ourselves below if it's not set.
-			if ( has_filter( "pre_option_{$option}" ) || has_filter( "option_{$option}" ) ) {
+			// Go the long way if any plugin that is `pre_option_{$option}`.
+			if ( has_filter( "pre_option_{$option}" ) ) {
 				return get_option( $option, $default );
 			}
 

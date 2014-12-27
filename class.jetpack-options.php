@@ -75,6 +75,38 @@ class Jetpack_Options {
 	}
 
 	/**
+	 * Very like to Jetpack_Options::get_option() except if the option isn't loaded in with
+	 * $alloptions, it returns false (doesn't trigger an extra db query in case the option isn't set)
+	 *
+	 * @param string $name    Option name
+	 * @param mixed  $default (optional) The default value passed back if not found
+	 * @return mixed
+	 */
+	public static function get_autoloaded_option( $name, $default = false ) {
+		if ( in_array( $name, self::get_option_names( 'non_compact' ) ) ) {
+			$option = 'jetpack_' . trim( $name );
+
+			// Go the long way if any plugin that is modifying the return value with filters!
+			// We're not skipping on `default_option_{$option}` though, as we're applying that
+			// ourselves below if it's not set.
+			if ( has_filter( "pre_option_{$option}" ) || has_filter( "option_{$option}" ) ) {
+				return get_option( $option, $default );
+			}
+
+			// If it's loaded into $alloptions, it won't trigger a db query.
+			$alloptions = wp_load_alloptions();
+			if ( isset( $alloptions[ $option ] ) ) {
+				return get_option( $option, $default );
+			} else {
+				return apply_filters( "default_option_{$option}", $default );
+			}
+		}
+		// Pass through compact and unrecognized options.  Compact options wouldn't trigger an additional
+		// db query, as they're just looking for an array index in `jetpack_options`
+		return self::get_option( $name, $default );
+	}
+
+	/**
 	 * Updates the single given option.  Updates jetpack_options or jetpack_$name as appropriate.
  	 *
 	 * @param string $name  Option name

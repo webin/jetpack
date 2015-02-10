@@ -1145,3 +1145,14 @@ function stats_str_getcsv( $csv ) {
 
 	return $data;
 }
+
+add_action( 'jetpack_dashboard_widget', 'stats_section_jetpack_dashboard_widget', 1 );
+function stats_section_jetpack_dashboard_widget() {
+	?>
+	<div class="stats">
+		<h1><?php esc_html_e( 'Your Site Stats', 'jetpack' ); ?></h1>
+		Blah blah blah
+	</div>
+	<?php
+}
+

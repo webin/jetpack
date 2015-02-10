@@ -46,3 +46,14 @@ add_filter( 'jetpack_widget_name', 'jetpack_widgets_add_suffix' );
 
 
 jetpack_load_widgets();
+
+add_action( 'jetpack_dashboard_widget', 'widgets_section_jetpack_dashboard_widget', 30 );
+function widgets_section_jetpack_dashboard_widget() {
+	?>
+	<div class="widgets">
+		<h1><?php esc_html_e( 'You have Widgets active!', 'jetpack' ); ?></h1>
+		Blah blah blah
+	</div>
+<?php
+}
+

@@ -462,6 +462,8 @@ class Jetpack {
 
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 
+		add_action( 'wp_dashboard_setup', array( __CLASS__, 'wp_dashboard_setup' ) );
+
 		add_action( 'wp_ajax_jetpack-check-news-subscription', array( $this, 'check_news_subscription' ) );
 		add_action( 'wp_ajax_jetpack-subscribe-to-news', array( $this, 'subscribe_to_news' ) );
 
@@ -5372,5 +5374,19 @@ p {
 			}
 			$prefetch_urls = array_unique( $prefetch_urls );
 		}
+	}
+
+	public static function wp_dashboard_setup() {
+		if ( has_action( 'jetpack_dashboard_widget' ) ) {
+			wp_add_dashboard_widget(
+				'jetpack_summary_widget',
+				__( 'Jetpack Stats', 'jetpack' ),
+				array( __CLASS__, 'dashboard_widget' )
+			);
+		}
+	}
+
+	public static function dashboard_widget() {
+		do_action( 'jetpack_dashboard_widget' );
 	}
 }

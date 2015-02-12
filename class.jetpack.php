@@ -5383,10 +5383,46 @@ p {
 				__( 'Jetpack Stats', 'jetpack' ),
 				array( __CLASS__, 'dashboard_widget' )
 			);
+			add_action( 'jetpack_dashboard_widget', array( __CLASS__, 'dashboard_widget_footer' ), 999 );
+			wp_enqueue_style( 'jetpack-dashboard-widget', plugins_url('css/dashboard-widget.css', JETPACK__PLUGIN_FILE ), array(), JETPACK__VERSION );
 		}
 	}
 
 	public static function dashboard_widget() {
 		do_action( 'jetpack_dashboard_widget' );
+	}
+
+	public static function dashboard_widget_footer() {
+		$can_activate = current_user_can( 'jetpack_activate_modules' );
+		?>
+		<footer>
+
+			<?php if ( Jetpack::is_module_active( 'protect' ) ) : ?>
+				<figure>
+					<strong>32,864</strong>
+					<figcaption><?php echo esc_html_x( 'blocked malicious login attempts', '{#} blocked malicious login attempts -- number is on a prior line, text is a caption.', 'jetpack' ); ?></figcaption>
+				</figure>
+			<?php elseif ( $can_activate ) : ?>
+				<section>
+					<a href="#" class="button button-primary button-jetpack"><?php esc_html_e( 'Activate Jetpack Protect', 'jetpack' ); ?></a>
+				</section>
+			<?php else : ?>
+				<section>
+					<?php esc_html_e( 'Jetpack Protect is inactive.', 'jetpack' ); ?>
+				</section>
+			<?php endif; ?>
+
+			<figure>
+				<strong>2,118</strong>
+				<figcaption><?php echo esc_html_x( 'spam comments blocked by Akismet.', '{#} spam comments blocked by Akismet -- number is on a prior line, text is a caption.', 'jetpack' ); ?></figcaption>
+			</figure>
+			<section>
+				<a href="#" class="button button-primary button-jetpack"><?php esc_html_e( 'Activate Jetpack Module', 'jetpack' ); ?></a>
+			</section>
+			<section>
+				<?php esc_html_e( 'Other module is inactive.', 'jetpack' ); ?>
+			</section>
+		</footer>
+		<?php
 	}
 }

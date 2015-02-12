@@ -17,15 +17,15 @@
 }
 
 #jetpack_summary_widget .inside > * {
+	border-bottom: 1px solid #eee;
 	padding: 0 12px 12px;
 }
 
 #jetpack_summary_widget .inside > footer {
 	background: #f6f6f6;
-	border-top: 1px solid #eee;
-	margin-top: 1em;
 	padding: 1em 0.5em;
 	overflow: hidden;
+	border-bottom: none;
 }
 
 #jetpack_summary_widget .inside > footer > section,

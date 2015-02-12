@@ -1,0 +1,78 @@
+
+#jetpack_summary_widget {
+
+}
+
+#jetpack_summary_widget .handlediv {
+	color: #fff;
+}
+
+#jetpack_summary_widget .hndle {
+	background: #81a844;
+	color: #fff;
+}
+
+#jetpack_summary_widget .inside {
+	padding: 0;
+}
+
+#jetpack_summary_widget .inside > * {
+	padding: 0 12px 12px;
+}
+
+#jetpack_summary_widget .inside > footer {
+	background: #f6f6f6;
+	border-top: 1px solid #eee;
+	margin-top: 1em;
+	padding: 1em 0.5em;
+	overflow: hidden;
+}
+
+#jetpack_summary_widget .inside > footer > section,
+#jetpack_summary_widget .inside > footer > figure {
+	box-sizing: border-box;
+	width: 25%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0 0.5em;
+	float: left;
+	border-right: 1px solid #bbb;
+	height: 100%;
+	text-align: center;
+}
+
+
+#jetpack_summary_widget .inside > footer > section:last-child,
+#jetpack_summary_widget .inside > footer > figure:last-child {
+	border-right: 0;
+}
+
+#jetpack_summary_widget .inside > footer > figure strong {
+	text-align: center;
+	font-size: 1.3em;
+	color: #567538;
+}
+
+#jetpack_summary_widget .inside > footer > figure figcaption {
+	font-size: 0.8em;
+	line-height: 1;
+	margin-top: 1em;
+}
+
+#jetpack_summary_widget .inside > footer .button-jetpack {
+	max-width: 90%;
+	white-space: normal;
+	height: auto;
+	line-height: 1.1;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-align: center;
+	background: #93b45f;
+	border-color: #567538;
+	box-shadow: inset 0 1px 0 rgba( 129, 168, 68, 0.5 ),
+				0 1px 0 rgba( 0, 0, 0, 0.15 );
+}
+
+#jetpack_summary_widget .inside > footer .button-jetpack:hover {
+	background: #81a844;
+}

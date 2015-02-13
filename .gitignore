@@ -4,3 +4,4 @@
 /node_modules
 languages/messages.pot
 .idea
+_inc/flot/examples

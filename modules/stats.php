@@ -58,7 +58,7 @@ function stats_load() {
 
 	add_action( 'jetpack_admin_menu', 'stats_admin_menu' );
 
-	add_action( 'wp_dashboard_setup', 'stats_register_dashboard_widget' );
+//	add_action( 'wp_dashboard_setup', 'stats_register_dashboard_widget' );
 
 	add_filter( 'jetpack_xmlrpc_methods', 'stats_xmlrpc_methods' );
 

@@ -1146,16 +1146,61 @@ function stats_str_getcsv( $csv ) {
 	return $data;
 }
 
+function prep_stats_view_data( $data ) {
+	return array(
+		strtotime( $data['date'] ) * 1000,
+		intval( $data['views'] )
+	);
+}
+
 add_action( 'jetpack_dashboard_widget', 'stats_section_jetpack_dashboard_widget', 1 );
 function stats_section_jetpack_dashboard_widget() {
+	wp_enqueue_script( 'flot.time' );
+	wp_enqueue_script( 'flot.resize' );
+	$raw_stats_view_data = stats_get_csv( 'views', array(
+		'period' => 'days',
+		'days' => 60,
+		'summarize' => false,
+	) );
+	$stats_view_data = array_map( 'prep_stats_view_data', $raw_stats_view_data );
 	?>
 	<div class="stats">
 		<h1><?php esc_html_e( 'Your Site Stats', 'jetpack' ); ?></h1>
-		<pre><?php echo wp_json_encode( stats_get_csv( 'views', array(
-				'period' => 'days',
-				'days' => 50,
-				'summarize' => false,
-			) ), JSON_PRETTY_PRINT ); ?></pre>
+		<figure id="dashboard-stats-chart"></figure>
+		<script>
+			jQuery(document).ready(function($){
+				var stats_views_data = <?php echo wp_json_encode( $stats_view_data ); ?>,
+					stats_views_chart = $.plot( '#dashboard-stats-chart', [ {
+							data: stats_views_data,
+							bars: {
+								show: true,
+								barWidth: ( 24 * 60 * 60 * 1000 )
+							},
+							color: '#93b45f'
+						} ], {
+							xaxis: {
+								mode: 'time',
+								timeformat: '%b %d'
+							},
+							yaxis: {
+								minTickSize: 1,
+								tickDecimals: 0
+							},
+							grid: {
+								borderColor: '#567538',
+								borderWidth: 0
+							},
+							monthNames: <?php echo wp_json_encode( array_values( $GLOBALS['month_abbrev'] ) ); ?>
+						} );
+			});
+		</script>
+		<style>
+		#dashboard-stats-chart {
+			width: 100%;
+			height: 250px;
+			margin: 0;
+		}
+		</style>
 	</div>
 	<?php
 }

@@ -1151,7 +1151,11 @@ function stats_section_jetpack_dashboard_widget() {
 	?>
 	<div class="stats">
 		<h1><?php esc_html_e( 'Your Site Stats', 'jetpack' ); ?></h1>
-		Blah blah blah
+		<pre><?php echo wp_json_encode( stats_get_csv( 'views', array(
+				'period' => 'days',
+				'days' => 50,
+				'summarize' => false,
+			) ), JSON_PRETTY_PRINT ); ?></pre>
 	</div>
 	<?php
 }

@@ -615,6 +615,8 @@ class Jetpack {
 	 * @return null
 	 */
 	public function register_assets() {
+		$min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
 		if ( ! wp_script_is( 'spin', 'registered' ) ) {
 			wp_register_script( 'spin', plugins_url( '_inc/spin.js', JETPACK__PLUGIN_FILE ), false, '1.3' );
 		}
@@ -636,7 +638,32 @@ class Jetpack {
 		jetpack_register_genericons();
 
 		if ( ! wp_style_is( 'jetpack-icons', 'registered' ) )
-			wp_register_style( 'jetpack-icons', plugins_url( 'css/jetpack-icons.min.css', JETPACK__PLUGIN_FILE ), false, JETPACK__VERSION );
+			wp_register_style( 'jetpack-icons', plugins_url( 'css/jetpack-icons.min.css', JETPACK__PLUGIN_FILE ), false, JETPACK__VERSION )
+
+		// Flot
+		wp_register_script( 'jquery.colorhelpers', plugins_url( "_inc/flot/jquery.colorhelpers{$min}.js", JETPACK__PLUGIN_FILE ), array( 'jquery' ), '1.1' );
+		wp_register_script( 'excanvas', plugins_url( "_inc/flot/excanvas{$min}.js", JETPACK__PLUGIN_FILE ), array( 'jquery' ), '0.8.3' );
+		// wp_script_add_data was added in r31223-core the same time core support for script conditional comments was.
+		// excanvas.min.js is only 19k, let's add it everywhere if core doesn't support cc for it yet.
+		if ( function_exists( 'wp_script_add_data' ) ) {
+			wp_script_add_data( 'excanvas', 'conditional', 'lte IE 8' );
+		}
+
+		wp_register_script( 'flot',             plugins_url( "_inc/flot/jquery.flot{$min}.js",             JETPACK__PLUGIN_FILE ), array( 'jquery', 'excanvas' ), '0.8.3' );
+		wp_register_script( 'flot.canvas',      plugins_url( "_inc/flot/jquery.flot.canvas{$min}.js",      JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.categories',  plugins_url( "_inc/flot/jquery.flot.categories{$min}.js",  JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.crosshair',   plugins_url( "_inc/flot/jquery.flot.crosshair{$min}.js",   JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.errorbars',   plugins_url( "_inc/flot/jquery.flot.errorbars{$min}.js",   JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.fillbetween', plugins_url( "_inc/flot/jquery.flot.fillbetween{$min}.js", JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.image',       plugins_url( "_inc/flot/jquery.flot.image{$min}.js",       JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.navigate',    plugins_url( "_inc/flot/jquery.flot.navigate{$min}.js",    JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.pie',         plugins_url( "_inc/flot/jquery.flot.pie{$min}.js",         JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.resize',      plugins_url( "_inc/flot/jquery.flot.resize{$min}.js",      JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.selection',   plugins_url( "_inc/flot/jquery.flot.selection{$min}.js",   JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.stack',       plugins_url( "_inc/flot/jquery.flot.stack{$min}.js",       JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.symbol',      plugins_url( "_inc/flot/jquery.flot.symbol{$min}.js",      JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.threshold',   plugins_url( "_inc/flot/jquery.flot.threshold{$min}.js",   JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
+		wp_register_script( 'flot.time',        plugins_url( "_inc/flot/jquery.flot.time{$min}.js",        JETPACK__PLUGIN_FILE ), array( 'flot' ), '0.8.3' );
 	}
 
 	/**

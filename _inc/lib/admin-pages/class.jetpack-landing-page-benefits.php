@@ -2,7 +2,7 @@
 include_once( 'class.jetpack-admin-page.php' );
 
 // Builds the landing page and its menu
-class Jetpack_Landing_Page_Bundles extends Jetpack_Admin_Page {
+class Jetpack_Landing_Page_Benefits extends Jetpack_Admin_Page {
 	protected $dont_show_if_not_active = false;
 
 	function get_page_hook() {
@@ -93,7 +93,7 @@ class Jetpack_Landing_Page_Bundles extends Jetpack_Admin_Page {
 			'is_user_connected' => $is_user_connected,
 			'is_master_user' => $is_master_user
 		);
-		Jetpack::init()->load_view( 'admin/admin-page-bundles.php', $data );
+		Jetpack::init()->load_view( 'admin/admin-page-benefits.php', $data );
 	}
 	/**
 	 * Shows a notice message to users after they save Module config settings
@@ -147,11 +147,13 @@ class Jetpack_Landing_Page_Bundles extends Jetpack_Admin_Page {
 	}
 
 	function page_admin_scripts() {
+		wp_enqueue_style( 'jetpack-css-benefits', plugins_url( 'css/jp-benefits.css', JETPACK__PLUGIN_FILE ), JETPACK__VERSION . '-20121111' );
+
 		// Enqueue jp.js and localize it
-		wp_enqueue_script( 'jetpack-js-bundles', plugins_url( '_inc/jp-bundles.js', JETPACK__PLUGIN_FILE ),
+		wp_enqueue_script( 'jetpack-js-benefits', plugins_url( '_inc/jp-benefits.js', JETPACK__PLUGIN_FILE ),
 			array( 'jquery', 'wp-util' ), JETPACK__VERSION . '-20121111' );
 		wp_localize_script(
-			'jetpack-js-bundles',
+			'jetpack-js-benefits',
 			'jetpackL10n',
 			array(
 				'ays_disconnect'    => __( "This will deactivate all Jetpack modules.\nAre you sure you want to disconnect?", 'jetpack' ),

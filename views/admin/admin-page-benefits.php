@@ -46,16 +46,16 @@
 </div><!-- .masthead -->
 
 <div class="page-content about">
-	<div class="module-grid">
+	<div class="benefit-groups">
 
-		<div class="bundle-settings-filter" id="bundle-filters">
-			<a href="#" id="customization" data-filter="customization" class="selected"><?php esc_html_e( 'Customization', 'jetpack' ); ?></a>
-			<a href="#" id="content-creation" data-filter="content-creation" class="selected"><?php esc_html_e( 'Content Creation', 'jetpack' ); ?></a>
-			<a href="#" id="traffic" data-filter="traffic" class="selected"><?php esc_html_e( 'Traffic and Engagement', 'jetpack' ); ?></a>
-			<a href="#" id="security" data-filter="security" class="selected"><?php esc_html_e( 'Security', 'jetpack' ); ?></a>
-			<a href="#" id="performance" data-filter="performance" class="selected"><?php esc_html_e( 'Performance', 'jetpack' ); ?></a>
-			<a href="#" id="development" data-filter="development" class="selected"><?php esc_html_e( 'Development', 'jetpack' ); ?></a>
+		<div class="benefit-group-filter" id="benefit-filters">
+			<a href="#" id="customization" data-filter="customization" class="selected"><?php esc_html_e( 'Customize', 'jetpack' ); ?> | </a>
+			<a href="#" id="publish" data-filter="publish" class="selected"><?php esc_html_e( 'Publish', 'jetpack' ); ?> | </a>
+			<a href="#" id="secure-optimize" data-filter="secure-optimize" class="selected"><?php esc_html_e( 'Secure and Optimize', 'jetpack' ); ?> | </a>
+			<a href="#" id="engagement" data-filter="engagement" class="selected"><?php esc_html_e( 'Engagement and Traffic', 'jetpack' ); ?></a>
 		</div>
 
-	</div><!-- .module-grid -->
+		<div class="benefit-settings"></div>
+
+	</div><!-- .benefit-groups -->
 </div><!-- .page -->

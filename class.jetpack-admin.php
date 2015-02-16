@@ -24,15 +24,18 @@ class Jetpack_Admin {
 	private function __construct() {
 		$this->jetpack = Jetpack::init();
 
-		jetpack_require_lib( 'admin-pages/class.jetpack-landing-page' );
+		jetpack_require_lib( 'admin-pages/class.jetpack-landing-page-bundles' );
+//		jetpack_require_lib( 'admin-pages/class.jetpack-landing-page' );
 		jetpack_require_lib( 'admin-pages/class.jetpack-settings-page' );
 
 		// Initialize objects building landing and settings pages
-		$this->landing_page = new Jetpack_Landing_Page;
+		$this->bundle_page = new Jetpack_Landing_Page_Bundles;
+//		$this->landing_page = new Jetpack_Landing_Page;
 		$this->settings_page = new Jetpack_Settings_Page;
 
 		// Add hooks for admin menus
-		add_action( 'admin_menu',                    array( $this->landing_page, 'add_actions' ), 998 );
+		add_action( 'admin_menu',                    array( $this->bundle_page, 'add_actions' ), 998 );
+//		add_action( 'admin_menu',                    array( $this->landing_page, 'add_actions' ), 998 );
 		add_action( 'jetpack_admin_menu',            array( $this, 'admin_menu_debugger' ) );
 		add_action( 'jetpack_admin_menu',        	 array( $this->settings_page, 'add_actions' ) );
 

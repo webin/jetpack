@@ -5408,7 +5408,7 @@ p {
 		if ( has_action( 'jetpack_dashboard_widget' ) ) {
 			wp_add_dashboard_widget(
 				'jetpack_summary_widget',
-				__( 'Jetpack Stats', 'jetpack' ),
+				__( 'Your Jetpack Stats', 'jetpack' ),
 				array( __CLASS__, 'dashboard_widget' )
 			);
 			add_action( 'jetpack_dashboard_widget', array( __CLASS__, 'dashboard_widget_footer' ), 999 );

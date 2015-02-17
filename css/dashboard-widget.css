@@ -1,6 +1,5 @@
 /* convert to scss upon finalization of style */
 
-
 #jetpack_summary_widget {
 
 }
@@ -18,20 +17,19 @@
 	padding: 0;
 }
 
-#jetpack_summary_widget .inside > * {
-	border-bottom: 1px solid #eee;
+#jetpack_summary_widget .inside * {
 	padding: 0 12px 12px;
 }
 
-#jetpack_summary_widget .inside > footer {
+#jetpack_summary_widget footer {
 	background: #f4f4f4;
 	padding: 1em 0.5em;
 	overflow: hidden;
 	border-bottom: none;
 }
 
-#jetpack_summary_widget .inside > footer > section,
-#jetpack_summary_widget .inside > footer > figure {
+#jetpack_summary_widget footer section,
+#jetpack_summary_widget footer figure {
 	box-sizing: border-box;
 	width: 25%;
 	overflow: hidden;
@@ -44,24 +42,24 @@
 }
 
 
-#jetpack_summary_widget .inside > footer > section:last-child,
-#jetpack_summary_widget .inside > footer > figure:last-child {
+#jetpack_summary_widget footer section:last-child,
+#jetpack_summary_widget footer figure:last-child {
 	border-right: 0;
 }
 
-#jetpack_summary_widget .inside > footer > figure strong {
+#jetpack_summary_widget footer figure strong {
 	text-align: center;
 	font-size: 1.3em;
 	color: #567538;
 }
 
-#jetpack_summary_widget .inside > footer > figure figcaption {
+#jetpack_summary_widget footer figure figcaption {
 	font-size: 0.8em;
 	line-height: 1;
 	margin-top: 1em;
 }
 
-#jetpack_summary_widget .inside > footer .button-jetpack {
+#jetpack_summary_widget footer .button-jetpack {
 	max-width: 90%;
 	white-space: normal;
 	height: auto;
@@ -75,6 +73,6 @@
 				0 1px 0 rgba( 0, 0, 0, 0.15 );
 }
 
-#jetpack_summary_widget .inside > footer .button-jetpack:hover {
+#jetpack_summary_widget footer .button-jetpack:hover {
 	background: #81a844;
 }

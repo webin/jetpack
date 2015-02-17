@@ -54,13 +54,11 @@
 			$('#classic_settings, #benefits, .classic-button, .benefits-button').toggle();
 		})
 
-		var content_to_show;
 		$('.benefit-bucket a').click(function(){
 			$('.benefit-bucket').removeClass('active');
 			$(this).parent().addClass('active');
-			content_to_show = $(this).attr('class');
 			$('.benefit-content').hide();
-			$('#'+content_to_show).show();
+			$('#'+$(this).attr('class')).show();
 
 		})
 	}

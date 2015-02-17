@@ -85,21 +85,54 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				</div><!-- /.frame -->
 			</div> <!-- /#classic_settings -->
 			<style>
+				#classic_settings, .benefits-button { display: none; }
 				#benefits .genericon { float: left; font-size: 2em;  margin: 0 1%; }
 				#benefits h2 { clear: none; margin: 0; }
 				#benefits p { margin: 0; }
 				#benefits .benefit-bucket { border-bottom: 3px solid #eee;  }
 				#benefits .benefit-bucket a { color: inherit; }
 				#benefits .benefit-bucket.active { border-bottom: 3px solid #333; }
-				.j-lrg-3 { width: 25%; padding: 1.5%;  float: left; }
+				#benefits .benefit-content { display: none; padding: 1em 0; }
+				#benefits #jp-benefit-content { display: block; }
 
 			</style>
 			<div id="benefits" class="j-row">
-				<div class="j-col j-lrg-3 benefit-bucket active"><a href="#" class="jp-benefit-content"><span class="genericon genericon-edit"></span><h2>Content</h2><p>Create and publish rich and engaging content</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="#" class="jp-benefit-customize"><span class="genericon genericon-paintbrush"></span><h2>Customize</h2><p>Make your WordPress site uniquely yours</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="#" class="jp-benefit-secure"><span class="genericon genericon-lock"></span><h2>Secure</h2><p>Keep your WordPress optimised, safe and protected</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="#" class="jp-benefit-engage"><span class="genericon genericon-activity"></span><h2>Engage</h2><p>Increase your traffic and keep visitors coming back</p></a></div>
-				<div class="clear"></div>
+				<div class="j-col j-lrg-3 benefit-bucket active"><a href="javascript:void(0)" class="jp-benefit-content"><span class="genericon genericon-edit"></span><h2>Content</h2><p>Create and publish rich and engaging content</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="jp-benefit-customize"><span class="genericon genericon-paintbrush"></span><h2>Customize</h2><p>Make your WordPress site uniquely yours</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="jp-benefit-secure"><span class="genericon genericon-lock"></span><h2>Secure</h2><p>Keep your WordPress optimised, safe and protected</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="jp-benefit-engage"><span class="genericon genericon-activity"></span><h2>Engage</h2><p>Increase your traffic and keep visitors coming back</p></a></div>
+				<div class="benefit-content clear" id="jp-benefit-content">
+					<h2>Content</h2>
+					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
+					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
+					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
+					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
+					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+				</div>
+				<div class="benefit-content clear" id="jp-benefit-customize">
+					<h2>Customize</h2>
+					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
+					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
+					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
+					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
+					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+				</div>
+				<div class="benefit-content clear" id="jp-benefit-secure">
+					<h2>Secure</h2>
+					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
+					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
+					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
+					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
+					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+				</div>
+				<div class="benefit-content clear" id="jp-benefit-engage">
+					<h2>Engage</h2>
+					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
+					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
+					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
+					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
+					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+				</div>
 			</div><!-- /#benefits -->
 		</div><!-- /.content -->
 		<?php

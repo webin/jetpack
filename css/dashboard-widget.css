@@ -1,7 +1,7 @@
 /* convert to scss upon finalization of style */
 
-#jetpack_summary_widget {
-
+#jetpack_summary_widget * {
+	box-sizing: border-box;
 }
 
 #jetpack_summary_widget .handlediv {
@@ -14,27 +14,28 @@
 }
 
 #jetpack_summary_widget .inside {
+	margin: 0;
 	padding: 0;
 }
 
-#jetpack_summary_widget .inside * {
-	padding: 0 12px 12px;
+#jetpack_summary_widget .stats,
+#jetpack_summary_widget .widgets {
+	padding: .75em;
 }
 
 #jetpack_summary_widget footer {
 	background: #f4f4f4;
-	padding: 1em 0.5em;
+	padding: .75em;
 	overflow: hidden;
 	border-bottom: none;
 }
 
 #jetpack_summary_widget footer section,
 #jetpack_summary_widget footer figure {
-	box-sizing: border-box;
 	width: 25%;
 	overflow: hidden;
 	margin: 0;
-	padding: 0 0.5em;
+	padding: 0;
 	float: left;
 	border-right: 1px solid #bbb;
 	height: 100%;

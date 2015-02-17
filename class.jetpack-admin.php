@@ -26,12 +26,14 @@ class Jetpack_Admin {
 
 		jetpack_require_lib( 'admin-pages/class.jetpack-landing-page-benefits' );
 //		jetpack_require_lib( 'admin-pages/class.jetpack-landing-page' );
-		jetpack_require_lib( 'admin-pages/class.jetpack-settings-page' );
+//		jetpack_require_lib( 'admin-pages/class.jetpack-settings-page' );
+		jetpack_require_lib( 'admin-pages/class.jetpack-settings-page-benefits' );
 
 		// Initialize objects building landing and settings pages
 		$this->benefits_page = new Jetpack_Landing_Page_Benefits;
 //		$this->landing_page = new Jetpack_Landing_Page;
-		$this->settings_page = new Jetpack_Settings_Page;
+//		$this->settings_page = new Jetpack_Settings_Page;
+		$this->settings_page = new Jetpack_Settings_Page_Benefits;
 
 		// Add hooks for admin menus
 		add_action( 'admin_menu',                    array( $this->benefits_page, 'add_actions' ), 998 );

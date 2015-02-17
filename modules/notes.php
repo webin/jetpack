@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 if ( !defined( 'JETPACK_NOTES__CACHE_BUSTER' ) ) define( 'JETPACK_NOTES__CACHE_BUSTER', JETPACK__VERSION . '-' . gmdate( 'oW' ) );

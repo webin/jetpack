@@ -8,6 +8,7 @@
  * Requires Connection: No
  * Auto Activate: No
  * Module Tags: Appearance, Mobile, Customization
+ * Benefit Tag: Customization
  */
 
 function jetpack_load_minileven() {

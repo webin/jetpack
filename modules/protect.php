@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Security and Optimization
+ * Benefit Tag: Security and Optimization
  */
 
 include_once JETPACK__PLUGIN_DIR . 'modules/protect/shared-functions.php';

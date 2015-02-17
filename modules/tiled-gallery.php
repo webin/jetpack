@@ -8,6 +8,7 @@
  * Auto Activate: No
  * Module Tags: Photos and Videos, Customization
  * Sort Order: 24
+ * Benefit Tag: Customization
  */
 
 function jetpack_load_tiled_gallery() {

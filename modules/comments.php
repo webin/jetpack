@@ -8,6 +8,7 @@
  * Requires Connection: Yes
  * Auto Activate: No
  * Module Tags: Social, Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 require dirname( __FILE__ ) . '/comments/comments.php';

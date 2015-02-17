@@ -9,6 +9,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Photos and Videos, Social, Writing, Appearance, Content Creation
+ * Benefit Tag: Content Creation
  */
 
 /**

@@ -7,6 +7,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Writing, Content Creation
+ * Benefit Tag: Content Creation
  */
 
 /**

@@ -8,6 +8,7 @@
  * Auto Activate: Yes
  * Module Tags: Writing, Content Creation
  * Sort Order: 34
+ * Benefit Tag: Content Creation
  */
 
 function jetpack_load_custom_post_types() {

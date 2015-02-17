@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: No
  * Module Tags: Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 class Jetpack_RelatedPosts_Module {
 	/**

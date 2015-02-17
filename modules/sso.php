@@ -8,6 +8,7 @@
  * Requires Connection: Yes
  * Auto Activate: No
  * Module Tags: Developers, Security and Optimization
+ * Benefit Tag: Security and Optimization
  */
 
 class Jetpack_SSO {

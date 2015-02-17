@@ -8,6 +8,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Social, Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 if ( !function_exists( 'sharing_init' ) )

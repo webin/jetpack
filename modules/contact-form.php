@@ -7,6 +7,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Customization
+ * Benefit Tag: Customization
  */
 
 include dirname( __FILE__ ) . '/contact-form/grunion-contact-form.php';

@@ -8,6 +8,7 @@
  * Requires Connection: No
  * Auto Activate: No
  * Module Tags: Writing, Content Creation
+ * Benefit Tag: Content Creation
  */
 
 include dirname( __FILE__ ) . '/markdown/easy-markdown.php';

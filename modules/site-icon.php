@@ -8,6 +8,7 @@
  * Requires Connection: No
  * Auto Activate: No
  * Module Tags: Customization
+ * Benefit Tag: Customization
  */
 
 include dirname( __FILE__ ) . '/site-icon/jetpack-site-icon.php';

@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: Public
  * Module Tags: Writing, Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 Jetpack_Sync::sync_posts( __FILE__ );

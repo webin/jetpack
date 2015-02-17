@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: No
  * Module Tags: Social, Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 Jetpack::dns_prefetch( array(

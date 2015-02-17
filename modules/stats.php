@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: WordPress.com Stats, Security and Optimization
+ * Benefit Tag: Security and Optimization
  */
 
 if ( defined( 'STATS_VERSION' ) ) {

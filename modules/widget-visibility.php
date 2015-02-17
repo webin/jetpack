@@ -8,6 +8,7 @@
  * Auto Activate: Yes
  * Sort Order: 17
  * Module Tags: Appearance, Customization
+ * Benefit Tag: Customization
  */
 
 include dirname( __FILE__ ) . "/widget-visibility/widget-conditions.php";

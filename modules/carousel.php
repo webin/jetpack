@@ -8,6 +8,7 @@
  * Requires Connection: No
  * Auto Activate: No
  * Module Tags: Photos and Videos, Customization
+ * Benefit Tag: Customization
  */
 
 include dirname( __FILE__ ) . '/carousel/jetpack-carousel.php';

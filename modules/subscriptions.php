@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Social, Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 add_action( 'jetpack_modules_loaded', 'jetpack_subscriptions_load' );

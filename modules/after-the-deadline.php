@@ -7,6 +7,7 @@
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Writing, Content Creation
+ * Benefit Tag: Content Creation
  */
 
 if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {

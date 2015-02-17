@@ -8,6 +8,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Traffic and Engagement
+ * Benefit Tag: Traffic and Engagement
  */
 
 function jetpack_load_verification_tools() {

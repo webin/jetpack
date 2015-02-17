@@ -22,71 +22,85 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 		$list_table = new Jetpack_Modules_List_Table;
 		?>
 		<div class="clouds-sm"></div>
-        <div class="settings-view alignright">
-            <a href="#" class="classic-button">classic view</a>
-            <a href="#" class="benefits-button">benefits view</a>
-        </div><!-- /.settings-view -->
+		<div class="settings-view alignright">
+			<a href="#" class="classic-button">classic view</a>
+			<a href="#" class="benefits-button">benefits view</a>
+		</div><!-- /.settings-view -->
 		<?php do_action( 'jetpack_notices' ) ?>
 		<div class="page-content configure">
-            <div id="classic_settings">
-                <div class="frame top hide-if-no-js">
-                    <div class="wrap">
-                        <div class="manage-left">
-                            <table class="table table-bordered fixed-top">
-                                <thead>
-                                    <tr>
-                                        <th class="check-column"><input type="checkbox" class="checkall"></th>
-                                        <th colspan="2">
-                                            <?php $list_table->unprotected_display_tablenav( 'top' ); ?>
-                                            <span class="filter-search">
-                                                <button type="button" class="button">Filter</button>
-                                            </span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div><!-- /.wrap -->
-                </div><!-- /.frame -->
-                <div class="frame bottom">
-                    <div class="wrap">
-                        <div class="manage-right">
-                            <div class="bumper">
-                                <form class="navbar-form" role="search">
-                                    <input type="hidden" name="page" value="jetpack_modules" />
-                                    <?php $list_table->search_box( __( 'Search', 'jetpack' ), 'srch-term' ); ?>
-                                    <p><?php esc_html_e( 'View:', 'jetpack' ); ?></p>
-                                    <div class="button-group filter-active">
-                                        <button type="button" class="button <?php if ( empty( $_GET['activated'] ) ) echo 'active'; ?>"><?php esc_html_e( 'All', 'jetpack' ); ?></button>
-                                        <button type="button" class="button <?php if ( ! empty( $_GET['activated'] ) && 'true' == $_GET['activated'] ) echo 'active'; ?>" data-filter-by="activated" data-filter-value="true"><?php esc_html_e( 'Active', 'jetpack' ); ?></button>
-                                        <button type="button" class="button <?php if ( ! empty( $_GET['activated'] ) && 'false' == $_GET['activated'] ) echo 'active'; ?>" data-filter-by="activated" data-filter-value="false"><?php esc_html_e( 'Inactive', 'jetpack' ); ?></button>
-                                    </div>
-                                    <p><?php esc_html_e( 'Sort by:', 'jetpack' ); ?></p>
-                                    <div class="button-group sort">
-                                        <button type="button" class="button <?php if ( empty( $_GET['sort_by'] ) ) echo 'active'; ?>" data-sort-by="name"><?php esc_html_e( 'Alphabetical', 'jetpack' ); ?></button>
-                                        <button type="button" class="button <?php if ( ! empty( $_GET['sort_by'] ) && 'introduced' == $_GET['sort_by'] ) echo 'active'; ?>" data-sort-by="introduced" data-sort-order="reverse"><?php esc_html_e( 'Newest', 'jetpack' ); ?></button>
-                                        <button type="button" class="button <?php if ( ! empty( $_GET['sort_by'] ) && 'sort' == $_GET['sort_by'] ) echo 'active'; ?>" data-sort-by="sort"><?php esc_html_e( 'Popular', 'jetpack' ); ?></button>
-                                    </div>
-                                    <p><?php esc_html_e( 'Show:', 'jetpack' ); ?></p>
-                                    <?php $list_table->views(); ?>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="manage-left">
-                            <form class="jetpack-modules-list-table-form" onsubmit="return false;">
-                            <table class="<?php echo implode( ' ', $list_table->get_table_classes() ); ?>">
-                                <tbody id="the-list">
-                                    <?php $list_table->display_rows_or_placeholder(); ?>
-                                </tbody>
-                            </table>
-                            </form>
-                        </div>
-                    </div><!-- /.wrap -->
-                </div><!-- /.frame -->
-            </div> <!-- /#classic_settings -->
-            <div id="benefits">
-                <h1>HERE ARE WHERE THE NEW SETTINGS GO</h1>
-            </div><!-- /#benefits -->
+			<div id="classic_settings">
+				<div class="frame top hide-if-no-js">
+					<div class="wrap">
+						<div class="manage-left">
+							<table class="table table-bordered fixed-top">
+								<thead>
+									<tr>
+										<th class="check-column"><input type="checkbox" class="checkall"></th>
+										<th colspan="2">
+											<?php $list_table->unprotected_display_tablenav( 'top' ); ?>
+											<span class="filter-search">
+												<button type="button" class="button">Filter</button>
+											</span>
+										</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div><!-- /.wrap -->
+				</div><!-- /.frame -->
+				<div class="frame bottom">
+					<div class="wrap">
+						<div class="manage-right">
+							<div class="bumper">
+								<form class="navbar-form" role="search">
+									<input type="hidden" name="page" value="jetpack_modules" />
+									<?php $list_table->search_box( __( 'Search', 'jetpack' ), 'srch-term' ); ?>
+									<p><?php esc_html_e( 'View:', 'jetpack' ); ?></p>
+									<div class="button-group filter-active">
+										<button type="button" class="button <?php if ( empty( $_GET['activated'] ) ) echo 'active'; ?>"><?php esc_html_e( 'All', 'jetpack' ); ?></button>
+										<button type="button" class="button <?php if ( ! empty( $_GET['activated'] ) && 'true' == $_GET['activated'] ) echo 'active'; ?>" data-filter-by="activated" data-filter-value="true"><?php esc_html_e( 'Active', 'jetpack' ); ?></button>
+										<button type="button" class="button <?php if ( ! empty( $_GET['activated'] ) && 'false' == $_GET['activated'] ) echo 'active'; ?>" data-filter-by="activated" data-filter-value="false"><?php esc_html_e( 'Inactive', 'jetpack' ); ?></button>
+									</div>
+									<p><?php esc_html_e( 'Sort by:', 'jetpack' ); ?></p>
+									<div class="button-group sort">
+										<button type="button" class="button <?php if ( empty( $_GET['sort_by'] ) ) echo 'active'; ?>" data-sort-by="name"><?php esc_html_e( 'Alphabetical', 'jetpack' ); ?></button>
+										<button type="button" class="button <?php if ( ! empty( $_GET['sort_by'] ) && 'introduced' == $_GET['sort_by'] ) echo 'active'; ?>" data-sort-by="introduced" data-sort-order="reverse"><?php esc_html_e( 'Newest', 'jetpack' ); ?></button>
+										<button type="button" class="button <?php if ( ! empty( $_GET['sort_by'] ) && 'sort' == $_GET['sort_by'] ) echo 'active'; ?>" data-sort-by="sort"><?php esc_html_e( 'Popular', 'jetpack' ); ?></button>
+									</div>
+									<p><?php esc_html_e( 'Show:', 'jetpack' ); ?></p>
+									<?php $list_table->views(); ?>
+								</form>
+							</div>
+						</div>
+						<div class="manage-left">
+							<form class="jetpack-modules-list-table-form" onsubmit="return false;">
+							<table class="<?php echo implode( ' ', $list_table->get_table_classes() ); ?>">
+								<tbody id="the-list">
+									<?php $list_table->display_rows_or_placeholder(); ?>
+								</tbody>
+							</table>
+							</form>
+						</div>
+					</div><!-- /.wrap -->
+				</div><!-- /.frame -->
+			</div> <!-- /#classic_settings -->
+			<style>
+				#benefits .genericon { float: left; font-size: 2em;  margin: 0 1%; }
+				#benefits h2 { clear: none; margin: 0; }
+				#benefits p { margin: 0; }
+				#benefits .benefit-bucket { border-bottom: 3px solid #eee;  }
+				#benefits .benefit-bucket a { color: inherit; }
+				#benefits .benefit-bucket.active { border-bottom: 3px solid #333; }
+				.j-lrg-3 { width: 25%; padding: 1.5%;  float: left; }
+
+			</style>
+			<div id="benefits" class="j-row">
+				<div class="j-col j-lrg-3 benefit-bucket active"><a href="#" class="jp-benefit-content"><span class="genericon genericon-edit"></span><h2>Content</h2><p>Create and publish rich and engaging content</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="#" class="jp-benefit-customize"><span class="genericon genericon-paintbrush"></span><h2>Customize</h2><p>Make your WordPress site uniquely yours</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="#" class="jp-benefit-secure"><span class="genericon genericon-lock"></span><h2>Secure</h2><p>Keep your WordPress optimised, safe and protected</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="#" class="jp-benefit-engage"><span class="genericon genericon-activity"></span><h2>Engage</h2><p>Increase your traffic and keep visitors coming back</p></a></div>
+				<div class="clear"></div>
+			</div><!-- /#benefits -->
 		</div><!-- /.content -->
 		<?php
 	}

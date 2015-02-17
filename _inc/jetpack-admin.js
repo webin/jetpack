@@ -50,11 +50,10 @@
 			event.preventDefault();
 		});
 
-        $('#classic_settings, .benefits-button').hide();
-        $('.settings-view').click(function() {
-            $('#classic_settings, #benefits, .classic-button, .benefits-button').toggle();
-
-        })
-	}
+		$('#classic_settings, .benefits-button').hide();
+			$('.settings-view').click(function() {
+				$('#classic_settings, #benefits, .classic-button, .benefits-button').toggle();
+			})
+		}
 
 })(jQuery);

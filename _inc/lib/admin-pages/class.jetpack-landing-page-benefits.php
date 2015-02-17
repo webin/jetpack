@@ -9,7 +9,7 @@ class Jetpack_Landing_Page_Benefits extends Jetpack_Admin_Page {
 		// @todo: Remove in Jetpack class itself.
 		remove_action( 'admin_menu', array( $this->jetpack, 'admin_menu' ), 999 );
 
-		$title = _x( 'Jetpack (new)', 'The menu item label', 'jetpack' );
+		$title = _x( 'Jetpack', 'The menu item label', 'jetpack' );
 
 		list( $jetpack_version ) = explode( ':', Jetpack_Options::get_option( 'version' ) );
 		if (
@@ -33,9 +33,9 @@ class Jetpack_Landing_Page_Benefits extends Jetpack_Admin_Page {
 		}
 
 		// Add the main admin Jetpack menu with possible information about new modules
-		add_menu_page( 'Jetpack (new)', $title, 'jetpack_admin_page', 'jetpack', array( $this, 'render' ), 'div' );
+		add_menu_page( 'Jetpack', $title, 'jetpack_admin_page', 'jetpack', array( $this, 'render' ), 'div' );
 		// also create the submenu
-		return add_submenu_page( 'jetpack (new)', $title, $title, 'jetpack_admin_page', 'jetpack' );
+		return add_submenu_page( 'jetpack', $title, $title, 'jetpack_admin_page', 'jetpack' );
 	}
 
 	function add_page_actions( $hook ) {

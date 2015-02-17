@@ -1065,9 +1065,9 @@ class Jetpack {
 			require_once JETPACK__PLUGIN_DIR . 'class.jetpack-twitter-cards.php';
 		}
 	}
-	
-	
-	
+
+
+
 	
 	/*
 	 * 
@@ -1564,6 +1564,7 @@ class Jetpack {
 			'requires_connection' => 'Requires Connection',
 			'auto_activate'       => 'Auto Activate',
 			'module_tags'         => 'Module Tags',
+			'benefit_tag'         => 'Benefit Tag',
 		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
@@ -1592,6 +1593,14 @@ class Jetpack {
 			$mod['module_tags'] = array_map( array( __CLASS__, 'translate_module_tag' ), $mod['module_tags'] );
 		} else {
 			$mod['module_tags'] = array( self::translate_module_tag( 'Other' ) );
+		}
+
+		if ( $mod['benefit_tag'] ) {
+			$mod['benefit_tag'] = explode( ',', $mod['benefit_tag'] );
+			$mod['benefit_tag'] = array_map( 'trim', $mod['benefit_tag'] );
+			$mod['benefit_tag'] = array_map( array( __CLASS__, 'translate_module_tag' ), $mod['benefit_tag'] );
+		} else {
+			$mod['benefit_tag'] = array( self::translate_module_tag( 'Other' ) );
 		}
 
 		return $mod;

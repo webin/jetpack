@@ -8,6 +8,7 @@
  * Free: false
  * Requires Connection: Yes
  * Auto Activate: Yes
+ * Module Tags: Security and Optimization
  */
 
 add_action( 'jetpack_modules_loaded', 'vaultpress_jetpack_stub' );

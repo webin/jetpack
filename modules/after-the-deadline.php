@@ -6,7 +6,7 @@
  * First Introduced: 1.1
  * Requires Connection: Yes
  * Auto Activate: Yes
- * Module Tags: Writing
+ * Module Tags: Writing, Content Creation
  */
 
 if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {

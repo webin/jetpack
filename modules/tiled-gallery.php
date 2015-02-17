@@ -6,7 +6,7 @@
  * First Introduced: 2.1
  * Requires Connection: No
  * Auto Activate: No
- * Module Tags: Photos and Videos
+ * Module Tags: Photos and Videos, Customization
  * Sort Order: 24
  */
 

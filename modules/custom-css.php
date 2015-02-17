@@ -7,7 +7,7 @@
  * First Introduced: 1.7
  * Requires Connection: No
  * Auto Activate: Yes
- * Module Tags: Appearance
+ * Module Tags: Appearance, Customization
  */
 
 function jetpack_load_custom_css() {

@@ -6,7 +6,7 @@
  * First Introduced: 3.1
  * Requires Connection: No
  * Auto Activate: Yes
- * Module Tags: Writing
+ * Module Tags: Writing, Content Creation
  * Sort Order: 34
  */
 

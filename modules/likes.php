@@ -6,7 +6,7 @@
  * Sort Order: 23
  * Requires Connection: Yes
  * Auto Activate: No
- * Module Tags: Social
+ * Module Tags: Social, Traffic and Engagement
  */
 
 Jetpack::dns_prefetch( array(

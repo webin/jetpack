@@ -7,7 +7,7 @@
  * First Introduced: 2.6
  * Requires Connection: Yes
  * Auto Activate: No
- * Module Tags: Developers
+ * Module Tags: Developers, Security and Optimization
  */
 
 class Jetpack_SSO {

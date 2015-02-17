@@ -7,7 +7,7 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Sort Order: 17
- * Module Tags: Appearance
+ * Module Tags: Appearance, Customization
  */
 
 include dirname( __FILE__ ) . "/widget-visibility/widget-conditions.php";

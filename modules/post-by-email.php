@@ -7,7 +7,7 @@
  * Sort Order: 14
  * Requires Connection: Yes
  * Auto Activate: Yes
- * Module Tags: Writing
+ * Module Tags: Writing, Content Creation
  */
 
 add_action( 'jetpack_modules_loaded', array( 'Jetpack_Post_By_Email', 'init' ) );

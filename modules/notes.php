@@ -6,7 +6,7 @@
  * First Introduced: 1.9
  * Requires Connection: Yes
  * Auto Activate: Yes
- * Module Tags: Other
+ * Module Tags: Traffic and Engagement
  */
 
 if ( !defined( 'JETPACK_NOTES__CACHE_BUSTER' ) ) define( 'JETPACK_NOTES__CACHE_BUSTER', JETPACK__VERSION . '-' . gmdate( 'oW' ) );

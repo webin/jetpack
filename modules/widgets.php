@@ -6,7 +6,7 @@
  * First Introduced: 1.2
  * Requires Connection: No
  * Auto Activate: Yes
- * Module Tags: Social, Appearance
+ * Module Tags: Social, Appearance, Customization
  */
 
 function jetpack_load_widgets() {

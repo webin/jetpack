@@ -7,7 +7,7 @@
  * First Introduced: 3.2
  * Requires Connection: No
  * Auto Activate: No
- * Module Tags: Other
+ * Module Tags: Customization
  */
 
 include dirname( __FILE__ ) . '/site-icon/jetpack-site-icon.php';

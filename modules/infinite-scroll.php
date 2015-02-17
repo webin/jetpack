@@ -6,7 +6,7 @@
  * First Introduced: 2.0
  * Requires Connection: No
  * Auto Activate: No
- * Module Tags: Appearance
+ * Module Tags: Appearance, Customization
  */
 
 /**

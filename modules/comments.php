@@ -7,7 +7,7 @@
  * Sort Order: 20
  * Requires Connection: Yes
  * Auto Activate: No
- * Module Tags: Social
+ * Module Tags: Social, Traffic and Engagement
  */
 
 require dirname( __FILE__ ) . '/comments/comments.php';

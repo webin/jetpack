@@ -6,7 +6,7 @@
  * Free: false
  * Requires Connection: Yes
  * Sort Order: 27
- * Module Tags: Photos and Videos
+ * Module Tags: Photos and Videos, Content Creation
  */
 
 Jetpack::dns_prefetch( array(

@@ -6,7 +6,7 @@
  * First Introduced: 2.0
  * Requires Connection: Yes
  * Auto Activate: No
- * Module Tags: Photos and Videos, Appearance
+ * Module Tags: Photos and Videos, Appearance, Security and Optimization
  */
 
 Jetpack::dns_prefetch( array(

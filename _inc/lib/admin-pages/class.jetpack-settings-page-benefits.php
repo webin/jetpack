@@ -88,6 +88,8 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				</div><!-- /.frame -->
 			</div> <!-- /#classic_settings -->
 			<style>
+				/* temp hide message */
+				#message { display: none; }
 				.page-content { max-width: 950px!important; margin: 0 auto!important; }
 				.nopad { padding: 0!important; }
 				#classic_settings, .benefits-button { display: none; }
@@ -115,6 +117,7 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#benefits .j-toggle .j-toggle-on { background: #81a844; border-right: 35px solid #fff; }
 				#benefits .j-toggle .j-toggle-off { background: #333; border-left: 35px solid #fff; }
 				#benefits .j-toggle-enabled { margin-left: -70px; }
+				#benefits .j-feature-enabled { color: #ccc; }
 
 
 			</style>

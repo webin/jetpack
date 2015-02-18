@@ -62,6 +62,7 @@
 		})
 
 		$('.j-toggle').click(function(){
+			$(this).parent().parent().toggleClass('j-feature-enabled');
 			$(this).children('.j-toggle-wrap').toggleClass('j-toggle-enabled');
 		})
 	}

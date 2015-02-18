@@ -61,9 +61,10 @@
 			$('#'+$(this).attr('class')).show();
 		})
 
-		$('.j-toggle').click(function(){
-			$(this).parent().parent().toggleClass('j-feature-enabled');
-			$(this).children('.j-toggle-wrap').toggleClass('j-toggle-enabled');
+		$('.j-enable-feature').click(function(){
+			$(this).parent().toggleClass('j-feature-enabled');
+			$(this).find('.j-toggle-wrap').toggleClass('j-toggle-enabled');
+			$(this).prev('.j-title').children().toggle();
 		})
 	}
 

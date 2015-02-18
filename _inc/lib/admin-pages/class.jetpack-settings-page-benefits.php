@@ -92,6 +92,7 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#message { display: none; }
 				.page-content { max-width: 950px!important; margin: 0 auto!important; }
 				.nopad { padding: 0!important; }
+				.hide { display: none; }
 				#classic_settings, .benefits-button { display: none; }
 				#benefits .genericon { float: left; font-size: 2em;  margin: 0 1%; }
 				#benefits h1 { margin: 0; font-style: italic; color: #81a844; }
@@ -175,12 +176,12 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 							</div><!-- /.j-col -->
 						</div><!-- /.j-publicize -->
 						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-enhanced-distribution">
-							<h3 class="alignleft">Enhanced Distribution <small>(enabled)</small></h3>
+							<h3 class="alignleft">Enhanced Distribution <small class="j-enabled-notification">(enabled)</small></h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
 							<p class="clear">Jetpack will automatically take the great published content from your blog or website and share it instantly with third party services like search engines, increasing your reach and traffic.</p>
 						</div><!-- /.j-enhanced-distribution -->
 						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-notifications">
-							<h3 class="alignleft">Notifications <small>(enabled)</small></h3>
+							<h3 class="alignleft">Notifications <small class="j-enabled-notification">(enabled)</small></h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
 							<p class="clear">Keep up with the latest happenings on all your WordPress sites and interact with other WordPress.com users.</p>
 						</div><!-- /.j-notifications -->
@@ -206,20 +207,20 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 							<h1>Turn readers into fans</h1>
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-likes">
-							<h3 class="alignleft">Likes</h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<h3 class="j-title alignleft">Likes <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-likes -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-subscriptions">
-							<h3 class="alignleft">Subsciptions</h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<h3 class="j-title alignleft">Subsciptions <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-subscriptions -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-sharing">
-							<h3 class="alignleft">Sharing</h3>
+							<h3 class="j-title alignleft">Sharing <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-sharing -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-shortlinks">
-							<h3 class="alignleft">WP.me Shortlinks</h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<h3 class="j-title alignleft">WP.me Shortlinks <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1 <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-shortlinks -->
 						<div class="j-col j-lrg-12 j-sm-12">

@@ -105,7 +105,7 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#benefits .j-publicize .j-social-connect { padding: 1em 0; }
 				#benefits .j-publicize .j-social-connect p { font-size: 1.3em; margin: 0 1em 0 .3em; }
 				#benefits .j-publicize .j-social-connect button { margin: .2em 1em 0 0; }
-				#benefits .genericon-help, #benefits .genericon-image { font-size: 1.8em; color: #ccc; float: right; }
+				#benefits .genericon-help, #benefits .genericon-image { float: none; font-size: 1.6em; color: #ccc;  }
 				#benefits .j-verification { margin: 1em 0 0 0; }
 				#benefits .j-verification label { display: block; margin: 1em 0 0 0; }
 				#benefits .j-verification input { width: 90%; }
@@ -206,29 +206,21 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 							<h1>Turn readers into fans</h1>
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-likes">
-							<h3 class="alignleft">Likes</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post.</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Likes</p></div>
-
+							<h3 class="alignleft">Likes</h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-likes -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-subscriptions">
-							<h3 class="alignleft">Subsciptions</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post.</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Subscriptions</p></div>
+							<h3 class="alignleft">Subsciptions</h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-subscriptions -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-sharing">
 							<h3 class="alignleft">Sharing</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click.</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Sharing</p></div>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-sharing -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-shortlinks">
-							<h3 class="alignleft">WP.me Shortlinks</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Shortlinks</p></div>
+							<h3 class="alignleft">WP.me Shortlinks</h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1 <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-shortlinks -->
 						<div class="j-col j-lrg-12 j-sm-12">
 							<h1>Engage your visitors</h1>

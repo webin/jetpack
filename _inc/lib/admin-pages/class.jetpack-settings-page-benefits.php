@@ -1,9 +1,6 @@
 <?php
 include_once( 'class.jetpack-admin-page.php' );
-
-
 include_once( JETPACK__PLUGIN_DIR . 'class.jetpack-modules-list-table.php' );
-
 
 // Builds the settings page and its menu
 class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
@@ -15,10 +12,15 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 	function get_page_hook() {
 		return add_submenu_page( 'jetpack', __( 'Jetpack Settings', 'jetpack' ), __( 'Settings (new)', 'jetpack' ), 'jetpack_manage_modules', 'jetpack_modules', array( $this, 'render' ) );
 	}
+	// Declare var to hold value of current benefits tab
+	public $navtotab;
 
 	// Renders the module list table where you can use bulk action or row
 	// actions to activate/deactivate and configure modules
 	function page_render() {
+		// Get the current benefits tab
+		$this->navtotab = isset($_GET['t']) ? $_GET['t'] : null;
+
 		$list_table = new Jetpack_Modules_List_Table;
 		?>
 		<div class="clouds-sm"></div>
@@ -87,8 +89,10 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 			</div> <!-- /#classic_settings -->
 			<style>
 				.page-content { max-width: 950px!important; margin: 0 auto!important; }
+				.nopad { padding: 0!important; }
 				#classic_settings, .benefits-button { display: none; }
 				#benefits .genericon { float: left; font-size: 2em;  margin: 0 1%; }
+				#benefits h1 { margin: 0; font-style: italic; color: #81a844; }
 				#benefits h2 { clear: none; margin: 0; }
 				#benefits p { margin: 0; }
 				#benefits .benefit-bucket { border-bottom: 3px solid #eee;  }
@@ -96,6 +100,10 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#benefits .benefit-bucket.active { border-bottom: 3px solid #333; }
 				#benefits .benefit-content { display: none; padding: 1em 0; }
 				#benefits #jp-benefit-content { display: block; }
+				#benefits .publicize .j-social-connect { padding: 1em 0; }
+				#benefits .publicize .j-social-connect p { font-size: 1.3em; margin: 0 1em 0 .3em; }
+				#benefits .publicize .j-social-connect button { margin: .2em 1em 0 0; }
+				#benefits .genericon-help, #benefits .genericon-image { font-size: 1.8em; color: #ccc; float: right; }
 
 			</style>
 			<div id="benefits" class="j-row">
@@ -128,12 +136,40 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
 				</div>
 				<div class="benefit-content clear" id="jp-benefit-engage">
-					<h2>Engage</h2>
-					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
-					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
-					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
-					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
-					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+					<div class="j-row">
+						<div class="j-col j-lrg-12 j-sm-12">
+							<h1>Share your posts with the world</h1>
+						</div>
+						<div class="j-col j-lrg-6 j-md-8 j-sm-12 alignleft publicize">
+							<h3 class="alignleft">Publicize</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
+							<p class="clear">Connect your networks and automatically share new posts with your friends</p>
+							<div class="j-col j-lrg-6 j-sm-12 alignleft nopad">
+								<ul>
+									<li class="j-social-connect clear"><span class="genericon genericon-facebook"></span><p class="alignleft">Facebook</p><button class="alignright">Connect</button></li>
+									<li class="j-social-connect clear"><span class="genericon genericon-twitter"></span><p class="alignleft">Twitter</p><button class="alignright">Connect</button></li>
+									<li class="j-social-connect clear"><span class="genericon genericon-linkedin-alt"></span><p class="alignleft">LinkedIn</p><button class="alignright">Connect</button></li>
+								</ul>
+							</div>
+							<div class="j-col j-lrg-6 j-sm-12 alignleft nopad">
+								<ul>
+									<li class="j-social-connect clear"><span class="genericon genericon-tumblr"></span><p class="alignleft">Tumblr</p><button class="alignright">Connect</button></li>
+									<li class="j-social-connect clear"><span class="genericon genericon-path"></span><p class="alignleft">Path</p><button class="alignright">Connect</button></li>
+									<li class="j-social-connect clear"><span class="genericon genericon-googleplus"></span><p class="alignleft">Google+</p><button class="alignright">Connect</button></li>
+								</ul>
+							</div>
+						</div>
+						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft ">
+							<h3 class="alignleft">Enhanced Distribution <small>(enabled)</small></h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
+							<p class="clear">Jetpack will automatically take the great published content from your blog or website and share it instantly with third party services like search engines, increasing your reach and traffic.</p>
+						</div>
+						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft ">
+							<h3 class="alignleft">Notifications <small>(enabled)</small></h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
+							<p class="clear">Keep up with the latest happenings on all your WordPress sites and interact with other WordPress.com users.</p>
+						</div>
+					</div>
 				</div>
 			</div><!-- /#benefits -->
 		</div><!-- /.content -->

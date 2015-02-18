@@ -54,11 +54,15 @@
 			$('#classic_settings, #benefits, .classic-button, .benefits-button').toggle();
 		})
 
-		$('.benefit-bucket a').click(function(){
+		$( '.benefit-bucket a').click(function(){
 			$('.benefit-bucket').removeClass('active');
 			$(this).parent().addClass('active');
 			$('.benefit-content').hide();
 			$('#'+$(this).attr('class')).show();
+		})
+
+		$('.j-toggle').click(function(){
+			$(this).children('.j-toggle-wrap').toggleClass('j-toggle-enabled');
 		})
 	}
 

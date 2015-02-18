@@ -108,6 +108,14 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#benefits .j-verification label { display: block; margin: 1em 0 0 0; }
 				#benefits .j-verification input { width: 90%; }
 				#benefits .j-verification input#submit { width: 100px; }
+				#benefits .j-enable-feature p { float: right; font-size: 1.1em; font-weight: 600; margin-right: 10px; }
+				#benefits .j-toggle { width: 70px; height: 20px; overflow: hidden; border: 1px solid #333; float: right; border-radius: 10px; cursor: pointer; }
+				#benefits .j-toggle-wrap { width: 240px; }
+				#benefits .j-toggle .j-toggle-on, #benefits .j-toggle .j-toggle-off { color: #fff; width: 70px; padding: 3px; font-size: .8em; float: left; }
+				#benefits .j-toggle .j-toggle-on { background: #81a844; border-right: 35px solid #fff; }
+				#benefits .j-toggle .j-toggle-off { background: #333; border-left: 35px solid #fff; }
+				#benefits .j-toggle-enabled { margin-left: -70px; }
+
 
 			</style>
 			<div id="benefits" class="j-row">
@@ -198,34 +206,48 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 							<h3 class="alignleft">Likes</h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
 							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post.</p>
-							<form>
-								<p>Enable Likes</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
-							</form>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Likes</p></div>
+
 						</div><!-- /.j-likes -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-subscriptions">
 							<h3 class="alignleft">Subsciptions</h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
 							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post.</p>
-							<form>
-								<p>Enable Subscriptions</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
-							</form>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Subscriptions</p></div>
 						</div><!-- /.j-subscriptions -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-sharing">
 							<h3 class="alignleft">Sharing</h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
 							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click.</p>
-							<form>
-								<p>Enable Sharing</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
-							</form>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Sharing</p></div>
 						</div><!-- /.j-sharing -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-shortlinks">
 							<h3 class="alignleft">WP.me Shortlinks</h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
 							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1</p>
-							<form>
-								<p>Enable Shortlinks</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
-							</form>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Shortlinks</p></div>
 						</div><!-- /.j-shortlinks -->
+						<div class="j-col j-lrg-12 j-sm-12">
+							<h1>Engage your visitors</h1>
+						</div><!-- /.j-col -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-related-posts">
+							<h3 class="alignleft">Related Posts</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Show readers more of your great content that is related to what they're already reading.</p>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Related Posts</p></div>
+						</div><!-- /.j-related-posts -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-gravatar">
+							<h3 class="alignleft">Gravatar Hovercards</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Reward your commenters with more exposure by showing their gravatar bio on hover.</p>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Gravatar Hovercards</p></div>
+						</div><!-- /.j-gravatar -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-comments">
+							<h3 class="alignleft">Comments</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Make it easier for your readers to comment on your posts by letting them use their WordPress.com, Twitter, or Facebook accounts.</p>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Comments</p></div>
+						</div><!-- /.j-comments -->
 					</div><!-- /.j-row -->
 				</div><!-- /#j-benefit-engage -->
 			</div><!-- /#benefits -->

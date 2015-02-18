@@ -59,7 +59,6 @@
 			$(this).parent().addClass('active');
 			$('.benefit-content').hide();
 			$('#'+$(this).attr('class')).show();
-
 		})
 	}
 

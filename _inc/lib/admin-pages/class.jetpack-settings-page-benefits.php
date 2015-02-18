@@ -86,6 +86,7 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				</div><!-- /.frame -->
 			</div> <!-- /#classic_settings -->
 			<style>
+				.page-content { max-width: 950px!important; margin: 0 auto!important; }
 				#classic_settings, .benefits-button { display: none; }
 				#benefits .genericon { float: left; font-size: 2em;  margin: 0 1%; }
 				#benefits h2 { clear: none; margin: 0; }

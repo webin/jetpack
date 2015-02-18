@@ -99,78 +99,135 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#benefits .benefit-bucket a { color: inherit; }
 				#benefits .benefit-bucket.active { border-bottom: 3px solid #333; }
 				#benefits .benefit-content { display: none; padding: 1em 0; }
-				#benefits #jp-benefit-content { display: block; }
-				#benefits .publicize .j-social-connect { padding: 1em 0; }
-				#benefits .publicize .j-social-connect p { font-size: 1.3em; margin: 0 1em 0 .3em; }
-				#benefits .publicize .j-social-connect button { margin: .2em 1em 0 0; }
+				#benefits #j-benefit-content { display: block; }
+				#benefits .j-publicize .j-social-connect { padding: 1em 0; }
+				#benefits .j-publicize .j-social-connect p { font-size: 1.3em; margin: 0 1em 0 .3em; }
+				#benefits .j-publicize .j-social-connect button { margin: .2em 1em 0 0; }
 				#benefits .genericon-help, #benefits .genericon-image { font-size: 1.8em; color: #ccc; float: right; }
+				#benefits .j-verification { margin: 1em 0 0 0; }
+				#benefits .j-verification label { display: block; margin: 1em 0 0 0; }
+				#benefits .j-verification input { width: 90%; }
+				#benefits .j-verification input#submit { width: 100px; }
 
 			</style>
 			<div id="benefits" class="j-row">
-				<div class="j-col j-lrg-3 benefit-bucket active"><a href="javascript:void(0)" class="jp-benefit-content"><span class="genericon genericon-edit"></span><h2>Content</h2><p>Create and publish rich and engaging content</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="jp-benefit-customize"><span class="genericon genericon-paintbrush"></span><h2>Customize</h2><p>Make your WordPress site uniquely yours</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="jp-benefit-secure"><span class="genericon genericon-lock"></span><h2>Secure</h2><p>Keep your WordPress optimised, safe and protected</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="jp-benefit-engage"><span class="genericon genericon-activity"></span><h2>Engage</h2><p>Increase your traffic and keep visitors coming back</p></a></div>
-				<div class="benefit-content clear" id="jp-benefit-content">
+				<div class="j-col j-lrg-3 benefit-bucket active"><a href="javascript:void(0)" class="j-benefit-content"><span class="genericon genericon-edit"></span><h2>Content</h2><p>Create and publish rich and engaging content</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-customize"><span class="genericon genericon-paintbrush"></span><h2>Customize</h2><p>Make your WordPress site uniquely yours</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-secure"><span class="genericon genericon-lock"></span><h2>Secure</h2><p>Keep your WordPress optimised, safe and protected</p></a></div>
+				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-engage"><span class="genericon genericon-activity"></span><h2>Engage</h2><p>Increase your traffic and keep visitors coming back</p></a></div>
+				<div class="benefit-content clear" id="j-benefit-content">
 					<h2>Content</h2>
 					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
 					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
 					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
 					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
 					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
-				</div>
-				<div class="benefit-content clear" id="jp-benefit-customize">
+				</div><!-- /#j-benefit-content -->
+				<div class="benefit-content clear" id="j-benefit-customize">
 					<h2>Customize</h2>
 					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
 					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
 					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
 					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
 					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
-				</div>
-				<div class="benefit-content clear" id="jp-benefit-secure">
+				</div><!-- /#j-benefit-customize -->
+				<div class="benefit-content clear" id="j-benefit-secure">
 					<h2>Secure</h2>
 					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
 					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
 					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
 					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
 					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
-				</div>
-				<div class="benefit-content clear" id="jp-benefit-engage">
+				</div><!-- /#j-benefit-secure -->
+				<div class="benefit-content clear" id="j-benefit-engage">
 					<div class="j-row">
 						<div class="j-col j-lrg-12 j-sm-12">
 							<h1>Share your posts with the world</h1>
-						</div>
-						<div class="j-col j-lrg-6 j-md-8 j-sm-12 alignleft publicize">
+						</div><!-- /.j-col -->
+						<div class="j-col j-lrg-6 j-md-8 j-sm-12 alignleft j-publicize">
 							<h3 class="alignleft">Publicize</h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
 							<p class="clear">Connect your networks and automatically share new posts with your friends</p>
-							<div class="j-col j-lrg-6 j-sm-12 alignleft nopad">
+							<div class="j-col j-lrg-6 j-md-12 j-sm-12 alignleft nopad">
 								<ul>
 									<li class="j-social-connect clear"><span class="genericon genericon-facebook"></span><p class="alignleft">Facebook</p><button class="alignright">Connect</button></li>
 									<li class="j-social-connect clear"><span class="genericon genericon-twitter"></span><p class="alignleft">Twitter</p><button class="alignright">Connect</button></li>
 									<li class="j-social-connect clear"><span class="genericon genericon-linkedin-alt"></span><p class="alignleft">LinkedIn</p><button class="alignright">Connect</button></li>
 								</ul>
-							</div>
-							<div class="j-col j-lrg-6 j-sm-12 alignleft nopad">
+							</div><!-- /.j-col -->
+							<div class="j-col j-lrg-6 j-md-12 j-sm-12 alignleft nopad">
 								<ul>
 									<li class="j-social-connect clear"><span class="genericon genericon-tumblr"></span><p class="alignleft">Tumblr</p><button class="alignright">Connect</button></li>
 									<li class="j-social-connect clear"><span class="genericon genericon-path"></span><p class="alignleft">Path</p><button class="alignright">Connect</button></li>
 									<li class="j-social-connect clear"><span class="genericon genericon-googleplus"></span><p class="alignleft">Google+</p><button class="alignright">Connect</button></li>
 								</ul>
-							</div>
-						</div>
-						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft ">
+							</div><!-- /.j-col -->
+						</div><!-- /.j-publicize -->
+						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-enhanced-distribution">
 							<h3 class="alignleft">Enhanced Distribution <small>(enabled)</small></h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
 							<p class="clear">Jetpack will automatically take the great published content from your blog or website and share it instantly with third party services like search engines, increasing your reach and traffic.</p>
-						</div>
-						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft ">
+						</div><!-- /.j-enhanced-distribution -->
+						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-notifications">
 							<h3 class="alignleft">Notifications <small>(enabled)</small></h3>
 							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
 							<p class="clear">Keep up with the latest happenings on all your WordPress sites and interact with other WordPress.com users.</p>
-						</div>
-					</div>
-				</div>
+						</div><!-- /.j-notifications -->
+						<div class="j-col j-lrg-12 alignleft j-verification">
+							<h3 class="alignleft">Site Verifitcation</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
+							<p class="clear">Optimise your site with Google & Bing Webmaster Tools, and improve your Pinterest profile.</p>
+							<form>
+								<div class="j-col j-lrg-6 alignleft nopad">
+									<label><a href="#">Google Webmaster Tools</a></label>
+									<input type="text" placeholder="<meta name='google-site-verification' content='dBw5CvburAxi537Rp9qi5uG2174Vb6JwHwIRwPSLIK8'>">
+									<label><a href="#">Pinterest Site Verification</a></label>
+									<input type="text" placeholder="<meta name='p:domain_verify' content='f100679e6048d45e4a0b0b92dce1efce'>">
+								</div><!-- /.j-col -->
+								<div class="j-col j-lrg-6 alignleft nopad">
+									<label><a href="#">Bing Webmaster Tools</a></label>
+									<input type="text" placeholder="<meta name='msvalidate.01' content='12C1203B5086AECE94EB3A3D9830B2E'>">
+									<input type="submit" class="alignright" id="submit" value="Save Changes">
+								</div><!-- /.j-col -->
+							</form>
+						</div><!-- /.j-verification -->
+						<div class="j-col j-lrg-12 j-sm-12">
+							<h1>Turn readers into fans</h1>
+						</div><!-- /.j-col -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-likes">
+							<h3 class="alignleft">Likes</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post.</p>
+							<form>
+								<p>Enable Likes</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
+							</form>
+						</div><!-- /.j-likes -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-subscriptions">
+							<h3 class="alignleft">Subsciptions</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post.</p>
+							<form>
+								<p>Enable Subscriptions</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
+							</form>
+						</div><!-- /.j-subscriptions -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-sharing">
+							<h3 class="alignleft">Sharing</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click.</p>
+							<form>
+								<p>Enable Sharing</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
+							</form>
+						</div><!-- /.j-sharing -->
+						<div class="j-col j-lrg-6 j-sm-12 alignleft j-shortlinks">
+							<h3 class="alignleft">WP.me Shortlinks</h3>
+							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
+							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1</p>
+							<form>
+								<p>Enable Shortlinks</p><input type="radio"><label>Enable</label><input type="radio"><label>Disable</label>
+							</form>
+						</div><!-- /.j-shortlinks -->
+					</div><!-- /.j-row -->
+				</div><!-- /#j-benefit-engage -->
 			</div><!-- /#benefits -->
 		</div><!-- /.content -->
 		<?php

@@ -158,8 +158,7 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-6 j-md-8 j-sm-12 alignleft j-publicize">
 							<h3 class="alignleft">Publicize</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
-							<p class="clear">Connect your networks and automatically share new posts with your friends</p>
+							<p class="clear">Connect your networks and automatically share new posts with your friends. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
 							<div class="j-col j-lrg-6 j-md-12 j-sm-12 alignleft nopad">
 								<ul>
 									<li class="j-social-connect clear"><span class="genericon genericon-facebook"></span><p class="alignleft">Facebook</p><button class="alignright">Connect</button></li>
@@ -177,18 +176,18 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 						</div><!-- /.j-publicize -->
 						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-enhanced-distribution">
 							<h3 class="alignleft">Enhanced Distribution <small class="j-enabled-notification">(enabled)</small></h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
-							<p class="clear">Jetpack will automatically take the great published content from your blog or website and share it instantly with third party services like search engines, increasing your reach and traffic.</p>
+							<p class="clear">Jetpack will automatically take the great published content from your blog or website and share it instantly with third party services like search engines, increasing your reach and traffic.
+								<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
 						</div><!-- /.j-enhanced-distribution -->
 						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-notifications">
 							<h3 class="alignleft">Notifications <small class="j-enabled-notification">(enabled)</small></h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
-							<p class="clear">Keep up with the latest happenings on all your WordPress sites and interact with other WordPress.com users.</p>
+							<p class="clear">Keep up with the latest happenings on all your WordPress sites and interact with other WordPress.com users.
+								<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
 						</div><!-- /.j-notifications -->
 						<div class="j-col j-lrg-12 alignleft j-verification">
 							<h3 class="alignleft">Site Verifitcation</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
-							<p class="clear">Optimise your site with Google & Bing Webmaster Tools, and improve your Pinterest profile.</p>
+							<p class="clear">Optimise your site with Google & Bing Webmaster Tools, and improve your Pinterest profile. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a>
+							</p>
 							<form>
 								<div class="j-col j-lrg-6 alignleft nopad">
 									<label><a href="#">Google Webmaster Tools</a></label>
@@ -227,22 +226,18 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 							<h1>Engage your visitors</h1>
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-related-posts">
-							<h3 class="alignleft">Related Posts</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Show readers more of your great content that is related to what they're already reading.</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Related Posts</p></div>
+							<h3 class="j-title alignleft">Related Posts <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Show readers more of your great content that is related to what they're already reading. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-related-posts -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-gravatar">
-							<h3 class="alignleft">Gravatar Hovercards</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Reward your commenters with more exposure by showing their gravatar bio on hover.</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Gravatar Hovercards</p></div>
+							<h3 class="j-title alignleft">Gravatar Hovercards <small class="hide">(enabled)</small></h3>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Reward your commenters with more exposure by showing their gravatar bio on hover. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-gravatar -->
 						<div class="j-col j-lrg-6 j-sm-12 alignleft j-comments">
-							<h3 class="alignleft">Comments</h3>
-							<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a>
-							<p class="clear">Make it easier for your readers to comment on your posts by letting them use their WordPress.com, Twitter, or Facebook accounts.</p>
-							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div><p>Enable Comments</p></div>
+							<h3 class="j-title alignleft">Comments <small class="hide">(enabled)</small></h3>
+							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Make it easier for your readers to comment on your posts by letting them use their WordPress.com, Twitter, or Facebook accounts. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-comments -->
 					</div><!-- /.j-row -->
 				</div><!-- /#j-benefit-engage -->

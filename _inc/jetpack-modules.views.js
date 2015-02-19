@@ -25,6 +25,7 @@ window.jetpackModules.views = (function( window, $, _, Backbone, wp ) {
 					m_sort   = $('.button-group.sort .active'),
 					m_search = $('#srch-term-search-input').val();
 
+
 				if ( m_search.length ) {
 					url += '&s=' + encodeURIComponent( m_search );
 				}

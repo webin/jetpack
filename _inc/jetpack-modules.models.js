@@ -19,10 +19,12 @@ window.jetpackModules.models = (function( window, $, _, Backbone ) {
 					m_filter  = $('.button-group.filter-active .active'),
 					m_sort    = $('.button-group.sort .active'),
 					m_search  = $('#srch-term-search-input').val().toLowerCase(),
+					show_benefit_headings = true,
 					groups;
 
 				// If a module filter has been selected, filter it!
 				if ( ! subsubsub.closest('li').hasClass( 'all' ) ) {
+					show_benefit_headings = false;
 					items = _.filter( items, function( item ) {
 						return _.contains( item.module_tags, subsubsub.data( 'title' ) );
 					} );
@@ -35,6 +37,7 @@ window.jetpackModules.models = (function( window, $, _, Backbone ) {
 				}
 
 				if ( m_search.length ) {
+					show_benefit_headings = false;
 					items = _.filter( items, function( item ) {
 						var search_text = item.name + ' ' + item.description;
 						return ( -1 !== search_text.toLowerCase().indexOf( m_search ) );
@@ -42,7 +45,25 @@ window.jetpackModules.models = (function( window, $, _, Backbone ) {
 				}
 
 				if ( m_sort.data('sort-by') ) {
+
 					items = _.sortBy( items, m_sort.data('sort-by') );
+
+					if ( m_sort.data('sort-by') == 'benefit_tag' && show_benefit_headings ) {
+						var benefits = this.getBenefits();
+						_.each( benefits, function( item ) {
+							var heading = {
+								name : item,
+								type : 'heading',
+								benefit_tag : [ item ],
+								activated: true,
+								available: true,
+							};
+							items.unshift( heading );
+						});
+					}
+
+					items = _.sortBy( items, m_sort.data('sort-by') );
+
 					if ( 'reverse' === m_sort.data('sort-order') ) {
 						items.reverse();
 					}
@@ -57,7 +78,18 @@ window.jetpackModules.models = (function( window, $, _, Backbone ) {
 				// Now shove it back in.
 				this.set( 'items', items );
 
+				console.log( items );
+
 				return this;
+			},
+
+			getBenefits: function( ) {
+				var items = this.get( 'raw'),
+					benefits = [];
+				_.each( items, function( item ) {
+					benefits = benefits.concat( item.benefit_tag );
+				});
+				return _.uniq( benefits );
 			},
 
 			initialize : function() {

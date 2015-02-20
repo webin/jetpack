@@ -93,7 +93,10 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				.page-content { max-width: 950px!important; margin: 0 auto!important; }
 				.nopad { padding: 0!important; }
 				.hide { display: none; }
+				.fixed { position: fixed; top: 0; background: #fff;  }
 				#classic_settings, .benefits-button { display: none; }
+
+				#benefits #j-settings-nav li { float: left; padding: 1%; margin: 0 2%; width: 16%; text-align: center; }
 				#benefits .genericon { float: left; font-size: 2em;  margin: 0 1%; }
 				#benefits h1 { margin: 0; font-style: italic; color: #81a844; }
 				#benefits h2 { clear: none; margin: 0; }
@@ -101,12 +104,12 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 				#benefits .benefit-bucket { border-bottom: 3px solid #eee;  }
 				#benefits .benefit-bucket a { color: inherit; }
 				#benefits .benefit-bucket.active { border-bottom: 3px solid #333; }
-				#benefits .benefit-content { display: none; padding: 1em 0; }
+				#benefits .benefit-content { padding: 1em 0; }
 				#benefits #j-benefit-content { display: block; }
 				#benefits .j-publicize .j-social-connect { padding: 1em 0; }
 				#benefits .j-publicize .j-social-connect p { font-size: 1.3em; margin: 0 1em 0 .3em; }
 				#benefits .j-publicize .j-social-connect button { margin: .2em 1em 0 0; }
-				#benefits .genericon-help, #benefits .genericon-image { float: none; font-size: 1.6em; color: #ccc;  }
+				#benefits .genericon-help, #benefits .genericon-image { font-size: 1.6em; color: #ccc; margin: 0; }
 				#benefits .j-verification { margin: 1em 0 0 0; }
 				#benefits .j-verification label { display: block; margin: 1em 0 0 0; }
 				#benefits .j-verification input { width: 90%; }
@@ -123,40 +126,75 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 
 			</style>
 			<div id="benefits" class="j-row">
-				<div class="j-col j-lrg-3 benefit-bucket active"><a href="javascript:void(0)" class="j-benefit-content"><span class="genericon genericon-edit"></span><h2>Content</h2><p>Create and publish rich and engaging content</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-customize"><span class="genericon genericon-paintbrush"></span><h2>Customize</h2><p>Make your WordPress site uniquely yours</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-secure"><span class="genericon genericon-lock"></span><h2>Secure</h2><p>Keep your WordPress optimised, safe and protected</p></a></div>
-				<div class="j-col j-lrg-3 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-engage"><span class="genericon genericon-activity"></span><h2>Engage</h2><p>Increase your traffic and keep visitors coming back</p></a></div>
-				<div class="benefit-content clear" id="j-benefit-content">
-					<h2>Content</h2>
-					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
-					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
-					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
-					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
-					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
-				</div><!-- /#j-benefit-content -->
-				<div class="benefit-content clear" id="j-benefit-customize">
-					<h2>Customize</h2>
-					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
-					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
-					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
-					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
-					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
-				</div><!-- /#j-benefit-customize -->
-				<div class="benefit-content clear" id="j-benefit-secure">
-					<h2>Secure</h2>
-					<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
-					<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
-					<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
-					<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
-					<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
-				</div><!-- /#j-benefit-secure -->
-				<div class="benefit-content clear" id="j-benefit-engage">
-					<div class="j-row">
+				<div id="j-settings-nav" class="j-col j-lrg-12">
+					<ul>
+						<li class="benefit-bucket active"><a href="javascript:void(0)" class="j-benefit-content"><span class="genericon genericon-edit"></span>Content</a></li>
+						<li class="benefit-bucket"><a href="javascript:void(0)" class="j-benefit-engage"><span class="genericon genericon-activity"></span>Engage</a></li>
+						<li class="benefit-bucket"><a href="javascript:void(0)" class="j-benefit-customize"><span class="genericon genericon-paintbrush"></span>Customize</a></li>
+						<li class="benefit-bucket"><a href="javascript:void(0)" class="j-benefit-engage"><span class="genericon genericon-activity"></span>Optimize</a></li>
+						<li class="benefit-bucket"><a href="javascript:void(0)" class="j-benefit-secure"><span class="genericon genericon-lock"></span>Secure</a></li>
+					</ul>
+				</div>
+				<div id="j-benefits-content" class="j-col j-lrg-12">
+					<div class="benefit-content clear" id="j-benefit-content">
+						<div class="j-col j-lrg-12 j-sm-12">
+							<h1>Bacon ipsum dolor amet </h1>
+						</div><!-- /.j-col -->
+						<div class="j-col j-lrg-5 alignleft">
+							&nbsp;
+						</div>
+						<div class="j-col j-lrg-7 alignleft j-post-by-email">
+							<h3 class="j-title alignleft">Post by email <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+						</div><!-- /.j-post-by-email -->
+						<div class="j-col j-lrg-12 alignleft j-markdown">
+							<h3 class="j-title alignleft">Markdown <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+						</div><!-- /.j-markdown -->
+						<div class="j-col j-lrg-12 j-sm-12">
+							<h1>Bacon ipsum dolor amet </h1>
+						</div><!-- /.j-col -->
+						<div class="j-col j-lrg-12 alignleft j-beautiful-math">
+							<h3 class="j-title alignleft">Beautiful Math <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+						</div><!-- /.j-beautiful-math -->
+						<div class="j-col j-lrg-12 alignleft j-spelling-grammar">
+							<h3 class="j-title alignleft">Spelling and Grammar <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+						</div><!-- /.j-spelling-grammar -->
+						<div class="j-col j-lrg-12 j-sm-12">
+							<h1>Bacon ipsum dolor amet </h1>
+						</div><!-- /.j-col -->
+						<div class="j-col j-lrg-12 alignleft j-shortcode-embeds">
+							<h3 class="j-title alignleft">Shortcode Embeds <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+						</div><!-- /.j-shortcode-embeds -->
+						<div class="j-col j-lrg-12 alignleft j-videopress">
+							<h3 class="j-title alignleft">VideoPress <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+						</div><!-- /.j-videopress -->
+					</div><!-- /#j-benefit-content -->
+					<div class="benefit-content clear" id="j-benefit-customize">
+						<h2>Customize</h2>
+						<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
+						<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
+						<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
+						<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
+						<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+					</div><!-- /#j-benefit-customize -->
+					<div class="benefit-content clear" id="j-benefit-secure">
+						<h2>Secure</h2>
+						<p>Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. Turducken beef ribs kielbasa tenderloin, ut id jerky. Chuck id leberkas sed consectetur incididunt do pork chop commodo enim landjaeger dolore exercitation. Veniam leberkas tenderloin boudin in ut shank porchetta ad. T-bone short ribs ut meatloaf, dolore ad pork elit magna lorem tail fatback consequat kevin pig. Reprehenderit occaecat in et, ut porchetta exercitation drumstick ut.</p>
+						<p>Brisket drumstick ribeye velit ut cillum. Beef exercitation laboris spare ribs. Landjaeger occaecat labore, short ribs sint officia cillum pig t-bone incididunt consectetur tongue capicola swine. Shank ullamco do irure consectetur sunt. Salami kevin labore, in deserunt boudin meatball jerky ut tenderloin shank tail eiusmod leberkas.</p>
+						<p>Et ribeye non sausage boudin cupidatat nostrud occaecat nisi deserunt filet mignon andouille pariatur est elit. Esse pork loin exercitation andouille pork belly cillum ad venison enim. Pork chop sed cillum dolor tri-tip laborum. Proident sed ipsum salami adipisicing officia landjaeger.</p>
+						<p>In exercitation adipisicing pork loin, ullamco porchetta nostrud. Magna in bacon, sint fugiat ullamco landjaeger pariatur. Anim cillum prosciutto irure, chuck do consectetur in drumstick esse elit kielbasa ipsum. Commodo cupim tempor ham esse swine pork loin kevin consequat strip steak. Quis tenderloin tongue proident exercitation, irure consequat ut nisi pork chop dolore ham hock frankfurter ribeye. Ad filet mignon pancetta, id ground round duis meatball esse occaecat eu tenderloin sausage tail short ribs. Andouille hamburger capicola quis.</p>
+						<p>Dolore sirloin shankle, rump ut voluptate doner mollit ea. Fugiat mollit kielbasa, minim ad irure pancetta doner. Ullamco eu consectetur ribeye magna quis minim sint do aliquip id. Landjaeger doner proident duis tail.</p>
+					</div><!-- /#j-benefit-secure -->
+					<div class="benefit-content clear" id="j-benefit-engage">
 						<div class="j-col j-lrg-12 j-sm-12">
 							<h1>Share your posts with the world</h1>
 						</div><!-- /.j-col -->
-						<div class="j-col j-lrg-6 j-md-8 j-sm-12 alignleft j-publicize">
+						<div class="j-col j-lrg-12 alignleft j-publicize">
 							<h3 class="alignleft">Publicize</h3>
 							<p class="clear">Connect your networks and automatically share new posts with your friends. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
 							<div class="j-col j-lrg-6 j-md-12 j-sm-12 alignleft nopad">
@@ -174,12 +212,12 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 								</ul>
 							</div><!-- /.j-col -->
 						</div><!-- /.j-publicize -->
-						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-enhanced-distribution">
+						<div class="j-col j-lrg-12 alignleft j-enhanced-distribution">
 							<h3 class="alignleft">Enhanced Distribution <small class="j-enabled-notification">(enabled)</small></h3>
 							<p class="clear">Jetpack will automatically take the great published content from your blog or website and share it instantly with third party services like search engines, increasing your reach and traffic.
 								<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
 						</div><!-- /.j-enhanced-distribution -->
-						<div class="j-col j-lrg-6 j-md-4 j-sm-12 alignleft j-notifications">
+						<div class="j-col j-lrg-12 alignleft j-notifications">
 							<h3 class="alignleft">Notifications <small class="j-enabled-notification">(enabled)</small></h3>
 							<p class="clear">Keep up with the latest happenings on all your WordPress sites and interact with other WordPress.com users.
 								<a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
@@ -205,42 +243,42 @@ class Jetpack_Settings_Page_Benefits extends Jetpack_Admin_Page {
 						<div class="j-col j-lrg-12 j-sm-12">
 							<h1>Turn readers into fans</h1>
 						</div><!-- /.j-col -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-likes">
+						<div class="j-col j-lrg-12 alignleft j-likes">
 							<h3 class="j-title alignleft">Likes <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-likes -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-subscriptions">
+						<div class="j-col j-lrg-12 alignleft j-subscriptions">
 							<h3 class="j-title alignleft">Subsciptions <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-subscriptions -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-sharing">
+						<div class="j-col j-lrg-12 alignleft j-sharing">
 							<h3 class="j-title alignleft">Sharing <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-sharing -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-shortlinks">
+						<div class="j-col j-lrg-12 alignleft j-shortlinks">
 							<h3 class="j-title alignleft">WP.me Shortlinks <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1 <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-shortlinks -->
 						<div class="j-col j-lrg-12 j-sm-12">
 							<h1>Engage your visitors</h1>
 						</div><!-- /.j-col -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-related-posts">
+						<div class="j-col j-lrg-12 alignleft j-related-posts">
 							<h3 class="j-title alignleft">Related Posts <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Show readers more of your great content that is related to what they're already reading. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-related-posts -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-gravatar">
+						<div class="j-col j-lrg-12 alignleft j-gravatar">
 							<h3 class="j-title alignleft">Gravatar Hovercards <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Reward your commenters with more exposure by showing their gravatar bio on hover. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-gravatar -->
-						<div class="j-col j-lrg-6 j-sm-12 alignleft j-comments">
+						<div class="j-col j-lrg-12 alignleft j-comments">
 							<h3 class="j-title alignleft">Comments <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
 							<p class="clear">Make it easier for your readers to comment on your posts by letting them use their WordPress.com, Twitter, or Facebook accounts. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-comments -->
-					</div><!-- /.j-row -->
-				</div><!-- /#j-benefit-engage -->
+					</div><!-- /#j-benefit-engage -->
+				</div><!-- /#j-benefits-content -->
 			</div><!-- /#benefits -->
 		</div><!-- /.content -->
 		<?php

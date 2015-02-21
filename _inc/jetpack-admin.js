@@ -57,18 +57,48 @@
 
 		// Adding an active class to the benefits nav items
 		$( '.benefit-bucket a').click(function(){
+			var scroll_target = '#' + $(this).attr('class');
+			console.log(scroll_target);
+			$('html, body').animate({
+				scrollTop: $(scroll_target).offset().top-90
+			}, 2000);
 			$('.benefit-bucket').removeClass('active');
 			$(this).parent().addClass('active');
 		})
 
 		// Fix the benefits nav to the top of the page on scroll
 		function j_fix_benefits_nav() {
-			if ($(window).scrollTop() > 200)
+			var scrollTop = $(window).scrollTop();
+			if (scrollTop > 200){
 				$('#j-settings-nav').addClass('fixed');
-			else
+				$('#j-settings-nav').width($('#benefits').width());
+			}
+			else{
 				$('#j-settings-nav').removeClass('fixed');
+			}
+			if (scrollTop - ( $('#j-benefit-secure').offset().top - 100 ) > 0 ){
+				$('.benefit-bucket').removeClass('active');
+				$('.j-benefit-secure').parent().addClass('active');
+			}
+			else if (scrollTop - ( $('#j-benefit-performance').offset().top - 100 ) > 0 ){
+				$('.benefit-bucket').removeClass('active');
+				$('.j-benefit-performance').parent().addClass('active');
+			}
+			else if (scrollTop - ( $('#j-benefit-customize').offset().top - 100 ) > 0 ){
+				$('.benefit-bucket').removeClass('active');
+				$('.j-benefit-customize').parent().addClass('active');
+			}
+			else if (scrollTop - ( $('#j-benefit-engage').offset().top - 100 ) > 0 ){
+				$('.benefit-bucket').removeClass('active');
+				$('.j-benefit-engage').parent().addClass('active');
+			}
+			else{
+				$('.benefit-bucket').removeClass('active');
+				$('.j-benefit-content').parent().addClass('active');
+			}
 		}
 		$(window).scroll(j_fix_benefits_nav);
+		$(window).resize(j_fix_benefits_nav);
 		j_fix_benefits_nav();
 
 		// Benefits enable/disable toggle

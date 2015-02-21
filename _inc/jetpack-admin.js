@@ -4,6 +4,8 @@
 	// INIT
 	///////////////////////////////////////
 
+	var debug = false;
+
 	$(document).ready(function () {
 		initEvents();
 		configFixedElements();
@@ -53,7 +55,7 @@
 		// Manual switch between classic and new settings view
 		$('.settings-view').click(function() {
 			$('#classic_settings, #benefits, .classic-button, .benefits-button').toggle();
-		})
+		});
 
 		// Adding an active class to the benefits nav items
 		$( '.benefit-bucket a').click(function(){
@@ -61,10 +63,10 @@
 			console.log(scroll_target);
 			$('html, body').animate({
 				scrollTop: $(scroll_target).offset().top-90
-			}, 2000);
+			}, 1000);
 			$('.benefit-bucket').removeClass('active');
 			$(this).parent().addClass('active');
-		})
+		});
 
 		// Fix the benefits nav to the top of the page on scroll
 		function j_fix_benefits_nav() {
@@ -106,7 +108,25 @@
 			$(this).parent().toggleClass('j-feature-enabled');
 			$(this).find('.j-toggle-wrap').toggleClass('j-toggle-enabled');
 			$(this).prev('.j-title').children().toggle();
-		})
+			flyMiguel();
+		});
+
+		// Make a random Miguel fly!
+		function flyMiguel() {
+			try {
+				var miguels = ['.miguel:first-child', '.miguel:nth-child(2)', '.miguel:nth-child(3)'];
+				var miguel = miguels[Math.floor(Math.random() * miguels.length)];
+				console.log(miguel);
+				$(miguel).css('display', 'block');
+				setTimeout(function () {
+					$(miguel).css('display', 'none');
+				}, 4500);
+			} catch (e) {
+				if( debug ) {
+					console.log( 'flyMiguel(): ' + e );
+				}
+			}
+		}
 	}
 
 

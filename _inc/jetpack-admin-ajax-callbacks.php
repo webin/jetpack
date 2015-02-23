@@ -6,7 +6,6 @@ if ( 'toggle' == $_REQUEST['miguelCanFly'] && 0 == Jetpack::get_option( 'miguel_
 	Jetpack::update_option( 'miguel_can_fly', true );
 	?>
 	<p>Miguel can fly</p>
-	<p>Jetpack::update_option( 'miguel_can_fly', true );</p>
 	<div id="miguels" class="flyby">
 		<svg class="miguel" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="87px" viewBox="0 0 80 87" enable-background="new 0 0 80 87" xml:space="preserve">
 			<polygon class="eye" fill="#518d2a" points="41.187,17.081 46.769,11.292 50.984,15.306"/>
@@ -25,6 +24,5 @@ if ( 'toggle' == $_REQUEST['miguelCanFly'] && 0 == Jetpack::get_option( 'miguel_
 } else {
 	Jetpack::update_option( 'miguel_can_fly', false ); ?>
 	<p>Miguel can't fly</p>
-	<p>Jetpack::update_option( 'miguel_can_fly', false );</p>
 <?php }
 

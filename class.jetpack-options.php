@@ -51,6 +51,7 @@ class Jetpack_Options {
 			'last_heartbeat',               // (int)    The timestamp of the last heartbeat that fired.
 			'last_security_report',         // (int)    The timestamp of the last security report that was run.
 			'sync_bulk_reindexing',         // (bool)   If a bulk reindex is currently underway.
+			'miguel_can_fly'                // (bool)   Toggle Miguel's ability to fly
 		);
 	}
 

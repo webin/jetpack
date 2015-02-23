@@ -113,13 +113,13 @@
 
 		// Make a random Miguel fly!
 		function flyMiguel() {
+			var miguels = ['.miguel:first-child', '.miguel:nth-child(2)', '.miguel:nth-child(3)'];
+			var randomMiguel = miguels[Math.floor(Math.random() * miguels.length)];
+
 			try {
-				var miguels = ['.miguel:first-child', '.miguel:nth-child(2)', '.miguel:nth-child(3)'];
-				var miguel = miguels[Math.floor(Math.random() * miguels.length)];
-				console.log(miguel);
-				$(miguel).css('display', 'block');
+				$( randomMiguel ).css( 'display', 'block' );
 				setTimeout(function () {
-					$(miguel).css('display', 'none');
+					$( randomMiguel ).css( 'display', 'none' );
 				}, 4500);
 			} catch (e) {
 				if( debug ) {
@@ -128,7 +128,5 @@
 			}
 		}
 	}
-
-
 
 })(jQuery);

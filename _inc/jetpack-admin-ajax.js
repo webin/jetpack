@@ -6,7 +6,8 @@ jQuery(document).ready(function($) {
 
         var data = {
             'action': 'jetpack_admin_ajax',
-            'miguelCanFly': 'toggle'
+            'miguelCanFly': 'toggle',
+            'jetpack_quickconfig_nonce': jetpack_quickconfig_ajax_object.jetpack_quickconfig_nonce
         };
 
         $.post(ajaxurl, data, function(response) {

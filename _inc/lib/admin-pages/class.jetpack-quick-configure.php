@@ -21,7 +21,8 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 			'jetpack-quickconfig-ajax',
 			'jetpack_quickconfig_ajax_object',
 			array(
-				'ajaxurl'      => admin_url( 'admin-ajax.php' )
+				'ajaxurl'                   => admin_url( 'admin-ajax.php' ),
+				'jetpack_quickconfig_nonce' => wp_create_nonce( 'jetpack-quickconfig-nonce' )
 			)
 		);
 	}

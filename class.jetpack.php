@@ -293,6 +293,9 @@ class Jetpack {
 
 	// Include the callback html for quick configure ajax calls.
 	public static function jetpack_quickconfig_ajax_callback() {
+		if ( ! isset( $_POST['jetpack_quickconfig_nonce'] ) || ! wp_verify_nonce( $_POST['jetpack_quickconfig_nonce'], 'jetpack-quickconfig-nonce' ) )
+			wp_die( 'permissions check failed' );
+
 		require_once( '_inc/jetpack-admin-ajax-callbacks.php' );
 		wp_die();
 	}

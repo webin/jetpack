@@ -400,6 +400,7 @@ class Jetpack {
 		$this->sync->mock_option( 'is_main_network',   array( $this, 'is_main_network_option' ) );
 		$this->sync->mock_option( 'is_multi_site', array( $this, 'is_multisite' ) );
 		$this->sync->mock_option( 'main_network_site', array( $this, 'jetpack_main_network_site_option' ) );
+		$this->sync->mock_option( 'empty_trash_days', EMPTY_TRASH_DAYS );
 
 		/**
 		 * Trigger an update to the main_network_site when we update the blogname of a site.

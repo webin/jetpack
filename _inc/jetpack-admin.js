@@ -73,7 +73,7 @@
 			var scrollTop = $(window).scrollTop();
 			if (scrollTop > 200){
 				$('#j-settings-nav').addClass('fixed');
-				$('#j-settings-nav').width($('#benefits').width());
+				$('#j-settings-nav').width($('#benefits').width()*.5833333);
 			}
 			else{
 				$('#j-settings-nav').removeClass('fixed');

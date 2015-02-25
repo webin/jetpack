@@ -230,7 +230,7 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 					</div><!-- /#j-benefit-secure -->
 				</div><!-- /#j-benefits-content -->
 			</div><!-- /#benefits -->
-
+<?php /*
 			<!-- Toggle Miguel-->
 			<a class="toggle-miguel button" style="cursor: pointer;"><?php echo __( 'Toggle Miguel', 'jetpack' ); ?></a>
 			<span class="spinner" style="display: none;"></span>
@@ -256,8 +256,9 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 				<?php endif; ?>
 			</div>
 			<!-- End Toggle Miguel-->
-
+*/ ?>
 		</div><!-- /.content -->
+
 		<style>
 			.miguel {
 				display: none;

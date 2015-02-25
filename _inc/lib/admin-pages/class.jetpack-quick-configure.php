@@ -43,10 +43,6 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 		$list_table = new Jetpack_Modules_List_Table;
 		?>
 		<div class="clouds-sm"></div>
-		<div class="settings-view alignright">
-			<a href="#" class="classic-button">classic view</a>
-			<a href="#" class="benefits-button">benefits view</a>
-		</div><!-- /.settings-view -->
 		<?php do_action( 'jetpack_notices' ) ?>
 		<div class="page-content configure">
 			<style>
@@ -84,28 +80,7 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 				#benefits .j-feature-enabled { color: #ccc; }
 			</style>
 			<div id="benefits" class="j-row">
-				<div id="j-settings-nav" class="j-col j-lrg-7 aligncenter nopad">
-					<ul>
-						<!--<li class="benefit-bucket active"><a href="javascript:void(0)" class="j-benefit-content"><span class="genericon genericon-edit"></span>Content</a></li>-->
-						<li class="j-col j-lrg-4 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-engage"><span class="genericon genericon-rating-empty"></span>Engage</a></li>
-						<li class="j-col j-lrg-4 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-customize"><span class="genericon genericon-paintbrush"></span>Customize</a></li>
-						<li class="j-col j-lrg-4 benefit-bucket"><a href="javascript:void(0)" class="j-benefit-performance"><span class="genericon genericon-activity"></span>Secure & Optimize</a></li>
-					</ul>
-				</div>
 				<div id="j-benefits-content" class="j-col j-lrg-12">
-					<!--<div class="benefit-content" id="j-benefit-content">
-						<div class="j-col j-lrg-7 aligncenter">
-							<h1>Great content deserves great tools </h1>
-						</div><!-- /.j-col -->
-						<!--<div class="j-col j-lrg-7 aligncenter j-post-by-email">
-							<h3 class="j-title alignleft">Post by email <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
-						</div><!-- /.j-post-by-email -->
-					<!--<div class="j-col j-lrg-7 aligncenter j-videopress">
-						<h3 class="j-title alignleft">VideoPress <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-						<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
-					</div><!-- /.j-videopress -->
-					</div><!-- /#j-benefit-content -->
 					<div class="benefit-content clear" id="j-benefit-engage">
 						<div class="j-col j-lrg-7 aligncenter">
 							<h1>Share your posts with the world</h1>

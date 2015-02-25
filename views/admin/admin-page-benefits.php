@@ -44,18 +44,3 @@
 		<?php endif; ?>
 	</div>
 </div><!-- .masthead -->
-
-<div class="page-content about">
-	<div class="benefit-groups">
-
-		<div class="benefit-group-filter" id="benefit-filters">
-			<a href="#" id="customization" data-filter="customization" class="selected"><?php esc_html_e( 'Customize', 'jetpack' ); ?> | </a>
-			<a href="#" id="publish" data-filter="publish" class="selected"><?php esc_html_e( 'Publish', 'jetpack' ); ?> | </a>
-			<a href="#" id="secure-optimize" data-filter="secure-optimize" class="selected"><?php esc_html_e( 'Secure and Optimize', 'jetpack' ); ?> | </a>
-			<a href="#" id="engagement" data-filter="engagement" class="selected"><?php esc_html_e( 'Engagement and Traffic', 'jetpack' ); ?></a>
-		</div>
-
-		<div class="benefit-settings"></div>
-
-	</div><!-- .benefit-groups -->
-</div><!-- .page -->

@@ -87,7 +87,7 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-7 aligncenter j-publicize">
 							<h3 class="j-title alignleft">Publicize</h3>
-							<p class="clear">Connect your networks and automatically share new posts with your friends. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
+							<p class="clear">Connect your networks and automatically share new posts with your friends. <a><span class="genericon genericon-help"></span></a></p>
 							<ul>
 								<li class="j-social-connect clear"><span class="genericon genericon-facebook"></span><p class="alignleft">Facebook</p><button class="alignright">Connect</button></li>
 								<li class="j-social-connect clear"><span class="genericon genericon-twitter"></span><p class="alignleft">Twitter</p><button class="alignright">Connect</button></li>
@@ -99,7 +99,7 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 						</div><!-- /.j-publicize -->
 						<div class="j-col j-lrg-7 aligncenter j-verification">
 							<h3 class="j-title alignleft">Site Verifitcation</h3>
-							<p class="clear">Optimise your site with Google & Bing Webmaster Tools, and improve your Pinterest profile. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a></p>
+							<p class="clear">Optimise your site with Google & Bing Webmaster Tools, and improve your Pinterest profile. <a><span class="genericon genericon-help"></span></a></p>
 							<form>
 								<label><a href="#">Google Webmaster Tools</a></label>
 								<input type="text" placeholder="<meta name='google-site-verification' content='dBw5CvburAxi537Rp9qi5uG2174Vb6JwHwIRwPSLIK8'>">
@@ -115,37 +115,33 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-7 aligncenter j-likes">
 							<h3 class="j-title alignleft">Likes <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Track and engage readers who really appreciate your posts by adding a like button at the bottom of your post. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-likes -->
 						<div class="j-col j-lrg-7 aligncenter j-subscriptions">
 							<h3 class="j-title alignleft">Subsciptions <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Give readers the option to subscribe to your posts via email. They'll never miss another post. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-subscriptions -->
 						<div class="j-col j-lrg-7 aligncenter j-sharing">
 							<h3 class="j-title alignleft">Sharing <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Give your readers the ability to share your posts across social networks, via email and more with just one click. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-sharing -->
-						<!--<div class="j-col j-lrg-7 aligncenter j-shortlinks">
-							<h3 class="j-title alignleft">WP.me Shortlinks <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Make your URLs short and sweet so you can easily share them with your network. example: <?php echo bloginfo( 'url' ); ?>2014/10/hello-world becomes http://wp.me/p5sC8j-1 <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
-						</div><!-- /.j-shortlinks -->
 						<div class="j-col j-lrg-7 aligncenter">
 							<h1>Engage your visitors</h1>
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-7 aligncenter j-related-posts">
 							<h3 class="j-title alignleft">Related Posts <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Show readers more of your great content that is related to what they're already reading. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Show readers more of your great content that is related to what they're already reading. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-related-posts -->
 						<div class="j-col j-lrg-7 aligncenter j-gravatar">
 							<h3 class="j-title alignleft">Gravatar Hovercards <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Reward your commenters with more exposure by showing their gravatar bio on hover. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Reward your commenters with more exposure by showing their gravatar bio on hover. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-gravatar -->
 						<div class="j-col j-lrg-7 aligncenter j-comments">
 							<h3 class="j-title alignleft">Comments <small class="hide">(enabled)</small></h3>
 							<div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Make it easier for your readers to comment on your posts by letting them use their WordPress.com, Twitter, or Facebook accounts. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Make it easier for your readers to comment on your posts by letting them use their WordPress.com, Twitter, or Facebook accounts. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-comments -->
 					</div><!-- /#j-benefit-engage -->
 					<div class="benefit-content clear" id="j-benefit-customize">
@@ -154,24 +150,16 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-7 aligncenter j-mobile-theme">
 							<h3 class="j-title alignleft">Mobile Theme <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-mobile-theme -->
 						<div class="j-col j-lrg-7 aligncenter j-infinite-scroll">
 							<h3 class="j-title alignleft">Infinite Scroll <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-infinite-scroll -->
 						<div class="j-col j-lrg-7 aligncenter j-carousel">
 							<h3 class="j-title alignleft">Carousel <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-carousel -->
-						<!--<div class="j-col j-lrg-7 aligncenter j-tiled-galleries">
-							<h3 class="j-title alignleft">Tiled Galleries <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
-						</div><!-- /.j-tiled-galleries -->
-						<!--<div class="j-col j-lrg-7 aligncenter j-site-icon">
-							<h3 class="j-title alignleft">Site Icon <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
-						</div><!-- /.j-site-icon -->
 					</div><!-- /#j-benefit-customize -->
 					<div class="benefit-content clear" id="j-benefit-performance">
 						<div class="j-col j-lrg-7 aligncenter">
@@ -179,28 +167,24 @@ class Jetpack_Quick_Configure extends Jetpack_Admin_Page {
 						</div><!-- /.j-col -->
 						<div class="j-col j-lrg-7 aligncenter j-photon">
 							<h3 class="j-title alignleft">Photon <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-photon -->
 					</div><!-- /#j-benefit-performance -->
 					<div class="benefit-content clear" id="j-benefit-secure">
 						<div class="j-col j-lrg-7 aligncenter">
 							<h1>Secure</h1>
 						</div><!-- /.j-col -->
-						<!--<div class="j-col j-lrg-7 aligncenter j-single-sign-on">
-							<h3 class="j-title alignleft">Single Sign On <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
-						</div><!-- /.j-single-sign-on -->
 						<div class="j-col j-lrg-7 aligncenter j-monitor">
 							<h3 class="j-title alignleft">Monitor <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-monitor -->
 						<div class="j-col j-lrg-7 aligncenter j-security-scan">
 							<h3 class="j-title alignleft">Security Scanning <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-security-scan -->
 						<div class="j-col j-lrg-7 aligncenter j-akismet">
 							<h3 class="j-title alignleft">Akismet <small class="hide">(enabled)</small></h3><div class="j-enable-feature"><div class="j-toggle"><div class="j-toggle-wrap"><div class="j-toggle-off">Off</div><div class="j-toggle-on">On</div></div></div></div>
-							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a href="javascript:void(0)"><span class="genericon genericon-help"></span></a><a href="javascript:void(0)"><span class="genericon genericon-image"></span></a></p>
+							<p class="clear">Bacon ipsum dolor amet nisi tongue sint mollit filet mignon lorem tail pork flank id doner pork belly brisket. <a><span class="genericon genericon-help"></span></a><a><span class="genericon genericon-image"></span></a></p>
 						</div><!-- /.j-akismet -->
 					</div><!-- /#j-benefit-secure -->
 				</div><!-- /#j-benefits-content -->

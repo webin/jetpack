@@ -1,6 +1,9 @@
 <?php
 
 class Jetpack_Client {
+	const WPCOM_JSON_API_HOST        = 'public-api.wordpress.com';
+	const WPCOM_JSON_API_VERSION     = '1.1';
+
 	/**
 	 * Makes an authorized remote request using Jetpack_Signature
 	 *
@@ -211,4 +214,28 @@ class Jetpack_Client {
 			}
 		}
 	}
+
+	/**
+	 * Query the WordPress.com REST API using the blog token
+	 */
+	static function wpcom_json_api_request_as_blog( $path, $version = self::WPCOM_JSON_API_VERSION, $args = array(), $body = null ) {
+		$filtered_args = array_intersect_key( $args, array(
+			'method'         => 'string',
+			'timeout'        => 'int',
+			'redirection'    => 'int',
+		) );
+
+		$proto = apply_filters( 'jetpack_can_make_outbound_https', true ) ? 'https' : 'http';
+
+		// unprecedingslashit
+		$_path = preg_replace( '/^\//', '', $path );
+
+		$validated_args = array_merge( $filtered_args, array(
+			'url'     => sprintf( '%s://%s/rest/v%s/%s', $proto, self::WPCOM_JSON_API_HOST, $version, $_path ),
+			'blog_id' => (int) Jetpack_Options::get_option( 'id' ),
+		) );
+
+		return Jetpack_Client::remote_request( $validated_args, $body );
+	}
+
 }

@@ -1153,10 +1153,21 @@ function prep_stats_view_data( $data ) {
 	);
 }
 
+function jetpack_stats_api_path( $resource = '' ) {
+	return sprintf( '/sites/%d/stats%s', stats_get_option( 'blog_id' ), $resource );
+}
+
 add_action( 'jetpack_dashboard_widget', 'stats_section_jetpack_dashboard_widget', 1 );
 function stats_section_jetpack_dashboard_widget() {
 	wp_enqueue_script( 'flot.time' );
 	wp_enqueue_script( 'flot.resize' );
+
+	/**
+	 * @todo use this instead:
+	 * $views_api_path = jetpack_stats_api_path( '/views' );
+	 * Jetpack_Client::wpcom_json_api_request_as_blog( $views_api_path );
+	 */
+
 	$raw_stats_view_data = stats_get_csv( 'views', array(
 		'period' => 'days',
 		'days' => 60,

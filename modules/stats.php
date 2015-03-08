@@ -1146,13 +1146,6 @@ function stats_str_getcsv( $csv ) {
 	return $data;
 }
 
-function prep_stats_view_data( $data ) {
-	return array(
-		strtotime( $data['date'] ) * 1000,
-		intval( $data['views'] )
-	);
-}
-
 function jetpack_stats_api_path( $resource = '' ) {
 	return sprintf( '/sites/%d/stats%s', stats_get_option( 'blog_id' ), $resource );
 }
@@ -1163,17 +1156,28 @@ function stats_section_jetpack_dashboard_widget() {
 	wp_enqueue_script( 'flot.resize' );
 
 	/**
-	 * @todo use this instead:
-	 * $views_api_path = jetpack_stats_api_path( '/views' );
-	 * Jetpack_Client::wpcom_json_api_request_as_blog( $views_api_path );
+	 * @todo this should all be asynchronous! AJAX to the rescue :)
 	 */
+	$response = Jetpack_Client::wpcom_json_api_request_as_blog( jetpack_stats_api_path() );
+	if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+		return $response;
+	}
 
-	$raw_stats_view_data = stats_get_csv( 'views', array(
-		'period' => 'days',
-		'days' => 60,
-		'summarize' => false,
-	) );
-	$stats_view_data = array_map( 'prep_stats_view_data', $raw_stats_view_data );
+	$stats_data = json_decode( $response['body'] );
+
+	$date_idx = array_search( 'period', $stats_data->visits->fields );
+	$views_idx = array_search( 'views', $stats_data->visits->fields );
+
+	/**
+	 * @todo error checking, etc?
+	 * @todo incorporate the visitors count as well?
+	 */
+	$stats_view_data = array_map( function ( $data ) use ( $date_idx, $views_idx ) {
+		return array(
+			strtotime( $data[$date_idx] ) * 1000,
+			intval( $data[$views_idx] )
+		);
+	}, $stats_data->visits->data );
 	?>
 	<div class="stats">
 		<h1><?php esc_html_e( 'Your Site Stats', 'jetpack' ); ?></h1>

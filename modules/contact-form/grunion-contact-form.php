@@ -177,9 +177,9 @@ class Grunion_Contact_Form_Plugin {
 	 */
 	function grunion_show_invalid_email_message() {
 		if ( get_option( 'grunion_display_email_error_notice' ) ) { ?>
-			<script>alert( '<?php echo get_option('grunion_display_email_error_notice'); ?>' );</script>
+			<script>alert( '<?php echo htmlspecialchars( get_option('grunion_display_email_error_notice'), ENT_QUOTES ); ?>' );</script>
 			<?php
-			delete_option( 'grunion_display_email_error_notice' );
+			delete_option('grunion_display_email_error_notice');
 		}
 	}
 

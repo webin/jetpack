@@ -166,7 +166,7 @@ class Grunion_Contact_Form_Plugin {
 			}
 
 			if ( ! empty( $invalid_emails ) ) {
-				$this->invalid_email_message = sprintf( __( 'There are some invalid email recipients for the Jetpack contact form. Please consider fixing the following: %s', 'jetpack' ), json_encode( $invalid_emails ) );
+				$this->invalid_email_message = sprintf( __( 'There are some invalid email recipients for the Jetpack contact form. Please consider fixing the following: %s', 'jetpack' ), implode( ',', $invalid_emails ) );
 				update_option( 'grunion_display_email_error_notice', $this->invalid_email_message );
 			}
 		}

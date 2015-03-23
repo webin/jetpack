@@ -271,5 +271,7 @@ class Jetpack_Landing_Page extends Jetpack_Admin_Page {
 				'site_url_manage'   => Jetpack::build_raw_urls( get_site_url() ),
 			)
 		);
+		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ),
+			array( 'jquery', 'wp-util' ), JETPACK__VERSION . '-20121111' );
 	}
 }

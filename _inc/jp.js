@@ -34,11 +34,11 @@
 
 	function closeShadeToggle() {
 		// Clicking outside modal, or close X closes modal
-		$( '.shade, .modal .close' ).on( 'click', function () {
-			$( '.shade, .modal' ).hide();
+		$( '.shade, #jp-module-modal .close' ).on( 'click', function () {
+			$( '.shade, #jp-module-modal' ).hide();
 			$( '.manage-right' ).removeClass( 'show' );
 			originPoint.focus();
-			$( '.modal' )[0].removeAttribute( 'tabindex' );
+			$( '#jp-module-modal' )[0].removeAttribute( 'tabindex' );
 			return false;
 		});
 
@@ -48,7 +48,7 @@
 				$( '.shade, .modal' ).hide();
 				$( '.manage-right' ).removeClass( 'show' );
 				originPoint.focus();
-				$( '.modal' )[0].removeAttribute( 'tabindex' );
+				$( '#jp-module-modal' )[0].removeAttribute( 'tabindex' );
 			}
 		});
 	}
@@ -87,7 +87,7 @@
 	}
 
 	function initModalEvents() {
-		var $modal = $( '.modal' );
+		var $modal = $( '#jp-module-modal' );
 		$( '.module h3, .feature a, .configs a, .more-info' ).on( 'click keypress', function (e) {
 			// Only show modal on enter when keypress recorded (accessibility)
 			if ( e.keyCode && 13 !== e.keyCode ) {
@@ -114,8 +114,8 @@
 			closeShadeToggle();
 
 			// Modal header links
-			$( '.modal header li a.title' ).on( 'click', function () {
-				$( '.modal header li a.title' ).removeClass( 'active' );
+			$( '#jp-module-modal header li a.title' ).on( 'click', function () {
+				$( '#jp-module-modal header li a.title' ).removeClass( 'active' );
 				$( this ).addClass( 'active' );
 				return false;
 			});

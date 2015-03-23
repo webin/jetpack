@@ -43,8 +43,8 @@
 		if ( 27 === e.keyCode ) {
 			$( '.shade, .modal' ).hide();
 			$( '.manage-right' ).removeClass( 'show' );
-			originPoint.focus();
-			$( '.modal' )[0].removeAttribute( 'tabindex' );
+			$( 'body' ).css( 'overflow', '' );
+			$( '#jp-module-modal' )[0].removeAttribute( 'tabindex' );
 		}
 	});
 
@@ -53,45 +53,45 @@
 	 */
 
 	show_modal = function( module ) {
-		$jp_frame.children( '.modal, .shade' ).show();
-		$( '.modal ').empty().html( wp.template( 'modal' )( items[ module ] ) );
-		$( '.modal' )[0].setAttribute( 'tabindex', '0' );
-		$( '.modal' ).focus();
+		$jp_frame.children( '#jp-module-modal, .shade' ).show();
+		$( '#jp-module-modal ').empty().html( wp.template( 'modal' )( items[ module ] ) );
+		$( '#jp-module-modal' )[0].setAttribute( 'tabindex', '0' );
+		$( '#jp-module-modal' ).focus();
 	};
 
 	hide_modal = function() {
-		$jp_frame.children( '.modal, .shade' ).hide();
-		$jp_frame.children( '.modal' ).data( 'current-module', '' );
+		$jp_frame.children( '#jp-module-modal, .shade' ).hide();
+		$jp_frame.children( '#jp-module-modal' ).data( 'current-module', '' );
 		set_modal_tab( null );
 		originPoint.focus();
-		$( '.modal' )[0].removeAttribute( 'tabindex' );
+		$( '#jp-module-modal' )[0].removeAttribute( 'tabindex' );
 	};
 
 	set_modal_tab = function( tab ) {
-		$jp_frame.find( '.modal .active' ).removeClass( 'active' );
+		$jp_frame.find( '#jp-module-modal .active' ).removeClass( 'active' );
 		switch ( tab ) {
 			case 'learn-more':
-				$jp_frame.find( '.modal .learn-more a' ).addClass( 'active' );
-				$jp_frame.children( '.modal' ).trigger( 'learn-more' );
+				$jp_frame.find( '#jp-module-modal .learn-more a' ).addClass( 'active' );
+				$jp_frame.children( '#jp-module-modal' ).trigger( 'learn-more' );
 				break;
 			case 'config':
-				$jp_frame.find( '.modal .config a' ).addClass( 'active' );
-				$jp_frame.children( '.modal' ).trigger( 'config' );
+				$jp_frame.find( '#jp-module-modal .config a' ).addClass( 'active' );
+				$jp_frame.children( '#jp-module-modal' ).trigger( 'config' );
 				break;
 			default:
 				break;
 		}
 	};
 
-	$jp_frame.on( 'click', '.modal .close, .shade', hide_modal );
+	$jp_frame.on( 'click', '#jp-module-modal .close, .shade', hide_modal );
 
-	$jp_frame.children( '.modal' ).on( 'learn-more', function() {
-		var current_module = $jp_frame.children( '.modal' ).data( 'current-module' );
+	$jp_frame.children( '#jp-module-modal' ).on( 'learn-more', function() {
+		var current_module = $jp_frame.children( '#jp-module-modal' ).data( 'current-module' );
 		$(this).find('.content').html( items[ current_module ].long_description );
 	} );
 
-	$jp_frame.children( '.modal' ).on( 'config', function() {
-		var current_module = $jp_frame.children( '.modal' ).data( 'current-module' );
+	$jp_frame.children( '#jp-module-modal' ).on( 'config', function() {
+		var current_module = $jp_frame.children( '#jp-module-modal' ).data( 'current-module' );
 		// Hack.  Until we import the form to the modal, just redirect to where it would have gone.
 		hide_modal();
 		window.location.href = items[ current_module ].configure_url;

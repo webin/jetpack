@@ -647,18 +647,20 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   background: #81a844;
 }
 
-.header-nav li {
-  line-height: 60px;
-}
 .header-nav a {
   padding: 0 0.71429em;
   line-height: 24px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.header-nav .jetpack-logo {
+  display: inline-block;
 }
 .header-nav .jetpack-logo a {
   display: inline-block;
   position: relative;
   width: 214px;
-  margin-right: 6px;
+  margin: 0;
   background: url(../images/jetpack-logo.png) center center no-repeat;
   background: url(../images/jetpack-logo.svg) center center no-repeat, none;
   background-size: 183px auto;
@@ -679,8 +681,8 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   height: 100%;
   background-size: 183px 32px;
 }
-.header-nav .jetpack-modules + .jetpack-modules {
-  margin-left: 15px;
+.header-nav .options {
+  display: inline-block;
 }
 
 .main-nav {
@@ -892,9 +894,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   pointer-events: none;
   z-index: 2;
 }
-@media (max-width: 530px) {
+@media (max-width: 782px) {
   .clouds-sm {
-    height: 90px;
+    display: none;
   }
 }
 
@@ -1493,6 +1495,18 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   }
 }
 
+#jp-connection-modal {
+  max-width: 500px;
+  margin: 0 auto;
+  max-height: 500px;
+  overflow: scroll;
+}
+@media (min-width: 782px) {
+  #jp-connection-modal {
+    max-width: 700px;
+  }
+}
+
 .jp-info-img {
   float: right;
   margin: 0 0 30px 30px;
@@ -1527,6 +1541,55 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   right: 0;
   top: 0;
   z-index: 11;
+}
+
+#jetpack-disconnect-content {
+  display: none;
+}
+
+.connection-details {
+  border: 1px #f2f2f2 solid;
+}
+.connection-details h3,
+.connection-details .j-col div {
+  padding: 10px;
+}
+.connection-details h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 10px;
+  line-height: 100%;
+  color: #777;
+}
+.connection-details .j-col {
+  padding: 0;
+}
+.connection-details .j-col div span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+@media (max-width: 782px) {
+  .connection-details .j-col div span {
+    max-width: 95%;
+  }
+}
+.connection-details .jp-user {
+  border-right: 1px #f2f2f2 solid;
+}
+.connection-details .jp-actions {
+  border-top: 1px #f2f2f2 solid;
+  padding: 10px;
+}
+@media (max-width: 320px) {
+  .connection-details .button {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .entry-title,
@@ -2062,25 +2125,14 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     width: 100%;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 525px) {
   .jp-frame .header-nav {
     padding-bottom: 10px;
   }
-  .jp-frame .header-nav li {
-    line-height: 30px;
-  }
-  .jp-frame .header-nav .jetpack-logo {
+  .jp-frame .header-nav .jetpack-logo,
+  .jp-frame .header-nav .options {
     width: 100%;
     text-align: center;
-  }
-  .jp-frame .header-nav .jetpack-modules {
-    margin: 0;
-    width: 50%;
-    text-align: right;
-    padding: 0 5px;
-  }
-  .jp-frame .header-nav .jetpack-modules + .jetpack-modules {
-    text-align: left;
   }
 }
 @media (max-width: 320px) {

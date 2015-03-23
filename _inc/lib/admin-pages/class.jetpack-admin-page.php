@@ -80,6 +80,7 @@ abstract class Jetpack_Admin_Page {
 	// Load underscore template for the landing page and settings page modal
 	function module_modal_js_template() {
 		Jetpack::init()->load_view( 'admin/module-modal-template.php' );
+		Jetpack::init()->load_view( 'admin/connection-modal-template.php' );
 	}
 
 	function admin_page_top() {
@@ -99,11 +100,27 @@ abstract class Jetpack_Admin_Page {
 	// Enqueue the Jetpack admin stylesheet
 	function admin_styles() {
 		$min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		$master_user_com_data = Jetpack::jetpack_my_connection_logic();
 
 		wp_enqueue_style( 'jetpack-google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,600,800' );
 
 		wp_enqueue_style( 'jetpack-admin', plugins_url( "css/jetpack-admin{$min}.css", JETPACK__PLUGIN_FILE ), array( 'genericons' ), JETPACK__VERSION . '-20121016' );
 		wp_style_add_data( 'jetpack-admin', 'rtl', 'replace' );
 		wp_style_add_data( 'jetpack-admin', 'suffix', $min );
+
+		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ),
+			array( 'jquery', 'wp-util' ), JETPACK__VERSION . '-20121111' );
+
+		wp_localize_script( 'jp-connection-js', 'jpConnection',
+			array(
+				'connectionLogic'   => Jetpack::jetpack_my_connection_logic(),
+				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
+				'myConnectionNonce' => wp_create_nonce( 'jetpack-my-connection-nonce' ),
+				'jetpackIsActive'   => Jetpack::is_active(),
+				'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
+				'masterComData'     => $master_user_com_data['master_data_com'],
+				'userComData'       => Jetpack::get_connected_user_data()
+			)
+		);
 	}
 }

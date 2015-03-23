@@ -145,20 +145,20 @@ body {
 	background: $green;
 }
 .header-nav {
-	li {
-		line-height: 60px;
-		
-	}
 	a {
 		padding: 0 em(10px);
 		line-height: 24px;
+		margin: 0 4px;
+		cursor: pointer; // for anchors that open modals
 	}
 	.jetpack-logo {
+		display: inline-block;
+
 		a {
 			display: inline-block;
 			position: relative;
 			width: 214px;
-			margin-right: 6px;
+			margin: 0;
 			background: url(../images/jetpack-logo.png) center center no-repeat;
 			background: url(../images/jetpack-logo.svg) center center no-repeat, none;
 			background-size: 183px auto;
@@ -179,13 +179,12 @@ body {
 				left: 0;
 				width: 100%;
 				height: 100%;
-				
 				background-size: 183px 32px;
 			}
 		}
 	}
-	.jetpack-modules + .jetpack-modules {
-		margin-left:15px
+	.options {
+		display: inline-block;
 	}
 }
 
@@ -397,8 +396,8 @@ body {
 		pointer-events: none;
 		z-index: 2;
 	}
-	@include breakpoint(large-phone){
-		height: 90px;
+	@include breakpoint(tablet){
+		display: none;
 	};
 }
 
@@ -1017,6 +1016,17 @@ body {
 		left: 10px;
 	}
 }
+
+#jp-connection-modal {
+  max-width: 500px;
+  margin: 0 auto;
+  max-height: 500px;
+  overflow: scroll;
+	@include minbreakpoint(tablet){
+		max-width: 700px;
+	};
+}
+
 .jp-info-img {
 	float: right;
 	margin: 0 0 30px 30px;
@@ -1049,6 +1059,67 @@ body {
 	right: 0;
 	top: 0;
 	z-index: 11;
+}
+
+// ==========================================================================
+// Connection Details - Inside Modal
+// ==========================================================================
+#jetpack-disconnect-content {
+  display:none;
+}
+.connection-details {
+	border: 1px #f2f2f2 solid;
+
+	h3,
+	.j-col div {
+		padding: 10px;
+	}
+
+	h3 {
+		font-size: 12px;
+		text-transform: uppercase;
+		background: #f2f2f2;
+		margin: 0;
+		padding: 10px;
+		line-height: 100%;
+		color: #777;
+	}
+
+	.j-col {
+		padding: 0;
+	}
+
+	.j-col div {
+
+		span {
+			display: inline-block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+		}
+		@include breakpoint(tablet){
+			span {
+				max-width: 95%; 
+			}
+		}
+	}
+
+	.jp-user {
+		border-right: 1px #f2f2f2 solid;
+	}
+
+	.jp-actions {
+		border-top: 1px #f2f2f2 solid;
+		padding: 10px;
+	}
+
+	.button {
+		@include breakpoint(phone){
+			width: 100%;
+			text-align: center;
+		}
+	}
 }
 
 // ==========================================================================
@@ -1585,26 +1656,15 @@ body {
 // Custom Breakpoints
 // ==========================================================================
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 525px) {
 	.jp-frame {
 		.header-nav {
 			padding-bottom: 10px;
 
-			li {
-				line-height: 30px;
-			}
-			.jetpack-logo {
+			.jetpack-logo,
+			.options {
 				width: 100%;
 				text-align: center;
-			}
-			.jetpack-modules {
-				margin: 0;
-				width: 50%;
-				text-align: right;
-				padding: 0 5px;
-			}
-			.jetpack-modules + .jetpack-modules {
-				text-align: left;
 			}
 		}
 	}

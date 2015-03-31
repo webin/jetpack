@@ -60,6 +60,32 @@ abstract class Jetpack_Admin_Page {
 		}
 	}
 
+	/*
+	 * Info about the user's connection relationship with the site.
+	 *
+	 * @return array
+	 */
+	function jetpack_my_connection_logic() {
+		global $current_user;
+		$is_active         = Jetpack::is_active();
+		$user_token        = Jetpack_Data::get_access_token( $current_user->ID );
+		$is_user_connected = $user_token && ! is_wp_error( $user_token );
+		$is_master_user    = $current_user->ID == Jetpack_Options::get_option( 'master_user' );
+
+		$master_user_id = Jetpack_Options::get_option( 'master_user' );
+		$master_user_data = get_userdata( $master_user_id );
+
+		$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data->user_login );
+
+		$connection_info = array(
+			'is_master_user' => $is_master_user,
+			'master_user_link'    => $edit_master_user_link,
+			'is_user_connected' => $is_user_connected
+		);
+
+		return $connection_info;
+	}
+
 	// Render the page with a common top and bottom part, and page specific
 	// content
 	function render() {
@@ -106,5 +132,14 @@ abstract class Jetpack_Admin_Page {
 		wp_enqueue_style( 'jetpack-admin', plugins_url( "css/jetpack-admin{$min}.css", JETPACK__PLUGIN_FILE ), array( 'genericons' ), JETPACK__VERSION . '-20121016' );
 		wp_style_add_data( 'jetpack-admin', 'rtl', 'replace' );
 		wp_style_add_data( 'jetpack-admin', 'suffix', $min );
+
+		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ),
+			array( 'jquery', 'wp-util' ), JETPACK__VERSION . '-20121111' );
+
+		wp_localize_script( 'jp-connection-js', 'jpConnection',
+			array(
+				'connectionLogic' => $this->jetpack_my_connection_logic()
+			)
+		);
 	}
 }

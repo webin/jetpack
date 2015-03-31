@@ -9,12 +9,13 @@
 	$( document ).ready(function () {
 
 		data = {
-			'isMasterUser'    : jpConnection.connectionLogic.is_master_user,
-			'masterUserLink'  : jpConnection.connectionLogic.master_user_link,
-			'isUserConnected' : jpConnection.connectionLogic.is_user_connected,
-			'userToken'       : jpConnection.connectionLogic.user_token
+			'action'            : 'jetpack_my_connection_ajax',
+			'isMasterUser'      : jpConnection.connectionLogic.is_master_user,
+			'masterUserLink'    : jpConnection.connectionLogic.master_user_link,
+			'isUserConnected'   : jpConnection.connectionLogic.is_user_connected,
+			'userToken'         : jpConnection.connectionLogic.user_token,
+			'myConnectionNonce' : jpConnection.myConnectionNonce
 		};
-
 		$('#jp-connection').click(function(){
 			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' )( $.extend( {
 				isMasterUser    : data.isMasterUser,
@@ -41,7 +42,17 @@
 		if ( ! confirm( 'Are you sure?' ) ) {
 			return false;
 		} else {
-			alert( 'do some ajaxy stuff here' );
+			$( '.spinner' ).show();
+
+			data.switchMasterUser = 'switch-master-user';
+
+			$.post( jpConnection.ajaxurl, data, function (response) {
+				console.log( response );
+
+				$( '#my-connection-content' ).html( response );
+
+				$( '.spinner' ).hide();
+			});
 		}
 	}
 

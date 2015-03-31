@@ -67,7 +67,6 @@ abstract class Jetpack_Admin_Page {
 	 */
 	function jetpack_my_connection_logic() {
 		global $current_user;
-		$is_active         = Jetpack::is_active();
 		$user_token        = Jetpack_Data::get_access_token( $current_user->ID );
 		$is_user_connected = $user_token && ! is_wp_error( $user_token );
 		$is_master_user    = $current_user->ID == Jetpack_Options::get_option( 'master_user' );
@@ -78,8 +77,8 @@ abstract class Jetpack_Admin_Page {
 		$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data->user_login );
 
 		$connection_info = array(
-			'is_master_user' => $is_master_user,
-			'master_user_link'    => $edit_master_user_link,
+			'is_master_user'    => $is_master_user,
+			'master_user_link'  => $edit_master_user_link,
 			'is_user_connected' => $is_user_connected
 		);
 
@@ -138,7 +137,9 @@ abstract class Jetpack_Admin_Page {
 
 		wp_localize_script( 'jp-connection-js', 'jpConnection',
 			array(
-				'connectionLogic' => $this->jetpack_my_connection_logic()
+				'connectionLogic'   => $this->jetpack_my_connection_logic(),
+				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
+				'myConnectionNonce' => wp_create_nonce( 'jetpack-my-connection-nonce' ),
 			)
 		);
 	}

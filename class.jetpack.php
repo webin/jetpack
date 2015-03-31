@@ -523,6 +523,8 @@ class Jetpack {
 		add_action( 'wp_ajax_jetpack_admin_ajax',  array( $this, 'jetpack_jumpstart_ajax_callback' ) );
 		add_action( 'update_option', array( $this, 'jumpstart_has_updated_module_option' ) );
 
+		add_action( 'wp_ajax_jetpack_my_connection_ajax', array( $this, 'jetpack_my_connection_ajax_callback' ) );
+
 		add_action( 'wp_loaded', array( $this, 'register_assets' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'devicepx' ) );
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'devicepx' ) );
@@ -562,6 +564,31 @@ class Jetpack {
 			add_action( 'wp_print_styles', array( $this, 'implode_frontend_css' ), -1 ); // Run first
 			add_action( 'wp_print_footer_scripts', array( $this, 'implode_frontend_css' ), -1 ); // Run first to trigger before `print_late_styles`
 		}
+	}
+
+	/*
+	 * Ajax callback for the My Connection actions
+	 */
+	function jetpack_my_connection_ajax_callback() {
+		// Check for nonce
+		if ( ! isset( $_REQUEST['myConnectionNonce'] ) || ! wp_verify_nonce( $_REQUEST['myConnectionNonce'], 'jetpack-my-connection-nonce' ) )
+			wp_die( 'permissions check failed' );
+
+		if ( isset( $_REQUEST['switchMasterUser'] ) && 'switch-master-user' == $_REQUEST['switchMasterUser'] ) {
+			$current_user      = get_current_user_id();
+			$user_token        = Jetpack_Data::get_access_token( $current_user );
+			$is_user_connected = $user_token && ! is_wp_error( $user_token );
+
+			if ( is_admin() && $is_user_connected ) {
+				Jetpack_Options::update_option( 'master_user', $current_user );
+
+				$this->user_role_change( get_current_user_id() ); // Not sure if this is necessary
+
+				echo 'You did it!';
+			}
+		}
+
+		wp_die();
 	}
 
 	/**

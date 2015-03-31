@@ -1023,6 +1023,14 @@ body {
 		left: 10px;
 	}
 }
+
+#jp-connection-modal {
+  max-width: 500px;
+  margin: 0 auto;
+  max-height: 300px;
+  overflow: scroll;
+}
+
 .jp-info-img {
 	float: right;
 	margin: 0 0 30px 30px;

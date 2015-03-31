@@ -6,9 +6,11 @@
 
 	$( document ).ready(function () {
 
-		var $modal = $( '#jp-connection-modal' );
 		$('#jp-connection').click(function(){
-			$modal.empty().html( wp.template( 'modal' ) );
+			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' ) );
+			$('#jp-connection-modal, .shade').show();
+			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );
+			$('#jp-connection-modal').focus();
 		});
 
 	});

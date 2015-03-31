@@ -80,6 +80,7 @@ abstract class Jetpack_Admin_Page {
 	// Load underscore template for the landing page and settings page modal
 	function module_modal_js_template() {
 		Jetpack::init()->load_view( 'admin/module-modal-template.php' );
+		Jetpack::init()->load_view( 'admin/connection-modal-template.php' );
 	}
 
 	function admin_page_top() {

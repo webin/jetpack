@@ -31,7 +31,7 @@ $is_master_user    = $current_user->ID == Jetpack_Options::get_option( 'master_u
 			</nav><!-- .secondary -->
 		</div><!-- .footer -->
 
-		<div class="modal" aria-labelledby="modal-label">
+		<div class="modal" id="jp-module-modal" aria-labelledby="modal-label">
 			<header>
 				<a href="#" class="close">&times;</a>
 				<ul>
@@ -41,9 +41,13 @@ $is_master_user    = $current_user->ID == Jetpack_Options::get_option( 'master_u
 			</header>
 			<div class="content-container"><div class="content"></div></div>
 		</div>
+		<div class="modal" id="jp-connection-modal">
+			<header>
+				<a class="close">&times;</a>
+			</header>
+			<div class="content-container"><div class="content"></div></div>
+		</div>
 		<div class="shade"></div>
-
-		<div class="jp-modal-wrapper" id="jp-connection-modal"></div>
 	</div><!-- .jp-frame -->
 </div><!-- .jp-content -->
 <?php if ( 'jetpack_modules' == $_GET['page'] ) return; ?>

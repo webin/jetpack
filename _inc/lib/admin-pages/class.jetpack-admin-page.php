@@ -74,12 +74,16 @@ abstract class Jetpack_Admin_Page {
 		$master_user_id = Jetpack_Options::get_option( 'master_user' );
 		$master_user_data = get_userdata( $master_user_id );
 
-		$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data->user_login );
+		if ( $master_user_data ) {
+			$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data->user_login );
+		} else {
+			$edit_master_user_link = __( 'No master user set!', 'jetpack' );
+		}
 
 		$connection_info = array(
 			'is_master_user'    => $is_master_user,
 			'master_user_link'  => $edit_master_user_link,
-			'is_user_connected' => $is_user_connected
+			'is_user_connected' => $is_user_connected,
 		);
 
 		return $connection_info;
@@ -140,6 +144,8 @@ abstract class Jetpack_Admin_Page {
 				'connectionLogic'   => $this->jetpack_my_connection_logic(),
 				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
 				'myConnectionNonce' => wp_create_nonce( 'jetpack-my-connection-nonce' ),
+				'jetpackIsActive'   => Jetpack::is_active(),
+				'isAdmin'           => is_admin()
 			)
 		);
 	}

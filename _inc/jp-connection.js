@@ -14,6 +14,8 @@
 			'masterUserLink'    : jpConnection.connectionLogic.master_user_link,
 			'isUserConnected'   : jpConnection.connectionLogic.is_user_connected,
 			'userToken'         : jpConnection.connectionLogic.user_token,
+			'isActive'          : jpConnection.jetpackIsActive,
+			'isAdmin'           : jpConnection.isAdmin,
 			'myConnectionNonce' : jpConnection.myConnectionNonce
 		};
 		$('#jp-connection').click(function(){
@@ -21,7 +23,9 @@
 				isMasterUser    : data.isMasterUser,
 				masterUserLink  : data.masterUserLink,
 				isUserConnected : data.isUserConnected,
-				userToken       : data.userToken
+				userToken       : data.userToken,
+				isActive        : data.isActive,
+				isAdmin         : data.isAdmin
 			} ) ) );
 			$('#jp-connection-modal, .shade').show();
 			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );

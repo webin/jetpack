@@ -2415,6 +2415,7 @@ p {
 
 			// Kick off synchronization of user role when it changes
 			add_action( 'set_user_role', array( $this, 'user_role_change' ) );
+			add_action( 'deleted_user',  array( $this, 'user_role_change' ) );
 		}
 	}
 

@@ -17,7 +17,8 @@
 			'isActive'          : jpConnection.jetpackIsActive,
 			'isAdmin'           : jpConnection.isAdmin,
 			'myConnectionNonce' : jpConnection.myConnectionNonce,
-			'masterComData'     : jpConnection.masterComData
+			'masterComData'     : jpConnection.masterComData,
+			'userComData'       : jpConnection.userComData
 		};
 		$('#jp-connection').click(function(){
 			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' )( $.extend( {
@@ -27,7 +28,8 @@
 				userToken       : data.userToken,
 				isActive        : data.isActive,
 				isAdmin         : data.isAdmin,
-				masterComData   : data.masterComData
+				masterComData   : data.masterComData,
+				userComData     : data.userComData
 			} ) ) );
 			$('#jp-connection-modal, .shade').show();
 			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );

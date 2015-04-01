@@ -12,12 +12,15 @@
 				<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __('Are you sure you want to disconnect from WordPress.com?', 'jetpack'), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect from WordPress.com', 'jetpack' ); ?></a>
 			<# } else { #>
 				<p style="margin-bottom: 0px;">Master user info:</p>
-					<br />wporg account: {{{ data.masterUserLink }}}
-					<br /><br><strong>WPcom account info:</strong>
-					<br />Username: {{{ data.masterComData.login }}}
-					<br />wpcom email: {{{ data.masterComData.email }}}
+					<br>wporg account: {{{ data.masterUserLink }}}
+					<br><br><strong>WPcom account info:</strong>
+					<br>Username: {{{ data.masterComData.login }}}
+					<br>wpcom email: {{{ data.masterComData.email }}}
 				<# if ( data.isUserConnected && data.isAdmin && data.isActive ) { #>
-					<p>You are connected to WordPress.com</p>
+					<p style="margin-bottom: 0px;">You are connected to WordPress.com</p>
+					<strong>Your WPcom account info:</strong>
+					<br>Username: {{{ data.userComData.login }}}
+					<br>wpcom email: {{{ data.userComData.email }}}<br><br>
 					<a id="set-self-as-master" class="button primary">set yourself as master</a><span class="spinner"></span><br /><br />
 					<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink your user account', 'jetpack' ); ?></a>
 				<# } else { #>

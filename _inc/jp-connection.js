@@ -3,11 +3,10 @@
 	///////////////////////////////////////
 	// INIT
 	///////////////////////////////////////
-
-	var data;
+	var originPoint,
+		data;
 
 	$( document ).ready(function () {
-		var originpoint;
 		data = {
 			'action'            : 'jetpack_my_connection_ajax',
 			'isMasterUser'      : jpConnection.connectionLogic.is_master_user,
@@ -31,6 +30,9 @@
 				masterComData   : data.masterComData,
 				userComData     : data.userComData
 			} ) ) );
+
+			originPoint = this;
+
 			$('#jp-connection-modal, .shade').show();
 			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );
 			$('#jp-connection-modal').focus();
@@ -38,14 +40,13 @@
 			e.preventDefault();
 
 			// Save the focused element, then shift focus to the modal window.
-			originPoint = this;
-
 			closeConnectionModal();
 
 			// Call the ajax function to switch master user
 			$('#set-self-as-master').click(function(){
 				setSelfAsMaster();
 			});
+
 		});
 
 	});
@@ -80,7 +81,9 @@
 		$( '.shade, #jp-connection-modal .close' ).on( 'click', function () {
 			$( '.shade, #jp-connection-modal' ).hide();
 			$( '.manage-right' ).removeClass( 'show' );
+
 			originPoint.focus();
+
 			$( '#jp-connection-modal' )[0].removeAttribute( 'tabindex' );
 			return false;
 		});

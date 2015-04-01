@@ -5,10 +5,17 @@
 		<div id="my-connection-content" class="content">
 			<h2>Your Jetpack Connection</h2>
 			<# if ( data.isMasterUser && data.isAdmin ) { #>
-				<p>You are the master user</p>
+				<p>You are the master user. <br>
+					<strong>wpcom account info: </strong><br>
+					Username: {{{ data.masterComData.login }}}<br>
+					wpcom email: {{{ data.masterComData.email }}}</p>
 				<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __('Are you sure you want to disconnect from WordPress.com?', 'jetpack'), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect from WordPress.com', 'jetpack' ); ?></a>
 			<# } else { #>
-				<p>You are not the master user, {{{ data.masterUserLink }}} is.</p>
+				<p style="margin-bottom: 0px;">Master user info:</p>
+					<br />wporg account: {{{ data.masterUserLink }}}
+					<br /><br><strong>WPcom account info:</strong>
+					<br />Username: {{{ data.masterComData.login }}}
+					<br />wpcom email: {{{ data.masterComData.email }}}
 				<# if ( data.isUserConnected && data.isAdmin && data.isActive ) { #>
 					<p>You are connected to WordPress.com</p>
 					<a id="set-self-as-master" class="button primary">set yourself as master</a><span class="spinner"></span><br /><br />

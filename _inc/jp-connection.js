@@ -16,7 +16,8 @@
 			'userToken'         : jpConnection.connectionLogic.user_token,
 			'isActive'          : jpConnection.jetpackIsActive,
 			'isAdmin'           : jpConnection.isAdmin,
-			'myConnectionNonce' : jpConnection.myConnectionNonce
+			'myConnectionNonce' : jpConnection.myConnectionNonce,
+			'masterComData'     : jpConnection.masterComData
 		};
 		$('#jp-connection').click(function(){
 			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' )( $.extend( {
@@ -25,7 +26,8 @@
 				isUserConnected : data.isUserConnected,
 				userToken       : data.userToken,
 				isActive        : data.isActive,
-				isAdmin         : data.isAdmin
+				isAdmin         : data.isAdmin,
+				masterComData   : data.masterComData
 			} ) ) );
 			$('#jp-connection-modal, .shade').show();
 			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );

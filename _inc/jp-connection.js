@@ -1,4 +1,6 @@
-(function( $ ) {
+/* global jpConnection, jQuery, confirm */
+
+(function( $, jpConnection ) {
 
 	///////////////////////////////////////
 	// INIT
@@ -59,14 +61,9 @@
 			return false;
 		} else {
 			$( '.spinner' ).show();
-
 			data.switchMasterUser = 'switch-master-user';
-
 			$.post( jpConnection.ajaxurl, data, function (response) {
-				console.log( response );
-
 				$( '#my-connection-content' ).html( response );
-
 				$( '.spinner' ).hide();
 			});
 		}
@@ -99,4 +96,4 @@
 		});
 	}
 
-})( jQuery );
+})( jQuery, jpConnection );

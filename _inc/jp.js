@@ -34,7 +34,7 @@
 
 	function closeShadeToggle() {
 		// Clicking outside modal, or close X closes modal
-		$( '.shade, .modal .close' ).on( 'click', function () {
+		$( '.shade, #jp-module-modal .close' ).on( 'click', function () {
 			$( '.shade, #jp-module-modal' ).hide();
 			$( '.manage-right' ).removeClass( 'show' );
 			originPoint.focus();

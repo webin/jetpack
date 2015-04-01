@@ -7,7 +7,7 @@
 	var data;
 
 	$( document ).ready(function () {
-
+		var originpoint;
 		data = {
 			'action'            : 'jetpack_my_connection_ajax',
 			'isMasterUser'      : jpConnection.connectionLogic.is_master_user,
@@ -19,7 +19,7 @@
 			'myConnectionNonce' : jpConnection.myConnectionNonce,
 			'masterComData'     : jpConnection.masterComData
 		};
-		$('#jp-connection').click(function(){
+		$('#jp-connection').on( 'click keypress', function (e) {
 			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' )( $.extend( {
 				isMasterUser    : data.isMasterUser,
 				masterUserLink  : data.masterUserLink,
@@ -32,6 +32,13 @@
 			$('#jp-connection-modal, .shade').show();
 			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );
 			$('#jp-connection-modal').focus();
+
+			e.preventDefault();
+
+			// Save the focused element, then shift focus to the modal window.
+			originPoint = this;
+
+			closeConnectionModal();
 
 			// Call the ajax function to switch master user
 			$('#set-self-as-master').click(function(){
@@ -60,6 +67,31 @@
 				$( '.spinner' ).hide();
 			});
 		}
+	}
+
+
+	/*
+	The function used to handle closing the my connection modal
+	 */
+	function closeConnectionModal() {
+		// Clicking outside modal, or close X closes modal
+		$( '.shade, #jp-connection-modal .close' ).on( 'click', function () {
+			$( '.shade, #jp-connection-modal' ).hide();
+			$( '.manage-right' ).removeClass( 'show' );
+			originPoint.focus();
+			$( '#jp-connection-modal' )[0].removeAttribute( 'tabindex' );
+			return false;
+		});
+
+		$( window ).on( 'keydown', function( e ) {
+			// If pressing ESC close the modal
+			if ( 27 === e.keyCode ) {
+				$( '.shade, #jp-connection-modal' ).hide();
+				$( '.manage-right' ).removeClass( 'show' );
+				originPoint.focus();
+				$( '#jp-connection-modal' )[0].removeAttribute( 'tabindex' );
+			}
+		});
 	}
 
 })( jQuery );

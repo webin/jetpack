@@ -1502,7 +1502,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 #jp-connection-modal {
   max-width: 500px;
   margin: 0 auto;
-  max-height: 300px;
+  max-height: 500px;
   overflow: scroll;
 }
 

@@ -145,20 +145,23 @@ body {
 	background: $green;
 }
 .header-nav {
-	li {
+	/*li {
 		line-height: 60px;
 		
-	}
+	}*/
 	a {
 		padding: 0 em(10px);
 		line-height: 24px;
+		margin: 0 4px;
 	}
 	.jetpack-logo {
+		display: inline-block;
+
 		a {
 			display: inline-block;
 			position: relative;
 			width: 214px;
-			margin-right: 6px;
+			margin: 0;
 			background: url(../images/jetpack-logo.png) center center no-repeat;
 			background: url(../images/jetpack-logo.svg) center center no-repeat, none;
 			background-size: 183px auto;
@@ -184,8 +187,8 @@ body {
 			}
 		}
 	}
-	.jetpack-modules + .jetpack-modules {
-		margin-left:15px
+	li + li {
+		margin-left: 15px;
 	}
 }
 
@@ -1599,27 +1602,32 @@ body {
 // Custom Breakpoints
 // ==========================================================================
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 525px) {
 	.jp-frame {
 		.header-nav {
 			padding-bottom: 10px;
 
-			li {
+			/*li {
 				line-height: 30px;
-			}
+			}*/
+
 			.jetpack-logo {
 				width: 100%;
 				text-align: center;
 			}
-			.jetpack-modules {
+			/*li {
 				margin: 0;
 				width: 50%;
 				text-align: right;
 				padding: 0 5px;
 			}
-			.jetpack-modules + .jetpack-modules {
+			li:nth-child(2) {
 				text-align: left;
 			}
+			li:nth-child(3) {
+				text-align: center;
+				width: 100%;
+			}*/
 		}
 	}
 } // max 400px

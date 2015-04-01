@@ -647,18 +647,25 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   background: #81a844;
 }
 
-.header-nav li {
-  line-height: 60px;
+.header-nav {
+  /*li {
+  	line-height: 60px;
+  	
+  }*/
 }
 .header-nav a {
   padding: 0 0.71429em;
   line-height: 24px;
+  margin: 0 4px;
+}
+.header-nav .jetpack-logo {
+  display: inline-block;
 }
 .header-nav .jetpack-logo a {
   display: inline-block;
   position: relative;
   width: 214px;
-  margin-right: 6px;
+  margin: 0;
   background: url(../images/jetpack-logo.png) center center no-repeat;
   background: url(../images/jetpack-logo.svg) center center no-repeat, none;
   background-size: 183px auto;
@@ -679,7 +686,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   height: 100%;
   background-size: 183px 32px;
 }
-.header-nav .jetpack-modules + .jetpack-modules {
+.header-nav li + li {
   margin-left: 15px;
 }
 
@@ -2075,25 +2082,29 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     width: 100%;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 525px) {
   .jp-frame .header-nav {
     padding-bottom: 10px;
-  }
-  .jp-frame .header-nav li {
-    line-height: 30px;
+    /*li {
+    	line-height: 30px;
+    }*/
+    /*li {
+    	margin: 0;
+    	width: 50%;
+    	text-align: right;
+    	padding: 0 5px;
+    }
+    li:nth-child(2) {
+    	text-align: left;
+    }
+    li:nth-child(3) {
+    	text-align: center;
+    	width: 100%;
+    }*/
   }
   .jp-frame .header-nav .jetpack-logo {
     width: 100%;
     text-align: center;
-  }
-  .jp-frame .header-nav .jetpack-modules {
-    margin: 0;
-    width: 50%;
-    text-align: right;
-    padding: 0 5px;
-  }
-  .jp-frame .header-nav .jetpack-modules + .jetpack-modules {
-    text-align: left;
   }
 }
 @media (max-width: 320px) {

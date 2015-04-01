@@ -582,7 +582,7 @@ class Jetpack {
 			if ( is_admin() && $is_user_connected ) {
 				Jetpack_Options::update_option( 'master_user', $current_user );
 
-				$this->user_role_change( get_current_user_id() ); // Not sure if this is necessary
+				$this->user_role_change( $current_user ); // Not sure if this is necessary
 
 				echo 'You did it!';
 			}

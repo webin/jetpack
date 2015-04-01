@@ -11,6 +11,7 @@
 					wpcom email: {{{ data.masterComData.email }}}</p>
 				<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __('Are you sure you want to disconnect from WordPress.com?', 'jetpack'), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect from WordPress.com', 'jetpack' ); ?></a>
 			<# } else { #>
+<<<<<<< HEAD
 				<p>Primary connection details:<br>
 					<small>Site Administrator: {{{ data.masterUserLink }}}<br> WordPress.com: {{{ data.masterComData.login }}} / {{{ data.masterComData.email }}}</small></p>
 				<# if ( data.isUserConnected && data.isAdmin && data.isActive ) { #>
@@ -19,6 +20,20 @@
 
 					<a id="set-self-as-master" class="button primary"><?php esc_html_e( 'Make primary account', 'jetpack' ); ?></a><span class="spinner"></span>
 					<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( ' Disconnect your account', 'jetpack' ); ?></a>
+=======
+				<p style="margin-bottom: 0px;">Master user info:</p>
+					<br>wporg account: {{{ data.masterUserLink }}}
+					<br><br><strong>WPcom account info:</strong>
+					<br>Username: {{{ data.masterComData.login }}}
+					<br>wpcom email: {{{ data.masterComData.email }}}
+				<# if ( data.isUserConnected && data.isAdmin && data.isActive ) { #>
+					<p style="margin-bottom: 0px;">You are connected to WordPress.com</p>
+					<strong>Your WPcom account info:</strong>
+					<br>Username: {{{ data.userComData.login }}}
+					<br>wpcom email: {{{ data.userComData.email }}}<br><br>
+					<a id="set-self-as-master" class="button primary">set yourself as master</a><span class="spinner"></span><br /><br />
+					<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink your user account', 'jetpack' ); ?></a>
+>>>>>>> origin/enhancement/connection-status
 				<# } else { #>
 					<p>Your user account is not linked to WordPress.com</p>
 					<a href="<?php echo Jetpack::init()->build_connect_url() ?>" class="download-jetpack"><?php esc_html_e( 'Link your account to WordPress.com', 'jetpack' ); ?></a>

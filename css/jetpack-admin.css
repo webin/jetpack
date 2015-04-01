@@ -647,16 +647,11 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   background: #81a844;
 }
 
-.header-nav {
-  /*li {
-  	line-height: 60px;
-  	
-  }*/
-}
 .header-nav a {
   padding: 0 0.71429em;
   line-height: 24px;
   margin: 0 4px;
+  cursor: pointer;
 }
 .header-nav .jetpack-logo {
   display: inline-block;
@@ -686,8 +681,8 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   height: 100%;
   background-size: 183px 32px;
 }
-.header-nav li + li {
-  margin-left: 15px;
+.header-nav .options {
+  display: inline-block;
 }
 
 .main-nav {
@@ -899,9 +894,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   pointer-events: none;
   z-index: 2;
 }
-@media (max-width: 530px) {
+@media (max-width: 782px) {
   .clouds-sm {
-    height: 90px;
+    display: none;
   }
 }
 
@@ -2085,24 +2080,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 @media screen and (max-width: 525px) {
   .jp-frame .header-nav {
     padding-bottom: 10px;
-    /*li {
-    	line-height: 30px;
-    }*/
-    /*li {
-    	margin: 0;
-    	width: 50%;
-    	text-align: right;
-    	padding: 0 5px;
-    }
-    li:nth-child(2) {
-    	text-align: left;
-    }
-    li:nth-child(3) {
-    	text-align: center;
-    	width: 100%;
-    }*/
   }
-  .jp-frame .header-nav .jetpack-logo {
+  .jp-frame .header-nav .jetpack-logo,
+  .jp-frame .header-nav .options {
     width: 100%;
     text-align: center;
   }

@@ -36,9 +36,11 @@
 					<?php if ( ( Jetpack::is_active() || Jetpack::is_development_mode() )
 						&& current_user_can( 'jetpack_manage_modules' )
 					 ) : ?>
+					 <div class="options">
 						<a title="View your Jetpack settings" href="<?php echo Jetpack::admin_url( 'page=jetpack_modules' ); ?>" class="jp-button--settings <?php if ( 'jetpack_modules' == $current ) { echo 'current'; } ?>"><?php esc_html_e( 'Settings', 'jetpack' ); ?></a>
 						<a title="Give Jetpack feedback" href="http://jetpack.me/survey/?rel=<?php echo JETPACK__VERSION; ?>" class="jp-button--settings"><?php esc_html_e( 'Feedback', 'jetpack' ); ?></a>
 						<a title="View your Jetpack connection details" id="jp-connection" class="jp-button--settings"><?php esc_html_e( 'My Connection', 'jetpack' ); ?></a>
+					</div>
 					<?php endif; ?>
 				</div>
 

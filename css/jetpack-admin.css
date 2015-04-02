@@ -1507,6 +1507,11 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   max-height: 500px;
   overflow: scroll;
 }
+@media (min-width: 782px) {
+  #jp-connection-modal {
+    max-width: 700px;
+  }
+}
 
 .jp-info-img {
   float: right;
@@ -1544,8 +1549,36 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   z-index: 11;
 }
 
+#my-connection-content h2 {
+  font-size: 24px;
+}
+
+.connection-details h3,
+.connection-details .j-col div {
+  padding: 15px 0;
+}
 .connection-details h3 {
-  font-size: 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #fafafa;
+  margin: 0;
+  padding: 15px 10px;
+  color: #777;
+}
+.connection-details .j-col {
+  padding: 0;
+}
+.connection-details .j-col div span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+@media (max-width: 782px) {
+  .connection-details .j-col div span {
+    max-width: 95%;
+  }
 }
 @media (min-width: 530px) {
   .connection-details .ifmobile {

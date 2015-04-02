@@ -1028,6 +1028,9 @@ body {
   margin: 0 auto;
   max-height: 500px;
   overflow: scroll;
+	@include minbreakpoint(tablet){
+		max-width: 700px;
+	};
 }
 
 .jp-info-img {
@@ -1068,10 +1071,47 @@ body {
 // Connection Details
 // ==========================================================================
 
-.connection-details {
-	h3 {
-		font-size: 14px;
+#my-connection-content {
+	h2 {
+		font-size: 24px;
 	}
+}
+
+.connection-details {
+	h3,
+	.j-col div {
+		padding: 15px 0;
+	}
+
+	h3 {
+		font-size: 12px;
+		text-transform: uppercase;
+		background: #fafafa;
+		margin: 0;
+		padding: 15px 10px;
+		color: #777;
+	}
+
+	.j-col {
+		padding: 0;
+	}
+
+	.j-col div {
+
+		span {
+			display: inline-block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+		}
+		@include breakpoint(tablet){
+			span {
+				max-width: 95%; 
+			}
+		}
+	}
+
 	.ifmobile {
 		@include minbreakpoint(large-phone){
 			display: none;

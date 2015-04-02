@@ -4,6 +4,33 @@
 	<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
 		<div id="my-connection-content" class="content">
 			<h2>Your Jetpack Connection</h2>
+			<div class="connection-details">
+				<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-user">
+					<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+					<div class="user-01">Jeff Golenski</div>
+					<div class="user-02">Jesse Friedman</div>
+
+				</div><!-- // jp-user -->
+
+				<div class="j-col j-lrg-4 j-md-4 j-sm-12 wp-user">
+					<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+					<div class="wpuser-01">Jeff Golenski wpcom</div>
+					<div class="wpuser-02">Jesse Friedman wpcom</div>
+
+				</div><!-- // wp-user -->
+
+				<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
+					<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
+					<div class="action-01">
+						<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( ' Disconnect <span class="ifmobile">Jeff Golenski</span>', 'jetpack' ); ?></a>
+					</div>
+					<div class="action-02">
+					<a class="button" href=""><?php esc_html_e( ' Make <span class="ifmobile">Jeff Golenski</span> Primary', 'jetpack' ); ?></a>
+				</div>
+			</div>
+
+			// old table layout below - going to be removed once ported to updated html above
+			<br clear="all" />
 			<table>
 				<tr>
 					<th><?php _e( 'User', 'jetpack' ); ?></th>

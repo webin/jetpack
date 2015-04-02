@@ -148,7 +148,7 @@ abstract class Jetpack_Admin_Page {
 				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
 				'myConnectionNonce' => wp_create_nonce( 'jetpack-my-connection-nonce' ),
 				'jetpackIsActive'   => Jetpack::is_active(),
-				'isAdmin'           => is_admin(),
+				'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
 				'masterComData'     => $master_user_com_data['master_data_com'],
 				'userComData'       => Jetpack::get_connected_user_data()
 			)

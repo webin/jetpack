@@ -14,7 +14,7 @@
 		ajaxNonce = jpConnection.myConnectionNonce;
 		action = 'jetpack_my_connection_ajax';
 
-		$('#jp-connection').on( 'click keypress', function(e) {
+		$( '#jp-connection' ).on( 'click keypress', function(e) {
 
 			renderModalTemplate( jpConnection );
 
@@ -46,10 +46,10 @@
 			'masterComData'     : templateData.masterComData,
 			'userComData'       : templateData.userComData
 		};
-		$('#jp-connection-modal').html( wp.template( 'connection-modal' )(data)   );
+		$( '#jp-connection-modal' ).html( wp.template( 'connection-modal' )(data)   );
 		// Save the focused element, then shift focus to the modal window.
 		closeConnectionModal();
-	};
+	}
 
 	/*
 	The ajax function to handle switching the master user
@@ -58,14 +58,14 @@
 		if ( ! confirm( 'Are you sure?' ) ) {
 			return false;
 		} else {
-			$('#jp-connection-modal').html( wp.template( 'connection-modal-loading') );
+			$( '#jp-connection-modal' ).html( wp.template( 'connection-modal-loading' ) );
 			$( '.spinner' ).show();
 			var postData = {
 				switchMasterUser : 'switch-master-user',
 				action: action,
 				myConnectionNonce: ajaxNonce
 			};
-			$.post( jpConnection.ajaxurl, postData, function (response) {
+			$.post( jpConnection.ajaxurl, postData, function( response ) {
 				renderModalTemplate( response );
 				$( '.spinner' ).hide();
 			}, 'json' );

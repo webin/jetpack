@@ -1544,6 +1544,12 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   z-index: 11;
 }
 
+@media (min-width: 530px) {
+  .connection-details .ifmobile {
+    display: none;
+  }
+}
+
 .entry-title,
 .page-template-default h1 {
   margin-top: 0.61111em;

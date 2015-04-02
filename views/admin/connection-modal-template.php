@@ -25,7 +25,7 @@
 						<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( ' Disconnect <span class="ifmobile">Jeff Golenski</span>', 'jetpack' ); ?></a>
 					</div>
 					<div class="action-02">
-					<a class="button" href=""><?php esc_html_e( ' Make <span class="ifmobile">Jeff Golenski</span> Primary', 'jetpack' ); ?></a>
+					<a class="button" href=""><?php esc_html_e( 'Make', 'jetpack' ); ?><span class="ifmobile"><?php esc_html_e( ' [User] ', 'jetpack' ); ?></span><?php esc_html_e( 'Primary', 'jetpack' ); ?><?php // esc_html_e( ' Make <span class="ifmobile">Jeff Golenski</span> Primary', 'jetpack' ); ?></a>
 				</div>
 			</div>
 

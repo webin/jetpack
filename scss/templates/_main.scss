@@ -1075,20 +1075,24 @@ body {
 	h2 {
 		font-size: 24px;
 	}
+	table {
+		display: none;
+	}
 }
 
 .connection-details {
 	h3,
 	.j-col div {
-		padding: 15px 0;
+		padding: 10px;
 	}
 
 	h3 {
 		font-size: 12px;
 		text-transform: uppercase;
 		background: #fafafa;
-		margin: 0;
-		padding: 15px 10px;
+		margin: 0 1px 0 0;
+		padding: 10px;
+		line-height: 100%;
 		color: #777;
 	}
 
@@ -1097,6 +1101,11 @@ body {
 	}
 
 	.j-col div {
+		height: 50px;
+
+		&:nth-child(odd) {
+			background: #fcfcfc;
+		}
 
 		span {
 			display: inline-block;
@@ -1116,6 +1125,18 @@ body {
 		@include minbreakpoint(large-phone){
 			display: none;
 		};
+	}
+
+	.jp-actions {
+		text-align: center;
+		h3 {
+			text-align: left;
+		}
+		.button {
+		 width: 100%;
+		 max-width: 250px;
+		 margin: 0 auto;
+		}
 	}
 }
 

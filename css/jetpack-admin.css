@@ -1552,21 +1552,31 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 #my-connection-content h2 {
   font-size: 24px;
 }
+#my-connection-content table {
+  display: none;
+}
 
 .connection-details h3,
 .connection-details .j-col div {
-  padding: 15px 0;
+  padding: 10px;
 }
 .connection-details h3 {
   font-size: 12px;
   text-transform: uppercase;
   background: #fafafa;
-  margin: 0;
-  padding: 15px 10px;
+  margin: 0 1px 0 0;
+  padding: 10px;
+  line-height: 100%;
   color: #777;
 }
 .connection-details .j-col {
   padding: 0;
+}
+.connection-details .j-col div {
+  height: 50px;
+}
+.connection-details .j-col div:nth-child(odd) {
+  background: #fcfcfc;
 }
 .connection-details .j-col div span {
   display: inline-block;
@@ -1584,6 +1594,17 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   .connection-details .ifmobile {
     display: none;
   }
+}
+.connection-details .jp-actions {
+  text-align: center;
+}
+.connection-details .jp-actions h3 {
+  text-align: left;
+}
+.connection-details .jp-actions .button {
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 .entry-title,

@@ -4,6 +4,7 @@
 	<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
 		<div id="my-connection-content" class="content">
 			<h2>Your Jetpack Connection</h2>
+			<?php /*
 			<div class="connection-details">
 				<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-user">
 					<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
@@ -29,7 +30,7 @@
 				</div>
 			</div>
 
-			<?php // old table layout below - going to be removed once ported to updated html above ?>
+			<?php */ // old table layout below - going to be removed once ported to updated html above ?>
 			<br clear="all" />
 			<table>
 				<tr>

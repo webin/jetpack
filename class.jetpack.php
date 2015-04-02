@@ -591,6 +591,37 @@ class Jetpack {
 		wp_die();
 	}
 
+	/*
+	 * Info about the user's connection relationship with the site.
+	 *
+	 * @return array
+	 */
+	static function jetpack_my_connection_logic() {
+		global $current_user;
+		$user_token        = Jetpack_Data::get_access_token( $current_user->ID );
+		$is_user_connected = $user_token && ! is_wp_error( $user_token );
+		$is_master_user    = $current_user->ID == Jetpack_Options::get_option( 'master_user' );
+
+		$master_user_id       = Jetpack_Options::get_option( 'master_user' );
+		$master_user_data_org = get_userdata( $master_user_id );
+		$master_user_data_com = Jetpack::get_connected_user_data( $master_user_id );
+
+		if ( $master_user_data_org ) {
+			$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data_org->user_login );
+		} else {
+			$edit_master_user_link = __( 'No master user set!', 'jetpack' );
+		}
+
+		$connection_info = array(
+			'is_master_user'    => $is_master_user,
+			'master_user_link'  => $edit_master_user_link,
+			'is_user_connected' => $is_user_connected,
+			'master_data_com'   => $master_user_data_com,
+		);
+
+		return $connection_info;
+	}
+
 	/**
 	 * The callback for the Jump Start ajax requests.
 	 */

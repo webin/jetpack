@@ -9,6 +9,8 @@
 		data;
 
 	$( document ).ready(function () {
+		var fetchingData = false;
+
 		data = {
 			'action'            : 'jetpack_my_connection_ajax',
 			'isMasterUser'      : jpConnection.connectionLogic.is_master_user,
@@ -21,7 +23,7 @@
 			'masterComData'     : jpConnection.masterComData,
 			'userComData'       : jpConnection.userComData
 		};
-		$('#jp-connection').on( 'click keypress', function (e) {
+		$('#jp-connection').on( 'click keypress', function(e) {
 			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' )( $.extend( {
 				isMasterUser    : data.isMasterUser,
 				masterUserLink  : data.masterUserLink,
@@ -31,13 +33,13 @@
 				isAdmin         : data.isAdmin,
 				masterComData   : data.masterComData,
 				userComData     : data.userComData
-			} ) ) );
+			})));
 
 			originPoint = this;
 
-			$('#jp-connection-modal, .shade').show();
-			$('#jp-connection-modal')[0].setAttribute( 'tabindex', '0' );
-			$('#jp-connection-modal').focus();
+			$( '#jp-connection-modal, .shade' ).show();
+			$( '#jp-connection-modal' )[0].setAttribute( 'tabindex', '0' );
+			$( '#jp-connection-modal' ).focus();
 
 			e.preventDefault();
 
@@ -45,7 +47,7 @@
 			closeConnectionModal();
 
 			// Call the ajax function to switch master user
-			$('#set-self-as-master').click(function(){
+			$( '#set-self-as-master' ).click(function(){
 				setSelfAsMaster();
 			});
 

@@ -584,21 +584,25 @@ class Jetpack {
 
 				$this->user_role_change( $current_user ); // Not sure if this is necessary
 
-				$master_user_com_data = self::jetpack_my_connection_logic();
-
-				$response = array(
-					'connectionLogic'   => $master_user_com_data,
-					'jetpackIsActive'   => self::is_active(),
-					'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
-					'masterComData'     => $master_user_com_data['master_data_com'],
-					'userComData'       => self::get_connected_user_data()
-				);
-
-				echo json_encode( $response );
+				echo self::jetpack_my_connection_ajax_reload();
 			}
 		}
 
 		wp_die();
+	}
+
+	static function jetpack_my_connection_ajax_reload() {
+		$master_user_com_data = self::jetpack_my_connection_logic();
+
+		$response = array(
+			'connectionLogic'   => $master_user_com_data,
+			'jetpackIsActive'   => self::is_active(),
+			'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
+			'masterComData'     => $master_user_com_data['master_data_com'],
+			'userComData'       => self::get_connected_user_data()
+		);
+
+		return json_encode( $response );
 	}
 
 	/*
@@ -623,9 +627,9 @@ class Jetpack {
 		}
 
 		$connection_info = array(
-			'is_master_user'    => $is_master_user,
-			'master_user_link'  => $edit_master_user_link,
-			'is_user_connected' => $is_user_connected,
+			'isMasterUser'    => $is_master_user,
+			'masterUserLink'  => $edit_master_user_link,
+			'isUserConnected' => $is_user_connected,
 			'master_data_com'   => $master_user_data_com,
 		);
 

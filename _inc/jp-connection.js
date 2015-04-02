@@ -7,7 +7,14 @@
 	///////////////////////////////////////
 	var originPoint,
 		ajaxNonce,
-		action;
+		action,
+		data = {
+			'connectionLogic'   : jpConnection.connectionLogic,
+			'isActive'          : jpConnection.jetpackIsActive,
+			'isAdmin'           : jpConnection.isAdmin,
+			'masterComData'     : jpConnection.masterComData,
+			'userComData'       : jpConnection.userComData
+		};
 
 	$( document ).ready(function () {
 
@@ -16,7 +23,7 @@
 
 		$( '#jp-connection' ).on( 'click keypress', function(e) {
 
-			renderModalTemplate( jpConnection );
+			renderModalTemplate( data );
 
 			originPoint = this;
 
@@ -35,18 +42,8 @@
 
 	});
 
-	function renderModalTemplate( templateData ) {
-		var data = {
-			'isMasterUser'      : templateData.connectionLogic.is_master_user,
-			'masterUserLink'    : templateData.connectionLogic.master_user_link,
-			'isUserConnected'   : templateData.connectionLogic.is_user_connected,
-			'userToken'         : templateData.connectionLogic.user_token,
-			'isActive'          : templateData.jetpackIsActive,
-			'isAdmin'           : templateData.isAdmin,
-			'masterComData'     : templateData.masterComData,
-			'userComData'       : templateData.userComData
-		};
-		$( '#jp-connection-modal' ).html( wp.template( 'connection-modal' )(data)   );
+	function renderModalTemplate( data ) {
+		$( '#jp-connection-modal' ).html( wp.template( 'connection-modal' )( data )   );
 		// Save the focused element, then shift focus to the modal window.
 		closeConnectionModal();
 	}
@@ -68,6 +65,7 @@
 			$.post( jpConnection.ajaxurl, postData, function( response ) {
 				renderModalTemplate( response );
 				$( '.spinner' ).hide();
+				data = response;
 			}, 'json' );
 		}
 	}

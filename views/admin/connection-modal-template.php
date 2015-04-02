@@ -22,14 +22,14 @@
 				<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
 					<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
 					<div class="action-01">
-						<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( ' Disconnect <span class="ifmobile">Jeff Golenski</span>', 'jetpack' ); ?></a>
+						<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Disconnect ', 'jetpack' ); ?><span class="ifmobile"><?php esc_html_e( '[Username]', 'jetpack' ); ?></span><?php // esc_html_e( ' Disconnect <span class="ifmobile">Jeff Golenski</span>', 'jetpack' ); ?></a>
 					</div>
 					<div class="action-02">
-					<a class="button" href=""><?php esc_html_e( 'Make', 'jetpack' ); ?><span class="ifmobile"><?php esc_html_e( ' [User] ', 'jetpack' ); ?></span><?php esc_html_e( 'Primary', 'jetpack' ); ?><?php // esc_html_e( ' Make <span class="ifmobile">Jeff Golenski</span> Primary', 'jetpack' ); ?></a>
+					<a class="button" href=""><?php esc_html_e( 'Make ', 'jetpack' ); ?><span class="ifmobile"><?php esc_html_e( '[Username]', 'jetpack' ); ?></span><?php esc_html_e( ' Primary', 'jetpack' ); ?><?php // esc_html_e( ' Make <span class="ifmobile">Jeff Golenski</span> Primary', 'jetpack' ); ?></a>
 				</div>
 			</div>
 
-			// old table layout below - going to be removed once ported to updated html above
+			<?php // old table layout below - going to be removed once ported to updated html above ?>
 			<br clear="all" />
 			<table>
 				<tr>

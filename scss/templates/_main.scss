@@ -1069,7 +1069,9 @@ body {
 // ==========================================================================
 
 .connection-details {
-	
+	h3 {
+		font-size: 14px;
+	}
 	.ifmobile {
 		@include minbreakpoint(large-phone){
 			display: none;

@@ -1544,6 +1544,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   z-index: 11;
 }
 
+.connection-details h3 {
+  font-size: 14px;
+}
 @media (min-width: 530px) {
   .connection-details .ifmobile {
     display: none;

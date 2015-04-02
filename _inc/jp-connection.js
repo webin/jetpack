@@ -6,34 +6,17 @@
 	// INIT
 	///////////////////////////////////////
 	var originPoint,
-		data;
+		ajaxNonce,
+		action;
 
 	$( document ).ready(function () {
-		var fetchingData = false;
 
-		data = {
-			'action'            : 'jetpack_my_connection_ajax',
-			'isMasterUser'      : jpConnection.connectionLogic.is_master_user,
-			'masterUserLink'    : jpConnection.connectionLogic.master_user_link,
-			'isUserConnected'   : jpConnection.connectionLogic.is_user_connected,
-			'userToken'         : jpConnection.connectionLogic.user_token,
-			'isActive'          : jpConnection.jetpackIsActive,
-			'isAdmin'           : jpConnection.isAdmin,
-			'myConnectionNonce' : jpConnection.myConnectionNonce,
-			'masterComData'     : jpConnection.masterComData,
-			'userComData'       : jpConnection.userComData
-		};
+		ajaxNonce = jpConnection.myConnectionNonce;
+		action = 'jetpack_my_connection_ajax';
+
 		$('#jp-connection').on( 'click keypress', function(e) {
-			$('#jp-connection-modal').empty().html( wp.template( 'connection-modal' )( $.extend( {
-				isMasterUser    : data.isMasterUser,
-				masterUserLink  : data.masterUserLink,
-				isUserConnected : data.isUserConnected,
-				userToken       : data.userToken,
-				isActive        : data.isActive,
-				isAdmin         : data.isAdmin,
-				masterComData   : data.masterComData,
-				userComData     : data.userComData
-			})));
+
+			renderModalTemplate( jpConnection );
 
 			originPoint = this;
 
@@ -42,9 +25,6 @@
 			$( '#jp-connection-modal' ).focus();
 
 			e.preventDefault();
-
-			// Save the focused element, then shift focus to the modal window.
-			closeConnectionModal();
 
 			// Call the ajax function to switch master user
 			$( '#set-self-as-master' ).click(function(){
@@ -55,6 +35,22 @@
 
 	});
 
+	function renderModalTemplate( templateData ) {
+		var data = {
+			'isMasterUser'      : templateData.connectionLogic.is_master_user,
+			'masterUserLink'    : templateData.connectionLogic.master_user_link,
+			'isUserConnected'   : templateData.connectionLogic.is_user_connected,
+			'userToken'         : templateData.connectionLogic.user_token,
+			'isActive'          : templateData.jetpackIsActive,
+			'isAdmin'           : templateData.isAdmin,
+			'masterComData'     : templateData.masterComData,
+			'userComData'       : templateData.userComData
+		};
+		$('#jp-connection-modal').html( wp.template( 'connection-modal' )(data)   );
+		// Save the focused element, then shift focus to the modal window.
+		closeConnectionModal();
+	};
+
 	/*
 	The ajax function to handle switching the master user
 	 */
@@ -62,12 +58,17 @@
 		if ( ! confirm( 'Are you sure?' ) ) {
 			return false;
 		} else {
+			$('#jp-connection-modal').html( wp.template( 'connection-modal-loading') );
 			$( '.spinner' ).show();
-			data.switchMasterUser = 'switch-master-user';
-			$.post( jpConnection.ajaxurl, data, function (response) {
-				$( '#my-connection-content' ).html( response );
+			var postData = {
+				switchMasterUser : 'switch-master-user',
+				action: action,
+				myConnectionNonce: ajaxNonce
+			};
+			$.post( jpConnection.ajaxurl, postData, function (response) {
+				renderModalTemplate( response );
 				$( '.spinner' ).hide();
-			});
+			}, 'json' );
 		}
 	}
 

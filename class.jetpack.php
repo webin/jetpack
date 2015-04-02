@@ -584,7 +584,17 @@ class Jetpack {
 
 				$this->user_role_change( $current_user ); // Not sure if this is necessary
 
-				echo 'You did it!';
+				$master_user_com_data = self::jetpack_my_connection_logic();
+
+				$response = array(
+					'connectionLogic'   => $master_user_com_data,
+					'jetpackIsActive'   => self::is_active(),
+					'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
+					'masterComData'     => $master_user_com_data['master_data_com'],
+					'userComData'       => self::get_connected_user_data()
+				);
+
+				echo json_encode( $response );
 			}
 		}
 

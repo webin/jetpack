@@ -7,10 +7,10 @@
 				<# if ( data.connectionLogic.isMasterUser ) { #><?php /* if user is the owner of the primary jetpack connection */ ?>
 					<h3>Your Jetpack Connection</h3>
 					<div class="connection-details">
-						<div class="j-row">
+						<div class="j-row"> 
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-								<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-								<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
+								<h3 title="<?php _e( 'Site Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
+								<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
 							</div><!-- // jp-user -->
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
@@ -29,8 +29,8 @@
 						<div class="connection-details">
 							<div class="j-row">
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-									<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-									<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+									<h3 title="<?php _e( 'Site Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
+									<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
 								</div><!-- // jp-user -->
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
@@ -48,8 +48,8 @@
 						<div class="connection-details">
 							<div class="j-row">
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-									<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-									<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+									<h3 title="<?php _e( 'Site Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
+									<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
 								</div><!-- // jp-user -->
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
@@ -67,7 +67,7 @@
 					<div class="connection-details">
 						<div class="j-row">
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-								<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+								<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
 								<div class="user-01"><span>{{{ data.connectionLogic.masterUserLink }}}</span></div>
 							</div><!-- // jp-user -->
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
@@ -83,8 +83,8 @@
 					<div class="connection-details">
 						<div class="j-row">
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-								<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-								<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+								<h3 title="<?php _e( 'Site Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
+								<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
 							</div><!-- // jp-user -->
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
@@ -101,8 +101,8 @@
 						<div class="connection-details">
 							<div class="j-row">
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-									<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-									<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+									<h3 title="<?php _e( 'Site Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
+									<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
 								</div><!-- // jp-user -->
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>

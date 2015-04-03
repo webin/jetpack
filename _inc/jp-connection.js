@@ -13,7 +13,7 @@
 			'isActive'          : jpConnection.jetpackIsActive,
 			'isAdmin'           : jpConnection.isAdmin,
 			'masterComData'     : jpConnection.masterComData,
-			'userComData'       : jpConnection.userComData
+			'userComData'       : jpConnection.userComData,
 		};
 
 	$( document ).ready(function () {

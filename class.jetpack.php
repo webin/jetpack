@@ -619,6 +619,7 @@ class Jetpack {
 		$master_user_id       = Jetpack_Options::get_option( 'master_user' );
 		$master_user_data_org = get_userdata( $master_user_id );
 		$master_user_data_com = Jetpack::get_connected_user_data( $master_user_id );
+		$org_user_data        = wp_get_current_user();
 
 		if ( $master_user_data_org ) {
 			$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data_org->user_login );
@@ -630,7 +631,8 @@ class Jetpack {
 			'isMasterUser'    => $is_master_user,
 			'masterUserLink'  => $edit_master_user_link,
 			'isUserConnected' => $is_user_connected,
-			'master_data_com'   => $master_user_data_com,
+			'master_data_com' => $master_user_data_com,
+			'adminUsername'   => $org_user_data->user_login
 		);
 
 		return $connection_info;

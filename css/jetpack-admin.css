@@ -1574,6 +1574,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 }
 .connection-details .j-col div {
   height: 50px;
+  padding-top: 15px;
 }
 .connection-details .j-col div:nth-child(odd) {
   background: #fcfcfc;
@@ -1605,6 +1606,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   width: 100%;
   max-width: 250px;
   margin: 0 auto;
+}
+.connection-details .jp-actions div {
+  padding-top: 10px;
 }
 
 .entry-title,

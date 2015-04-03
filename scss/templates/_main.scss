@@ -1102,6 +1102,7 @@ body {
 
 	.j-col div {
 		height: 50px;
+		padding-top: 15px;
 
 		&:nth-child(odd) {
 			background: #fcfcfc;
@@ -1136,6 +1137,9 @@ body {
 		 width: 100%;
 		 max-width: 250px;
 		 margin: 0 auto;
+		}
+		div {
+			padding-top: 10px;
 		}
 	}
 }

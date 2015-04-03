@@ -1556,6 +1556,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   display: none;
 }
 
+.connection-details {
+  border: 1px #f2f2f2 solid;
+}
 .connection-details h3,
 .connection-details .j-col div {
   padding: 10px;
@@ -1563,7 +1566,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 .connection-details h3 {
   font-size: 12px;
   text-transform: uppercase;
-  background: #fafafa;
+  background: #f2f2f2;
   margin: 0 1px 0 0;
   padding: 10px;
   line-height: 100%;
@@ -1573,11 +1576,11 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   padding: 0;
 }
 .connection-details .j-col div {
-  height: 50px;
-  padding-top: 15px;
-}
-.connection-details .j-col div:nth-child(odd) {
-  background: #fcfcfc;
+  /*height: 50px;
+  padding-top: 15px;*/
+  /*&:nth-child(odd) {
+  	background: #fcfcfc;
+  }*/
 }
 .connection-details .j-col div span {
   display: inline-block;
@@ -1596,19 +1599,20 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     display: none;
   }
 }
+.connection-details .jp-user {
+  border-right: 1px #f2f2f2 solid;
+}
 .connection-details .jp-actions {
-  text-align: center;
-}
-.connection-details .jp-actions h3 {
-  text-align: left;
-}
-.connection-details .jp-actions .button {
-  width: 100%;
-  max-width: 250px;
-  margin: 0 auto;
-}
-.connection-details .jp-actions div {
-  padding-top: 10px;
+  border-top: 1px #f2f2f2 solid;
+  padding: 10px;
+  /*.button {
+   width: 100%;
+   max-width: 250px;
+   margin: 0 auto;
+  }
+  div {
+  	padding-top: 10px;
+  }*/
 }
 
 .entry-title,

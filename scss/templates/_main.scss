@@ -1081,6 +1081,8 @@ body {
 }
 
 .connection-details {
+	border: 1px #f2f2f2 solid;
+
 	h3,
 	.j-col div {
 		padding: 10px;
@@ -1089,7 +1091,7 @@ body {
 	h3 {
 		font-size: 12px;
 		text-transform: uppercase;
-		background: #fafafa;
+		background: #f2f2f2;
 		margin: 0 1px 0 0;
 		padding: 10px;
 		line-height: 100%;
@@ -1101,12 +1103,12 @@ body {
 	}
 
 	.j-col div {
-		height: 50px;
-		padding-top: 15px;
+		/*height: 50px;
+		padding-top: 15px;*/
 
-		&:nth-child(odd) {
+		/*&:nth-child(odd) {
 			background: #fcfcfc;
-		}
+		}*/
 
 		span {
 			display: inline-block;
@@ -1128,19 +1130,23 @@ body {
 		};
 	}
 
+	.jp-user {
+		border-right: 1px #f2f2f2 solid;
+	}
+
 	.jp-actions {
-		text-align: center;
-		h3 {
-			text-align: left;
-		}
-		.button {
+
+		border-top: 1px #f2f2f2 solid;
+		padding: 10px;
+
+		/*.button {
 		 width: 100%;
 		 max-width: 250px;
 		 margin: 0 auto;
 		}
 		div {
 			padding-top: 10px;
-		}
+		}*/
 	}
 }
 

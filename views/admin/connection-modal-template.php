@@ -3,6 +3,44 @@
 	<a href="#" class="close">&times; <span class="screen-reader-text"><?php _e( 'Close modal window', 'jetpack' ); ?></span></a>
 	<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
 		<div id="my-connection-content" class="content">
+		<h3>Your Jetpack Connection</h3>
+			<div class="connection-details">
+				<div class="j-row">
+					<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+						<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+						<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
+					</div><!-- // jp-user -->
+					<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+						<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+						<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+					</div><!-- // wp-user -->
+				</div><!-- // j-row -->
+				<div class="j-row">
+					<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
+							<a href="#"class="button">Sample Button</a> <a class="button" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect Site', 'jetpack' ); ?></a>
+					</div>
+				</div><!-- // j-row -->
+			</div><!-- // connection-details -->
+
+
+		<h3>Primary Jetpack Connection</h3>
+
+			<div class="connection-details">
+				<div class="j-row">
+					<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+						<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+						<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
+					</div><!-- // jp-user -->
+					<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+						<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+						<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+					</div><!-- // wp-user -->
+				</div><!-- // j-row -->
+			</div><!-- // connection-details -->
+
+
+			<br /><br />
+		old connection layout below
 			<h2>Your Jetpack Connection</h2>
 			<div class="connection-details">
 				<# if ( data.isAdmin ) { #><?php /* if user has admin privledges */ ?>

@@ -3,116 +3,120 @@
 	<a href="#" class="close">&times; <span class="screen-reader-text"><?php _e( 'Close modal window', 'jetpack' ); ?></span></a>
 	<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
 		<div id="my-connection-content" class="content">
-		<h3>Your Jetpack Connection</h3>
-			<div class="connection-details">
-				<div class="j-row">
-					<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-						<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-						<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
-					</div><!-- // jp-user -->
-					<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
-						<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-						<div class="wpuser-02">{{{ data.userComData.login }}}</div>
-					</div><!-- // wp-user -->
-				</div><!-- // j-row -->
-				<div class="j-row">
-					<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
-							<a href="#"class="button">Sample Button</a> <a class="button" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect Site', 'jetpack' ); ?></a>
-					</div>
-				</div><!-- // j-row -->
-			</div><!-- // connection-details -->
-
-
-		<h3>Primary Jetpack Connection</h3>
-
-			<div class="connection-details">
-				<div class="j-row">
-					<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
-						<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-						<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
-					</div><!-- // jp-user -->
-					<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
-						<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-						<div class="wpuser-02">{{{ data.userComData.login }}}</div>
-					</div><!-- // wp-user -->
-				</div><!-- // j-row -->
-			</div><!-- // connection-details -->
-
-
-			<br /><br />
-		old connection layout below
-			<h2>Your Jetpack Connection</h2>
-			<div class="connection-details">
-				<# if ( data.isAdmin ) { #><?php /* if user has admin privledges */ ?>
-					<# if ( data.connectionLogic.isMasterUser ) { #><?php /* if user is the owner of the primary jetpack connection */ ?>
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-user">
-							<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-							<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
-						</div><!-- // jp-user -->
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 wp-user">
-							<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-							<div class="wpuser-02">{{{ data.userComData.login }}}</div>
-						</div><!-- // wp-user -->
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
-							<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
-							<div class="action-01">
+			<# if ( data.isAdmin ) { #><?php /* if user has admin privledges */ ?>
+				<# if ( data.connectionLogic.isMasterUser ) { #><?php /* if user is the owner of the primary jetpack connection */ ?>
+					<h3>Your Jetpack Connection</h3>
+					<div class="connection-details">
+						<div class="j-row">
+							<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+								<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+								<div class="user-01"><span><?php esc_html_e( ' You (primary)', 'jetpack' ); ?></span></div>
+							</div><!-- // jp-user -->
+							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+								<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+							</div><!-- // wp-user -->
+						</div><!-- // j-row -->
+						<div class="j-row">
+							<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
 								<a class="button" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect Site', 'jetpack' ); ?></a>
 							</div>
-						</div>
-					<# } else { #><?php /* user is an admin but not the owner primary jetpack connection */ ?>
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-user">
-							<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-							<div class="user-01"><span>{{{ data.connectionLogic.masterUserLink }}}<?php esc_html_e( ' (primary)', 'jetpack' ); ?></span></div>
-							<div class="user-02"><span><?php esc_html_e( 'You', 'jetpack' ); ?><span></div>
-						</div><!-- // jp-user -->
-
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 wp-user">
-							<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-							<div class="wpuser-01">{{{ data.masterComData.login }}}</div>
-							<div class="wpuser-02">{{{ data.userComData.login }}}</div>
-						</div><!-- // wp-user -->
-
-						<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
-							<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
-								<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
-								<div class="action-01">
-									<a class="button" id="set-self-as-master"><?php esc_html_e( 'Make ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span><?php esc_html_e( ' Primary', 'jetpack' ); ?></a>
-								</div>
-								<div class="action-02">
-									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Disconnect ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span></a>
-								</div>
-							</div>
-						<# } else { #><?php /* user isn't connected to Jetpack at all and should see a connection prompt */ ?>
-							<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
-								<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
-								<div class="action-01"></div>
-								<div class="action-02">
-									<a href="<?php echo Jetpack::init()->build_connect_url() ?>" class="button"><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
-								</div>
-							</div>
-						<# } #><?php /* end data.connectionLogic.isUserConnected */ ?>
-					<# } #><?php /* end data.connectionLogic.isMasterUser */ ?>
-				<# } else { #><?php /* User doesn't have admin privledges */ ?>
+						</div><!-- // j-row -->
+					</div>
+				<# } else { #><?php /* user is an admin but not the owner primary jetpack connection */ ?>
+					<h3>Your Jetpack Connection</h3>
 					<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-user">
-							<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
-							<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
-						</div><!-- // jp-user -->
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 wp-user">
-							<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-							<div class="wpuser-02">{{{ data.userComData.login }}}</div>
-						</div><!-- // wp-user -->
-						<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
-							<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
-							<div class="action-01">
-								<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Disconnect ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span></a>
-							</div>
-						</div>
+						<div class="connection-details">
+							<div class="j-row">
+								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+									<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+									<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+								</div><!-- // jp-user -->
+								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+									<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+								</div><!-- // wp-user -->
+							</div><!-- // j-row -->
+							<div class="j-row">
+								<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
+									<a class="button" id="set-self-as-master"><?php esc_html_e( 'Make ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span><?php esc_html_e( ' Primary', 'jetpack' ); ?></a>
+									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span></a>
+								</div>
+							</div><!-- // j-row -->
+						</div><!-- // connection-details -->
 					<# } else { #><?php /* user isn't connected to Jetpack at all and should see a connection prompt */ ?>
-						<a href="<?php echo Jetpack::init()->build_connect_url() ?>" class="button"><?php esc_html_e( 'Link your account to WordPress.com', 'jetpack' ); ?></a>
+						<div class="connection-details">
+							<div class="j-row">
+								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+									<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+									<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+								</div><!-- // jp-user -->
+								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+									<div class="wpuser-02">Not connected to WordPress.com</div>
+								</div><!-- // wp-user -->
+							</div><!-- // j-row -->
+							<div class="j-row">
+								<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
+									<a class="button" href="<?php echo Jetpack::init()->build_connect_url() ?>" class="button"><?php esc_html_e( 'Link your account to WordPress.com', 'jetpack' ); ?></a>
+								</div>
+							</div><!-- // j-row -->
+						</div><!-- // connection-details -->
 					<# } #><?php /* end data.connectionLogic.isUserConnected */ ?>
-				<# } #><?php /* end data.isAdmin */ ?>
-			</div>
+					<h3>Primary Jetpack Connection</h3>
+					<div class="connection-details">
+						<div class="j-row">
+							<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+								<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+								<div class="user-01"><span>{{{ data.connectionLogic.masterUserLink }}}</span></div>
+							</div><!-- // jp-user -->
+							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+								<div class="wpuser-02">{{{ data.masterComData.login }}}</div>
+							</div><!-- // wp-user -->
+						</div><!-- // j-row -->
+					</div><!-- // connection-details -->
+				<# } #>
+			<# } else { #><?php /* User doesn't have admin privledges */ ?>
+				<h3>Your Jetpack Connection</h3>
+				<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
+					<div class="connection-details">
+						<div class="j-row">
+							<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+								<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+								<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+							</div><!-- // jp-user -->
+							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+								<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+							</div><!-- // wp-user -->
+						</div><!-- // j-row -->
+						<div class="j-row">
+							<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
+								<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span></a>
+							</div>
+						</div><!-- // j-row -->
+					</div><!-- // connection-details -->
+					<# } else { #><?php /* user isn't connected to Jetpack at all and should see a connection prompt */ ?>
+						<div class="connection-details">
+							<div class="j-row">
+								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
+									<h3 title="<?php _e( 'User', 'jetpack' ); ?>"><?php _e( 'User', 'jetpack' ); ?></h3>
+									<div class="user-01"><span><?php esc_html_e( ' You', 'jetpack' ); ?></span></div>
+								</div><!-- // jp-user -->
+								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
+									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+									<div class="wpuser-02">Not connected to WordPress.com</div>
+								</div><!-- // wp-user -->
+							</div><!-- // j-row -->
+							<div class="j-row">
+								<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
+									<a class="button" href="<?php echo Jetpack::init()->build_connect_url() ?>" class="button"><?php esc_html_e( 'Link your account to WordPress.com', 'jetpack' ); ?></a>
+								</div>
+							</div><!-- // j-row -->
+						</div><!-- // connection-details -->
+						<# } #><?php /* end data.connectionLogic.isUserConnected */ ?>
+			<# } #><?php /* end data.isAdmin */ ?>
 		</div>
 	</div>
 </script>

@@ -1549,13 +1549,6 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   z-index: 11;
 }
 
-#my-connection-content h2 {
-  font-size: 24px;
-}
-#my-connection-content table {
-  display: none;
-}
-
 .connection-details {
   border: 1px #f2f2f2 solid;
 }
@@ -1567,20 +1560,13 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   font-size: 12px;
   text-transform: uppercase;
   background: #f2f2f2;
-  margin: 0 1px 0 0;
+  margin: 0;
   padding: 10px;
   line-height: 100%;
   color: #777;
 }
 .connection-details .j-col {
   padding: 0;
-}
-.connection-details .j-col div {
-  /*height: 50px;
-  padding-top: 15px;*/
-  /*&:nth-child(odd) {
-  	background: #fcfcfc;
-  }*/
 }
 .connection-details .j-col div span {
   display: inline-block;
@@ -1594,25 +1580,18 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     max-width: 95%;
   }
 }
-@media (min-width: 530px) {
-  .connection-details .ifmobile {
-    display: none;
-  }
-}
 .connection-details .jp-user {
   border-right: 1px #f2f2f2 solid;
 }
 .connection-details .jp-actions {
   border-top: 1px #f2f2f2 solid;
   padding: 10px;
-  /*.button {
-   width: 100%;
-   max-width: 250px;
-   margin: 0 auto;
+}
+@media (max-width: 320px) {
+  .connection-details .button {
+    width: 100%;
+    text-align: center;
   }
-  div {
-  	padding-top: 10px;
-  }*/
 }
 
 .entry-title,

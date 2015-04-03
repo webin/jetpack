@@ -14,7 +14,7 @@
 							</div><!-- // jp-user -->
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-								<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+								<div class="wpuser-02"><span>{{{ data.userComData.login }}}</span></div>
 							</div><!-- // wp-user -->
 						</div><!-- // j-row -->
 						<div class="j-row">
@@ -34,13 +34,13 @@
 								</div><!-- // jp-user -->
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-									<div class="wpuser-02">{{{ data.userComData.login }}}</div>
+									<div class="wpuser-02"><span>{{{ data.userComData.login }}}</span></div>
 								</div><!-- // wp-user -->
 							</div><!-- // j-row -->
 							<div class="j-row">
 								<div class="j-col j-lrg-12 j-md-12 j-sm-12 jp-actions">
-									<a class="button" id="set-self-as-master"><?php esc_html_e( 'Make ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span><?php esc_html_e( ' Primary', 'jetpack' ); ?></a>
-									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span></a>
+									<a class="button" id="set-self-as-master"><?php esc_html_e( 'Make Primary', 'jetpack' ); ?></a>
+									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
 								</div>
 							</div><!-- // j-row -->
 						</div><!-- // connection-details -->
@@ -53,7 +53,7 @@
 								</div><!-- // jp-user -->
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-									<div class="wpuser-02">Not connected to WordPress.com</div>
+									<div class="wpuser-02"><span>Not connected to WordPress.com</span></div>
 								</div><!-- // wp-user -->
 							</div><!-- // j-row -->
 							<div class="j-row">
@@ -72,7 +72,7 @@
 							</div><!-- // jp-user -->
 							<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-								<div class="wpuser-02">{{{ data.masterComData.login }}}</div>
+								<div class="wpuser-02"><span>{{{ data.masterComData.login }}}</span></div>
 							</div><!-- // wp-user -->
 						</div><!-- // j-row -->
 					</div><!-- // connection-details -->

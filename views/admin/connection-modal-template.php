@@ -38,14 +38,20 @@
 							<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
 								<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
 								<div class="action-01">
-									<a class="button" id="set-self-as-master"><?php esc_html_e( 'Make yourself primary', 'jetpack' ); ?></a>
+									<a class="button" id="set-self-as-master"><?php esc_html_e( 'Make ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span><?php esc_html_e( ' Primary', 'jetpack' ); ?></a>
 								</div>
 								<div class="action-02">
 									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Disconnect ', 'jetpack' ); ?><span class="ifmobile">{{{ data.userComData.login }}}</span></a>
 								</div>
 							</div>
 						<# } else { #><?php /* user isn't connected to Jetpack at all and should see a connection prompt */ ?>
-							<a href="<?php echo Jetpack::init()->build_connect_url() ?>" class="button"><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
+							<div class="j-col j-lrg-4 j-md-4 j-sm-12 jp-actions">
+								<h3 title="<?php _e( 'Actions', 'jetpack' ); ?>"><?php _e( 'Actions', 'jetpack' ); ?></h3>
+								<div class="action-01"></div>
+								<div class="action-02">
+									<a href="<?php echo Jetpack::init()->build_connect_url() ?>" class="button"><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
+								</div>
+							</div>
 						<# } #><?php /* end data.connectionLogic.isUserConnected */ ?>
 					<# } #><?php /* end data.connectionLogic.isMasterUser */ ?>
 				<# } else { #><?php /* User doesn't have admin privledges */ ?>

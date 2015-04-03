@@ -56,7 +56,6 @@
 			return false;
 		} else {
 			$( '#jp-connection-modal' ).html( wp.template( 'connection-modal-loading' ) );
-			$( '.spinner' ).show();
 			var postData = {
 				switchMasterUser : 'switch-master-user',
 				action: action,
@@ -64,7 +63,6 @@
 			};
 			$.post( jpConnection.ajaxurl, postData, function( response ) {
 				renderModalTemplate( response );
-				$( '.spinner' ).hide();
 				data = response;
 			}, 'json' );
 		}

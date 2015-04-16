@@ -340,7 +340,12 @@ class Jetpack_Protect_Module {
 	 * @return bool Either returns true, fires $this->kill_login, or includes a math fallback
 	 */
 	function check_login_ability( $preauth = false ) {
-		$headers            = $this->get_headers();
+        global $is_wpcom_call;
+        if ( isset( $is_wpcom_call ) && $is_wpcom_call ) {
+            return true;
+        }
+
+        $headers            = $this->get_headers();
 		$header_hash        = md5( json_encode( $headers ) );
 		$transient_name     = 'jpp_li_' . $header_hash;
 		$transient_value    = $this->get_transient( $transient_name );

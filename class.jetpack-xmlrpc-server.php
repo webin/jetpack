@@ -316,6 +316,9 @@ class Jetpack_XMLRPC_Server {
 	}
 
 	function json_api( $args = array() ) {
+        global $is_wpcom_call;
+        $is_wpcom_call = false;
+
 		$json_api_args = $args[0];
 		$verify_api_user_args = $args[1];
 
@@ -330,6 +333,7 @@ class Jetpack_XMLRPC_Server {
 		} elseif ( 'internal' === $verify_api_user_args[0] ) {
 			$user_id = (int) $verify_api_user_args[1];
 			if ( $user_id ) {
+                $is_wpcom_call = true;
 				$user = get_user_by( 'id', $user_id );
 				if ( !$user || is_wp_error( $user ) ) {
 					return false;

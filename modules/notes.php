@@ -131,15 +131,15 @@ class Jetpack_Notifications {
 		$this->print_js();
 
 		// attempt to use core or plugin libraries if registered
-		if ( !wp_script_is( 'mustache', 'registered' ) ) {
+		//if ( !wp_script_is( 'mustache', 'registered' ) ) {
 			wp_register_script( 'mustache', $this->wpcom_static_url( '/wp-content/js/mustache.js' ), null, JETPACK_NOTES__CACHE_BUSTER );
-		}
-		if ( !wp_script_is( 'underscore', 'registered' ) ) {
+		//}
+		//if ( !wp_script_is( 'underscore', 'registered' ) ) {
 			wp_register_script( 'underscore', $this->wpcom_static_url( '/wp-includes/js/underscore.min.js' ), null, JETPACK_NOTES__CACHE_BUSTER );
-		}
-		if ( !wp_script_is( 'backbone', 'registered' ) ) {
+		//}
+		//if ( !wp_script_is( 'backbone', 'registered' ) ) {
 			wp_register_script( 'backbone', $this->wpcom_static_url( '/wp-includes/js/backbone.min.js' ), array( 'underscore' ), JETPACK_NOTES__CACHE_BUSTER );
-		}
+		//}
 
 		wp_register_script( 'wpcom-notes-common', $this->wpcom_static_url( '/wp-content/mu-plugins/notes/notes-common-v2.js' ), array( 'jquery', 'underscore', 'backbone', 'mustache', 'jquery.spin' ), JETPACK_NOTES__CACHE_BUSTER );
 		wp_enqueue_script( 'wpcom-notes-admin-bar', $this->wpcom_static_url( '/wp-content/mu-plugins/notes/admin-bar-v2.js' ), array( 'wpcom-notes-common' ), JETPACK_NOTES__CACHE_BUSTER );

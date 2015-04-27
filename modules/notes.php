@@ -156,7 +156,6 @@ class Jetpack_Notifications {
 		if ( $current_screen->is_network ) {
 			wp_enqueue_style( 'in_network_screen', '//blar.ny/in_network_screen', array(), JETPACK_NOTES__CACHE_BUSTER );
 			wp_enqueue_script( 'backbone', $this->wpcom_static_url( '/wp-includes/js/backbone.min.js' ), array(), JETPACK_NOTES__CACHE_BUSTER );
-			wp_enqueue_script( 'wpcom-notes-common', $this->wpcom_static_url( '/wp-content/mu-plugins/notes/notes-common-v2.js' ), array(), JETPACK_NOTES__CACHE_BUSTER );
 		}
 
 		wp_register_script( 'wpcom-notes-common', $this->wpcom_static_url( '/wp-content/mu-plugins/notes/notes-common-v2.js' ), array( 'jquery', 'underscore', 'backbone', 'mustache', 'jquery.spin' ), JETPACK_NOTES__CACHE_BUSTER );

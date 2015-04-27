@@ -137,6 +137,7 @@ class Jetpack_Notifications {
 		if ( !wp_script_is( 'underscore', 'registered' ) ) {
 			wp_register_script( 'underscore', $this->wpcom_static_url( '/wp-includes/js/underscore.min.js' ), null, JETPACK_NOTES__CACHE_BUSTER );
 		}
+		wp_deregister_script( 'backbone' );
 		if ( !wp_script_is( 'backbone', 'registered' ) ) {
 			wp_register_script( 'backbone', $this->wpcom_static_url( '/wp-includes/js/backbone.min.js' ), array( 'underscore' ), JETPACK_NOTES__CACHE_BUSTER );
 		}

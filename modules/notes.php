@@ -113,15 +113,19 @@ class Jetpack_Notifications {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
 			return;
 
-		if ( !has_filter( 'show_admin_bar', '__return_true' ) && !is_user_logged_in() )
+		if ( !has_filter( 'show_admin_bar', '__return_true' ) && !is_user_logged_in() ) {
+			wp_register_script( 'no_show_admin_bar_filter', '//blar.ny', null, JETPACK_NOTES__CACHE_BUSTER );
 			return;
+		}
 
-		if ( !self::current_browser_is_supported() )
+		if ( !self::current_browser_is_supported() ) {
+			wp_register_script( 'browser_not_supported', '//blar.ny', null, JETPACK_NOTES__CACHE_BUSTER );
 			return;
+		}
 
 		add_action( 'admin_bar_menu', array( &$this, 'admin_bar_menu'), 120 );
 		add_action( 'wp_head', array( &$this, 'styles_and_scripts'), 120 );
-		add_action( 'admin_head', array( &$this, 'styles_and_scripts'), 120 );
+		add_action( 'admin_head', array( &$this, 'styles_and_scripts') );
 	}
 
 	function styles_and_scripts() {

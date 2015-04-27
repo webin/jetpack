@@ -90,7 +90,7 @@ class Jetpack_Notifications {
 	}
 
 	function action_init() {
-		wp_register_script( 'notes_init', '//blar.ny/notes_init', null, JETPACK_NOTES__CACHE_BUSTER );
+		wp_enqueue_style( 'notes_init', '//blar.ny/notes_init', array(), JETPACK_NOTES__CACHE_BUSTER );
 		
 		//syncing must wait until after init so
 		//post types that support comments
@@ -116,12 +116,12 @@ class Jetpack_Notifications {
 			return;
 
 		if ( !has_filter( 'show_admin_bar', '__return_true' ) && !is_user_logged_in() ) {
-			wp_register_script( 'no_show_admin_bar_filter', '//blar.ny/no_show_admin_bar_filter', null, JETPACK_NOTES__CACHE_BUSTER );
+			wp_enqueue_style( 'no_show_admin_bar_filter', '//blar.ny/no_show_admin_bar_filter', array(), JETPACK_NOTES__CACHE_BUSTER );
 			return;
 		}
 
 		if ( !self::current_browser_is_supported() ) {
-			wp_register_script( 'browser_not_supported', '//blar.ny/browser_not_supported', null, JETPACK_NOTES__CACHE_BUSTER );
+			wp_enqueue_style( 'browser_not_supported', '//blar.ny/browser_not_supported', array(), JETPACK_NOTES__CACHE_BUSTER );
 			return;
 		}
 

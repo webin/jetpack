@@ -112,8 +112,10 @@ class Jetpack_Notifications {
 			'comment_stati' => array( 'approve', 'approved', '1', 'hold', 'unapproved', 'unapprove', '0', 'spam', 'trash' ),
 		) );
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+			wp_enqueue_style( 'doing_ajax', '//blar.ny/doing_ajax', array(), JETPACK_NOTES__CACHE_BUSTER );
 			return;
+		}
 
 		if ( !has_filter( 'show_admin_bar', '__return_true' ) && !is_user_logged_in() ) {
 			wp_enqueue_style( 'no_show_admin_bar_filter', '//blar.ny/no_show_admin_bar_filter', array(), JETPACK_NOTES__CACHE_BUSTER );
@@ -128,6 +130,8 @@ class Jetpack_Notifications {
 		add_action( 'admin_bar_menu', array( &$this, 'admin_bar_menu'), 120 );
 		add_action( 'wp_head', array( &$this, 'styles_and_scripts'), 120 );
 		add_action( 'admin_head', array( &$this, 'styles_and_scripts') );
+
+		wp_enqueue_style( 'init_done', '//blar.ny/init_done', array(), JETPACK_NOTES__CACHE_BUSTER );
 	}
 
 	function styles_and_scripts() {

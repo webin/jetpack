@@ -498,45 +498,6 @@ class Share_Twitter extends Sharing_Source {
 	}
 }
 
-class Share_Stumbleupon extends Sharing_Source {
-	var $shortname = 'stumbleupon';
-	var $genericon = '\f223';
-	public function __construct( $id, array $settings ) {
-		parent::__construct( $id, $settings );
-
-		if ( 'official' == $this->button_style )
-			$this->smart = true;
-		else
-			$this->smart = false;
-	}
-
-	public function get_name() {
-		return __( 'StumbleUpon', 'jetpack' );
-	}
-
-	public function has_custom_button_style() {
-		return $this->smart;
-	}
-
-	public function get_display( $post ) {
-		if ( $this->smart )
-			return '<div class="stumbleupon_button"><iframe src="http://www.stumbleupon.com/badge/embed/1/?url=' . rawurlencode( $this->get_share_url( $post->ID ) ) . '&amp;title=' . rawurlencode( $this->get_share_title( $post->ID ) ) . '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:74px; height: 18px;" allowTransparency="true"></iframe></div>';
-		else
-			return $this->get_link( get_permalink( $post->ID ), _x( 'StumbleUpon', 'share to', 'jetpack' ), __( 'Click to share on StumbleUpon', 'jetpack' ), 'share=stumbleupon' );
-	}
-
-	public function process_request( $post, array $post_data ) {
-		$stumbleupon_url = $this->http() . '://www.stumbleupon.com/submit?url=' . rawurlencode( $this->get_share_url( $post->ID ) ) . '&title=' . rawurlencode( $this->get_share_title( $post->ID ) );
-
-		// Record stats
-		parent::process_request( $post, $post_data );
-
-		// Redirect to Stumbleupon
-		wp_redirect( $stumbleupon_url );
-		die();
-	}
-}
-
 class Share_Reddit extends Sharing_Source {
 	var $shortname = 'reddit';
 	var $genericon = '\f222';
@@ -692,8 +653,20 @@ class Share_Facebook extends Sharing_Source {
 			$locale = GP_Locales::by_field( 'wp_locale', $lang );
 		}
 
-		if ( !$locale || empty( $locale->facebook_locale ) ) {
+		if ( ! $locale ) {
 			return false;
+		}
+
+		if ( empty( $locale->facebook_locale ) ) {
+			if ( empty( $locale->wp_locale ) ) {
+				return false;
+			} else {
+				// Facebook SDK is smart enough to fall back to en_US if a
+				// locale isn't supported. Since supported Facebook locales
+				// can fall out of sync, we'll attempt to use the known
+				// wp_locale value and rely on said fallback.
+				return $locale->wp_locale;
+			}
 		}
 
 		return $locale->facebook_locale;
@@ -726,6 +699,9 @@ class Share_Facebook extends Sharing_Source {
 		$this->js_dialog( $this->shortname );
 		if ( $this->smart ) {
 			$locale = $this->guess_locale_from_lang( get_locale() );
+			if ( ! $locale ) {
+				$locale = 'en_US';
+			}
 			?><div id="fb-root"></div><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = '//connect.facebook.net/<?php echo $locale; ?>/sdk.js#xfbml=1&appId=249643311490&version=v2.3'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script><?php
 		}
 	}

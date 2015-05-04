@@ -77,7 +77,10 @@ class Jetpack_Display_Posts_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$site_hash = $this->get_site_hash( $instance['url'] );
+
+		// All of the back up DB options we're storing.
 		$site_info_from_db = get_option( 'display_posts_site_info_' . $site_hash );
+		$response_from_db = get_option( 'display_posts_response_info_' . $site_hash );
 		$posts_from_db = get_option( 'display_posts_post_info_' . $site_hash );
 
 		wp_enqueue_style( 'jetpack_display_posts_widget', plugins_url( 'wordpress-post-widget/style.css', __FILE__ ) );
@@ -105,42 +108,51 @@ class Jetpack_Display_Posts_Widget extends WP_Widget {
 
 		$data_from_cache = get_transient( 'display_posts_post_info_' . $site_hash );
 		if ( false === $data_from_cache ) {
-			$response = wp_remote_get( sprintf( 'https://public-api.wordpress.com/rest/v1/sites/%d/posts/', $site_info->ID ), array( 'timeout' => 120 ) );
+			$response = wp_remote_get( sprintf( 'https://public-api.wordpress.com/rest/v1/sites/%d/posts/', $site_info->ID ) );
 		} else {
 			$response = $data_from_cache;
 		}
 
-		if ( is_wp_error( $response ) && ! $posts_from_db ) {
-			printf( '<p>' . __( 'Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
-			echo $args['after_widget'];
-			return;
+		if ( is_wp_error( $response ) ) {
+			// Before we fail, let's check our DB for any back-up data we have
+			if ( $response_from_db ) {
+				$response = $response_from_db;
+			} else {
+				printf( '<p>' . __( '1 - Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
+				echo $args['after_widget'];
+				return;
+			}
 		}
 
-		$posts_info = json_decode( $response['body'] );
+		$posts_info = json_decode( wp_remote_retrieve_body( $response ) );
 
 		echo '<div class="jetpack-display-remote-posts">';
 
 		if ( isset( $posts_info->error ) && 'jetpack_error' == $posts_info->error ) {
-			// Before we fail, let's check our DB for any posts that we may have stored in the DB
+			// Before we fail, let's check our DB for any back-up data
 			if ( $posts_from_db ) {
 				$posts_info = $posts_from_db;
 			} else {
-				printf( '<p>' . __( 'Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>',  $instance['url'] );
+				printf( '<p>' . __( '2- Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
 				echo '</div><!-- .jetpack-display-remote-posts -->';
 				echo $args['after_widget'];
+
 				return;
 			}
 		}
 
 		// If we've made it this far without any errors, let's write the results
 		// to the DB, but only if they are new or don't exist yet.
-		if ( ! $posts_from_db || $posts_from_db !== $site_info ) {
+		if ( ! $posts_from_db || $posts_from_db !== $posts_info ) {
 			update_option( 'display_posts_post_info_' . $site_hash, $posts_info );
 		}
 
-		// Set transient when we know we have good data with no errors
-		set_transient( 'display_posts_post_info_' . $site_hash, $response, 1 * MINUTE_IN_SECONDS );
+		if ( ! $response_from_db || $response_from_db !== $response ) {
+			update_option( 'display_posts_response_info_' . $site_hash, $response );
+		}
 
+		// Set transient when we know we have good data with no errors
+//		set_transient( 'display_posts_post_info_' . $site_hash, $response, 1 * MINUTE_IN_SECONDS );
 
 		$number_of_posts = min( $instance['number_of_posts'], count( $posts_info->posts ) );
 

@@ -38,35 +38,73 @@ class Jetpack_Display_Posts_Widget extends WP_Widget {
 		return substr( md5( $site ), 0, 21 );
 	}
 
-	public function get_site_info( $site ) {
+	/*
+	 * Stores backup data from the API calls to a site
+	 *
+	 * @param string url of the site being stored
+	 * @param array  portions of the object to re-write
+	 */
+	public function update_backup_data( $site, $args ) {
 		$site_hash = $this->get_site_hash( $site );
-		$data_from_cache = get_transient( 'display_posts_site_info_' . $site_hash );
+
+		$defaults = array(
+			'site_info'  => '',
+			'posts_info' => '',
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		update_option( 'display_posts_backup_data_' . $site_hash, $args );
+	}
+
+	/*
+	 * Get backup data for the widget
+	 *
+	 * @param string url of the site being stored
+	 * @return object or false if no data found
+	 */
+	public function get_backup_data( $site ) {
+		$site_hash = $this->get_site_hash( $site );
+		$backup_data = get_option( 'display_posts_backup_data_' . $site_hash );
+
+		if ( $backup_data ) {
+			return $backup_data;
+		} else {
+			return false;
+		}
+	}
+
+	public function get_site_info( $site ) {
+		$site_hash        = $this->get_site_hash( $site );
+		$data_from_cache  = get_transient( 'display_posts_site_info_' . $site_hash );
+		$data_from_option = $this->get_backup_data( $site );
+
+		// Check for stored transient
 		if ( false === $data_from_cache ) {
 			$response = wp_remote_get( sprintf( 'https://public-api.wordpress.com/rest/v1/sites/%s', urlencode( $site ) ) );
+
+			if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+				// Before we fail, let's check our DB for any back-up data of the site info
+				if ( ! empty( $data_from_option->site_info ) ) {
+					$response = $data_from_option->site_info;
+				} else {
+					error_log( 'First Check: ' . print_r( $response, 1 ) );
+					return false;
+				}
+			}
+
+			// Set transient when we know we have good data with no errors
+//			set_transient( 'display_posts_site_info_' . $site_hash, $response, 1 * MINUTE_IN_SECONDS );
+
+			// Save site data to DB as a backup in case it fails later & only if it has changed
+			if ( ! $data_from_option || $data_from_option->site_info !== $response ) {
+				$this->update_backup_data( $site, array( 'site_info' => $response ) );
+			}
 		} else {
 			$response = $data_from_cache;
 		}
 
-		if ( is_wp_error( $response ) ) {
-			error_log( 'Display WordPress Posts Error: ' . print_r( $response, 1 ) );
-			return false;
-		}
-
-		$site_info = json_decode( $response ['body'] );
-		if ( ! isset( $site_info->ID ) ) {
-			error_log( 'Display WordPress Posts Error: ' . print_r( $site_info, 1 ) );
-			return false;
-		}
-
-		// If we've made it this far without any errors, let's write the results
-		// to the DB, but only if they are new or don't exist yet.
-		$site_info_from_db = get_option( 'display_posts_site_info_' . $site_hash );
-		if ( ! $site_info_from_db || $site_info_from_db !== $site_info ) {
-			update_option( 'display_posts_site_info_' . $site_hash, $site_info );
-		}
-
-		// Set transient when we know we have good data with no errors
-//		set_transient( 'display_posts_site_info_' . $site_hash, $response, 1 * MINUTE_IN_SECONDS );
+		$site_info = json_decode( wp_remote_retrieve_body( $response ) );
 
 		return $site_info;
 	}
@@ -75,13 +113,10 @@ class Jetpack_Display_Posts_Widget extends WP_Widget {
 	 * Set up the widget display on the front end
 	 */
 	public function widget( $args, $instance ) {
-		$title = apply_filters( 'widget_title', $instance['title'] );
-		$site_hash = $this->get_site_hash( $instance['url'] );
-
-		// All of the back up DB options we're storing.
-		$site_info_from_db = get_option( 'display_posts_site_info_' . $site_hash );
-		$response_from_db = get_option( 'display_posts_response_info_' . $site_hash );
-		$posts_from_db = get_option( 'display_posts_post_info_' . $site_hash );
+		$title            = apply_filters( 'widget_title', $instance['title'] );
+		$site_hash        = $this->get_site_hash( $instance['url'] );
+		$data_from_cache  = get_transient( 'display_posts_post_info_' . $site_hash );
+		$data_from_option = $this->get_backup_data( $instance['url'] );
 
 		wp_enqueue_style( 'jetpack_display_posts_widget', plugins_url( 'wordpress-post-widget/style.css', __FILE__ ) );
 
@@ -90,14 +125,9 @@ class Jetpack_Display_Posts_Widget extends WP_Widget {
 		echo $args['before_widget'];
 
 		if ( false === $site_info ) {
-			// Before we fail, let's check our DB for any back-up data of the $site_info_from_db
-			if ( $site_info_from_db ) {
-				$site_info = $site_info_from_db;
-			} else {
-				printf( '<p>' . __( 'Currently having trouble retrieving the site data for %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
-				echo $args['after_widget'];
-				return;
-			}
+			printf( '<p>' . __( '0 - Currently having trouble retrieving the site data for %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
+			echo $args['after_widget'];
+			return;
 		}
 
 		if ( ! empty( $title ) ) {
@@ -106,53 +136,37 @@ class Jetpack_Display_Posts_Widget extends WP_Widget {
 			echo $args['before_title'] . esc_html( $site_info->name ) . $args['after_title'];
 		}
 
-		$data_from_cache = get_transient( 'display_posts_post_info_' . $site_hash );
+		// Check for any data stored in transients
 		if ( false === $data_from_cache ) {
 			$response = wp_remote_get( sprintf( 'https://public-api.wordpress.com/rest/v1/sites/%d/posts/', $site_info->ID ) );
+
+			// Check for any errors in the response
+			if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+
+				// Before we fail, let's check our DB for any back-up data we may have
+				if ( ! empty( $data_from_option->posts_info ) ) {
+					$response = $data_from_option->posts_info;
+				} else {
+					printf( '<p>' . __( '1 - Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
+					echo $args['after_widget'];
+					return;
+				}
+			}
+
+			// Set transient when we know we have good data with no errors
+//			set_transient( 'display_posts_post_info_' . $site_hash, $response, 1 * MINUTE_IN_SECONDS );
+
+			// Save posts data to DB as a backup in case it fails later & only if it has changed
+			if ( ! $data_from_option || $data_from_option->posts_info !== $response ) {
+				$this->update_backup_data( $instance['url'], array( 'posts_info' => $response ) );
+			}
 		} else {
 			$response = $data_from_cache;
-		}
-
-		if ( is_wp_error( $response ) ) {
-			// Before we fail, let's check our DB for any back-up data we have
-			if ( $response_from_db ) {
-				$response = $response_from_db;
-			} else {
-				printf( '<p>' . __( '1 - Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
-				echo $args['after_widget'];
-				return;
-			}
 		}
 
 		$posts_info = json_decode( wp_remote_retrieve_body( $response ) );
 
 		echo '<div class="jetpack-display-remote-posts">';
-
-		if ( isset( $posts_info->error ) && 'jetpack_error' == $posts_info->error ) {
-			// Before we fail, let's check our DB for any back-up data
-			if ( $posts_from_db ) {
-				$posts_info = $posts_from_db;
-			} else {
-				printf( '<p>' . __( '2- Currently having trouble retrieving posts from %s. This usually clears itself up after a few minutes, please try again later.', 'jetpack' ) . '</p>', $instance['url'] );
-				echo '</div><!-- .jetpack-display-remote-posts -->';
-				echo $args['after_widget'];
-
-				return;
-			}
-		}
-
-		// If we've made it this far without any errors, let's write the results
-		// to the DB, but only if they are new or don't exist yet.
-		if ( ! $posts_from_db || $posts_from_db !== $posts_info ) {
-			update_option( 'display_posts_post_info_' . $site_hash, $posts_info );
-		}
-
-		if ( ! $response_from_db || $response_from_db !== $response ) {
-			update_option( 'display_posts_response_info_' . $site_hash, $response );
-		}
-
-		// Set transient when we know we have good data with no errors
-//		set_transient( 'display_posts_post_info_' . $site_hash, $response, 1 * MINUTE_IN_SECONDS );
 
 		$number_of_posts = min( $instance['number_of_posts'], count( $posts_info->posts ) );
 

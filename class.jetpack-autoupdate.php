@@ -40,6 +40,7 @@ class Jetpack_Autoupdate {
 			add_filter( 'auto_update_core',    array( $this, 'autoupdate_core' ), 10, 2 );
 			add_action( 'automatic_updates_complete', array( $this, 'automatic_updates_complete' ), 10, 1 );
 			add_action( 'shutdown', array( $this, 'log_results' ) );
+			add_filter( 'views_plugins', array( $this, 'add_plugin_views' ), 10, 1 );
 		}
 
 		// Anytime WordPress saves update data, we'll want to update our Jetpack option as well.
@@ -49,6 +50,27 @@ class Jetpack_Autoupdate {
 			add_action( 'set_site_transient_update_core', array( $this, 'save_update_data' ) );
 		}
 
+	}
+
+	function add_plugin_views( $views ) {
+		global $totals;
+		$autoupdate_plugin_list = Jetpack_Options::get_option( 'autoupdate_plugins', array() );
+		$total_plugins          = isset( $totals['all'] ) ? $totals['all'] : 0;
+		$total_autoupdates      = count( $autoupdate_plugin_list );
+		$total_manuallyupdates  = $total_plugins - $total_autoupdates;
+		if ( $total_autoupdates > 0 ) {
+			$text = '<a href="plugins.php?plugin_status=autoupdates">' .
+			        _n( 'Updates Automatically <span class="count">(%s)</span>', 'Updates Automatically <span class="count">(%s)</span>', $total_autoupdates ) .
+			        '</a>';
+			$views['autoupdates'] = sprintf( $text, number_format_i18n( $total_autoupdates ) );
+		}
+		if ( $total_manuallyupdates > 0 ) {
+			$text = '<a href="plugins.php?plugin_status=manuallyupdates">' .
+			        _n( 'Updates Manually <span class="count">(%s)</span>', 'Updates Manually <span class="count">(%s)</span>', $total_manuallyupdates ) .
+			        '</a>';
+			$views['manuallyupdates'] = sprintf( $text, number_format_i18n( $total_manuallyupdates ) );
+		}
+		return $views;
 	}
 
 	function autoupdate_plugin( $update, $item ) {

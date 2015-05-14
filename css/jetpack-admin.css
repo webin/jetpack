@@ -1553,7 +1553,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   border: 1px #f2f2f2 solid;
 }
 .connection-details h3,
-.connection-details .j-col div {
+.connection-details .j-col div, .connection-details .wpuser-linkacct {
   padding: 10px;
 }
 .connection-details h3 {

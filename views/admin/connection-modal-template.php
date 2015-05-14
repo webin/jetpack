@@ -24,8 +24,7 @@
 								<div class="wpuser-02">{{{ data.masterComData.login }}}</div>
 						</div><!-- // wp-user -->
 					</div><!-- // j-row -->
-				</div>
-				<div class="j-col j-lrg-12 j-md-12 j-sm-12">
+				<div class="j-col j-lrg-12 j-md-12 j-sm-12 btm-actions">
 					<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
 						<a class="button button-primary" title="Make me the primary account holder" id="set-self-as-master"><?php esc_html_e( 'Make me primary', 'jetpack' ); ?></a>
 					<# } #>
@@ -33,6 +32,7 @@
 					<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
 						<a class="button alignright" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
 					<# } #>
+				</div>
 				</div>
 			<# } else { #><?php /* User doesn't have admin privledges */ ?>
 				<div class="connection-details">

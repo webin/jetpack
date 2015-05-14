@@ -1119,10 +1119,14 @@ body {
 	}
 
 	.button {
-		@include breakpoint(phone){
+		@include breakpoint(med-phone){
 			width: 100%;
 			text-align: center;
 		}
+	}
+
+	.btm-actions {
+		padding-top: 10px;
 	}
 }
 

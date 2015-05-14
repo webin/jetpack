@@ -1587,11 +1587,14 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   border-top: 1px #f2f2f2 solid;
   padding: 10px;
 }
-@media (max-width: 320px) {
+@media (max-width: 375px) {
   .connection-details .button {
     width: 100%;
     text-align: center;
   }
+}
+.connection-details .btm-actions {
+  padding-top: 10px;
 }
 
 .entry-title,

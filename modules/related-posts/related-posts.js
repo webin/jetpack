@@ -6,6 +6,8 @@
 (function($) {
 	var jprp = {
 		response: null,
+		incustomizer: 0,
+
 
 		/**
 		 * Utility get related posts JSON endpoint from URLs
@@ -14,6 +16,7 @@
 		 * @return string endpoint URL
 		 */
 		getEndpointURL: function( URL ) {
+
 			var locationObject = document.location;
 
 			if ( 'string' === typeof( URL ) && URL.match( /^https?:\/\// ) ) {
@@ -29,6 +32,10 @@
 			var pathname = locationObject.pathname;
 			if ( '/' !== pathname[0] ) {
 				pathname = '/' + pathname;
+			}
+
+			if ( pathname.indexOf( 'customize.php' ) ) {
+				jprp.incustomizer = 1;
 			}
 
 			if ( '' === locationObject.search ) {
@@ -166,9 +173,15 @@
 	$( function() {
 		jprp.cleanupTrackedUrl();
 
-		$.getJSON( jprp.getEndpointURL(), function( response ) {
+		$.getJSON( jprp.getEndpointURL(), function( response, incustomizer ) {
+
 			if ( 0 === response.items.length || 0 === $( '#jp-relatedposts' ).length ) {
-				return;
+				if ( 1 === jprp.incustomizer ){
+					console.log('response = 123');
+					debugger;
+				} else {
+					return;
+				}
 			}
 
 			jprp.response = response;

@@ -10,6 +10,8 @@ class Jetpack_Autoupdate {
 	public $jetpack;
 	public $autoupdate_results;
 	public $is_updating = false;
+	public $num_autoupdated = 0;
+	public $num_manuallyupdated = 0;
 
 	public $autoupdate_expected = array(
 		'plugin'=> array(),
@@ -40,7 +42,9 @@ class Jetpack_Autoupdate {
 			add_filter( 'auto_update_core',    array( $this, 'autoupdate_core' ), 10, 2 );
 			add_action( 'automatic_updates_complete', array( $this, 'automatic_updates_complete' ), 10, 1 );
 			add_action( 'shutdown', array( $this, 'log_results' ) );
-			add_filter( 'views_plugins', array( $this, 'add_plugin_views' ), 10, 1 );
+			add_filter( 'views_plugins', array( $this, 'filter_plugin_views' ), 10, 1 );
+			add_filter( 'plugin_statuses', array( $this, 'filter_plugin_statuses' ), 10, 1 );
+			add_filter( 'plugins_list_table', array( $this, 'filter_plugin_list_table' ), 10, 1 );
 		}
 
 		// Anytime WordPress saves update data, we'll want to update our Jetpack option as well.
@@ -52,23 +56,42 @@ class Jetpack_Autoupdate {
 
 	}
 
-	function add_plugin_views( $views ) {
-		global $totals;
+	function filter_plugin_list_table( $plugins ) {
 		$autoupdate_plugin_list = Jetpack_Options::get_option( 'autoupdate_plugins', array() );
-		$total_plugins          = isset( $totals['all'] ) ? $totals['all'] : 0;
-		$total_autoupdates      = count( $autoupdate_plugin_list );
-		$total_manuallyupdates  = $total_plugins - $total_autoupdates;
-		if ( $total_autoupdates > 0 ) {
-			$text = '<a href="plugins.php?plugin_status=autoupdates">' .
-			        _n( 'Updates Automatically <span class="count">(%s)</span>', 'Updates Automatically <span class="count">(%s)</span>', $total_autoupdates ) .
-			        '</a>';
-			$views['autoupdates'] = sprintf( $text, number_format_i18n( $total_autoupdates ) );
+		$plugins['autoupdated'] = array();
+		$plugins['manuallyupdated'] = array();
+		if( isset( $plugins['all'] ) && is_array( $plugins['all'] ) ) {
+			foreach( $plugins['all'] as $slug => $plugin ) {
+				if ( in_array( $slug, $autoupdate_plugin_list ) ) {
+					$plugins['autoupdated'][ $slug ]  = $plugin;
+					$this->num_autoupdated++;
+				} else {
+					$plugins['manuallyupdated'][ $slug ]  = $plugin;
+					$this->num_manuallyupdated++;
+				}
+			}
 		}
-		if ( $total_manuallyupdates > 0 ) {
-			$text = '<a href="plugins.php?plugin_status=manuallyupdates">' .
-			        _n( 'Updates Manually <span class="count">(%s)</span>', 'Updates Manually <span class="count">(%s)</span>', $total_manuallyupdates ) .
+		return $plugins;
+	}
+
+	function filter_plugin_statuses( $statuses ) {
+		$statuses[] = 'autoupdated';
+		$statuses[] = 'manuallyupdated';
+		return $statuses;
+	}
+
+	function filter_plugin_views( $views ) {
+		if ( $this->num_autoupdated > 0 ) {
+			$text = '<a href="plugins.php?plugin_status=autoupdated">' .
+			        _n( 'Automatically Updated <span class="count">(%s)</span>', 'Updates Automatically <span class="count">(%s)</span>', $this->num_autoupdated ) .
 			        '</a>';
-			$views['manuallyupdates'] = sprintf( $text, number_format_i18n( $total_manuallyupdates ) );
+			$views['autoupdated'] = sprintf( $text, number_format_i18n( $this->num_autoupdated ) );
+		}
+		if ( $this->num_manuallyupdated > 0 ) {
+			$text = '<a href="plugins.php?plugin_status=manuallyupdated">' .
+			        _n( 'Manually Updated <span class="count">(%s)</span>', 'Updates Manually <span class="count">(%s)</span>', $this->num_manuallyupdated ) .
+			        '</a>';
+			$views['manuallyupdated'] = sprintf( $text, number_format_i18n( $this->num_manuallyupdated ) );
 		}
 		return $views;
 	}

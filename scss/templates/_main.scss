@@ -1094,6 +1094,8 @@ body {
 	}
 
 	.j-col div {
+		display: inline-block;
+		width: 100%;
 
 		span {
 			display: inline-block;
@@ -1127,6 +1129,9 @@ body {
 
 	.btm-actions {
 		padding-top: 10px;
+		.button:nth-child(3) {
+			margin-right: 5px;
+		}
 	}
 }
 

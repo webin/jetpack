@@ -1568,6 +1568,10 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 .connection-details .j-col {
   padding: 0;
 }
+.connection-details .j-col div {
+  display: inline-block;
+  width: 100%;
+}
 .connection-details .j-col div span {
   display: inline-block;
   white-space: nowrap;
@@ -1595,6 +1599,9 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 }
 .connection-details .btm-actions {
   padding-top: 10px;
+}
+.connection-details .btm-actions .button:nth-child(3) {
+  margin-right: 5px;
 }
 
 .entry-title,

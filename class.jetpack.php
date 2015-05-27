@@ -544,8 +544,6 @@ class Jetpack {
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'devicepx' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'devicepx' ) );
 
-		// add_action( 'jetpack_admin_menu', array( $this, 'admin_menu_modules' ) );
-
 		add_action( 'jetpack_activate_module', array( $this, 'activate_module_actions' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'extra_oembed_providers' ), 100 );
@@ -5184,9 +5182,6 @@ p {
 
 			foreach ( $cloud_options as $cloud_key => $cloud_value ) {
 
-				// FIXME: FOR TESTING ONLY.  DO NOT COMMIT TO MASTER
-//				$cloud_value = str_replace( 'wpsandbox.me', 'com', $cloud_value );
-
 				// If it's not the same as the local value...
 				if ( $cloud_value !== get_option( $cloud_key ) ) {
 
@@ -5266,8 +5261,6 @@ p {
 		foreach ( $cloud_options as $cloud_key => $cloud_value ) {
 			Jetpack::whitelist_identity_crisis_value( $cloud_key, $cloud_value );
 		}
-
-		return;
 	}
 
 	/*
@@ -5409,11 +5402,6 @@ p {
 	 * Displays an admin_notice, alerting the user to an identity crisis.
 	 */
 	public function alert_identity_crisis() {
-		//JESSE: this needs to get included in your POST as "ajax-nonce"
-		$ajax_nonce = wp_create_nonce( 'resolve-identity-crisis' );
-
-		$this->identity_crisis_js( $ajax_nonce );
-
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
@@ -5421,6 +5409,10 @@ p {
 		if ( ! $errors = self::check_identity_crisis() ) {
 			return;
 		}
+
+		// Include the js!
+		$ajax_nonce = wp_create_nonce( 'resolve-identity-crisis' );
+		$this->identity_crisis_js( $ajax_nonce );
 
 		$key = 'siteurl';
 		if ( ! $errors[ $key ] ) {
@@ -5464,7 +5456,7 @@ p {
 					<div class="btn-group">
 						<a href="<?php echo $this->build_reconnect_url() ?>" class="button reset-connection">Reset the connection</a>
 						<a href="#" class="button is-dev-env">This is a development environment</a>
-						<a href="#" class="button contact-support">Submit a support ticket</a>
+						<a href="https://jetpack.me/support" class="button contact-support">Submit a support ticket</a>
 						<span class="spinner"></span>
 					</div>
 				</div>

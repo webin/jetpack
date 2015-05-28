@@ -47,6 +47,7 @@ class Jetpack_Modules_List_Table extends WP_List_Table {
 
 		wp_localize_script( 'jetpack-modules-list-table', 'jetpackModulesData', array(
 			'modules' => $this->all_items,
+			'moduleinfo' =>  'test',
 			'i18n'    => array(
 				'search_placeholder' => __( 'Search Modules…', 'jetpack' ),
 			),

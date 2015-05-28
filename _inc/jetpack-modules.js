@@ -1,7 +1,8 @@
 
-( function( window, $, items, models, views, i18n, nonces ) {
+( function( window, $, items, models, views, i18n, nonces, moduleinfo ) {
 	'use strict';
 
+	console.log(moduleinfo);
 	var modules, list_table, handle_module_tag_click, $the_table, $the_filters, $the_search, $jp_frame, $bulk_button, show_modal, hide_modal, set_modal_tab, originPoint;
 
 	$the_table   = $( '.wp-list-table.jetpack-modules' );

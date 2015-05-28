@@ -6,10 +6,9 @@
 	<?php do_action( 'jetpack_notices' ) ?>
 
 	<?php if ( Jetpack::is_active() ) : ?>
+		<div id="my-connection-page-template"></div>
 
 		<script id="tmpl-connection-page" type="text/html">
-			<span id="modal-label" class="screen-reader-text"><?php _e( 'Modal window. Press escape to close.', 'jetpack' ); ?></span>
-			<a href="#" class="close">&times; <span class="screen-reader-text"><?php _e( 'Close modal window', 'jetpack' ); ?></span></a>
 			<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
 
 				<div id="my-connection-content" class="content">
@@ -79,7 +78,7 @@
 
 		</script>
 
-		<script id="tmpl-connectionpagel-loading" type="text/html">
+		<script id="tmpl-connection-page-loading" type="text/html">
 			<p>Loading...</p>
 		</script>
 
@@ -101,3 +100,21 @@
 		</div>
 	</div>
 <?php endif; ?>
+
+	<style>
+		#jetpack-disconnect-content {
+			display: none;
+		}
+
+		#my-connection-page-template {
+		   max-width: 500px;
+		   margin: 0 auto;
+		   max-height: 500px;
+		   overflow: scroll;
+		 }
+		@media (min-width: 782px) {
+		  #my-connection-page-template {
+			    max-width: 700px;
+			  }
+		}
+	</style>

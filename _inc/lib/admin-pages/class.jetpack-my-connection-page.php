@@ -20,6 +20,19 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 
 	// Load up admin scripts
 	function page_admin_scripts() {
-//		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ), array( 'jquery' ), JETPACK__VERSION . 'today' );
+		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ), array( 'jquery', 'wp-util' ), JETPACK__VERSION . 'yep' );
+
+		$master_user_com_data = Jetpack::jetpack_my_connection_logic();
+		wp_localize_script( 'jp-connection-js', 'jpConnection',
+			array(
+				'connectionLogic'   => Jetpack::jetpack_my_connection_logic(),
+				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
+				'myConnectionNonce' => wp_create_nonce( 'jetpack-my-connection-nonce' ),
+				'jetpackIsActive'   => Jetpack::is_active(),
+				'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
+				'masterComData'     => $master_user_com_data['master_data_com'],
+				'userComData'       => Jetpack::get_connected_user_data()
+			)
+		);
 	}
 }

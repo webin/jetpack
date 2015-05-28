@@ -1,8 +1,7 @@
 
-( function( window, $, items, models, views, i18n, nonces, moduleinfo ) {
+( function( window, $, items, models, views, i18n, modalinfo, nonces ) {
 	'use strict';
 
-	console.log(moduleinfo);
 	var modules, list_table, handle_module_tag_click, $the_table, $the_filters, $the_search, $jp_frame, $bulk_button, show_modal, hide_modal, set_modal_tab, originPoint;
 
 	$the_table   = $( '.wp-list-table.jetpack-modules' );
@@ -59,6 +58,11 @@
 		$( '.modal' )[0].setAttribute( 'tabindex', '0' );
 		$( '.modal' ).focus();
 	};
+	$( window ).load(function() {
+		if( false != modalinfo ) {
+			show_modal( modalinfo, 'learn-more' );
+		}
+	});
 
 	hide_modal = function() {
 		$jp_frame.children( '.modal, .shade' ).hide();
@@ -137,6 +141,7 @@
 		}
 
 		event.preventDefault();
+
 	} );
 
-} ) ( this, jQuery, window.jetpackModulesData.modules, this.jetpackModules.models, this.jetpackModules.views, window.jetpackModulesData.i18n, window.jetpackModulesData.nonces );
+} ) ( this, jQuery, window.jetpackModulesData.modules, this.jetpackModules.models, this.jetpackModules.views, window.jetpackModulesData.i18n, window.jetpackModulesData.modalinfo, window.jetpackModulesData.nonces );

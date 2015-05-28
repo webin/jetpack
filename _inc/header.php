@@ -15,6 +15,9 @@
 					<li class="jetpack-modules">
 						<a href="http://jetpack.me/survey/?rel=<?php echo JETPACK__VERSION; ?>" class="jp-button--settings"><?php esc_html_e( 'Feedback', 'jetpack' ); ?></a>
 					</li>
+					<li class="jetpack-modules">
+						<a title="View your Jetpack connection details" href="<?php echo Jetpack::admin_url( 'page=my_connection' ); ?>" id="my-connection" class="jp-button--settings"><?php esc_html_e( 'My Connection', 'jetpack' ); ?></a>
+					</li>
 					<?php endif; ?>
 				</ul>
 

@@ -1755,6 +1755,7 @@ class Jetpack {
 			'auto_activate'         => 'Auto Activate',
 			'module_tags'           => 'Module Tags',
 			'feature'               => 'Feature',
+			'search_terms'          => 'Search Terms',
 		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
@@ -1810,6 +1811,12 @@ class Jetpack {
 		 * @param array   $mod All the currently assembled module data
 		 */
 		$mod['feature'] = apply_filters( 'jetpack_module_feature', $mod['feature'], $module, $mod );
+
+		if ( $mod['search_terms'] ) {
+			$mod['search_terms'] = _x( $mod['search_terms'], 'Search Terms', 'jetpack' );
+		} else {
+			$mod['search_terms'] = $mod['name'];
+		}
 
 		return $mod;
 	}

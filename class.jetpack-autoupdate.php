@@ -83,13 +83,13 @@ class Jetpack_Autoupdate {
 	function filter_plugin_views( $views ) {
 		if ( $this->num_autoupdated > 0 ) {
 			$text = '<a href="plugins.php?plugin_status=autoupdated">' .
-			        _n( 'Automatically Updated <span class="count">(%s)</span>', 'Updates Automatically <span class="count">(%s)</span>', $this->num_autoupdated ) .
+			        _n( 'Updates Automatically <span class="count">(%s)</span>', 'Updates Automatically <span class="count">(%s)</span>', $this->num_autoupdated ) .
 			        '</a>';
 			$views['autoupdated'] = sprintf( $text, number_format_i18n( $this->num_autoupdated ) );
 		}
 		if ( $this->num_manuallyupdated > 0 ) {
 			$text = '<a href="plugins.php?plugin_status=manuallyupdated">' .
-			        _n( 'Manually Updated <span class="count">(%s)</span>', 'Updates Manually <span class="count">(%s)</span>', $this->num_manuallyupdated ) .
+			        _n( 'Updates Manually <span class="count">(%s)</span>', 'Updates Manually <span class="count">(%s)</span>', $this->num_manuallyupdated ) .
 			        '</a>';
 			$views['manuallyupdated'] = sprintf( $text, number_format_i18n( $this->num_manuallyupdated ) );
 		}

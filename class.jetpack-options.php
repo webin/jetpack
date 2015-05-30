@@ -34,6 +34,7 @@ class Jetpack_Options {
 				'dismissed_manage_banner',     // (bool) Dismiss Jetpack manage banner allows the user to dismiss the banner permanently
 				'updates',                     // (array) information about available updates to plugins, theme, WordPress core, and if site is under version control
 				'restapi_stats_cache',         // (array) Stats Cache data.
+				'protect_whitelist'            // (array) IP Address for the Protect module to ignore
 			);
 
 		case 'private' :

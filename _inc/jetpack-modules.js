@@ -59,7 +59,7 @@
 		$( '.modal' ).focus();
 	};
 	$( window ).load(function() {
-		if( false != modalinfo ) {
+		if( false !== modalinfo ) {
 			show_modal( modalinfo, 'learn-more' );
 		}
 	});

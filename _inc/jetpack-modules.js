@@ -141,7 +141,6 @@
 		}
 
 		event.preventDefault();
-
 	} );
 
 } ) ( this, jQuery, window.jetpackModulesData.modules, this.jetpackModules.models, this.jetpackModules.views, window.jetpackModulesData.i18n, window.jetpackModulesData.modalinfo, window.jetpackModulesData.nonces );

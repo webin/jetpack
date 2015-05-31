@@ -289,7 +289,11 @@ class Jetpack_Protect_Module {
 			return true;
 		}
 
-		$whitelist  = get_site_option( 'jetpack_protect_whitelist', array() );
+		$whitelist  = jetpack_protect_get_local_whitelist();
+
+		if ( is_multisite() ) {
+			$whitelist = array_merge( $whitelist, get_site_option( 'jetpack_protect_network_whitelist', array() ) );
+		}
 
 		if ( ! empty( $whitelist ) ) :
 			foreach ( $whitelist as $item ) :
@@ -412,7 +416,6 @@ class Jetpack_Protect_Module {
 		}
 
 		$this->api_key   = get_site_option( 'jetpack_protect_key', false );
-		$this->whitelist = get_site_option( 'jetpack_protect_whitelist', array() );
 		$this->user_ip   = jetpack_protect_get_ip();
 	}
 

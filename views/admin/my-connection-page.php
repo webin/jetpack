@@ -16,6 +16,10 @@
 		 	border-right: 1px #ddd solid;
 		 }
 
+		 .user-01, .wpuser-02 {
+		 	padding: 10px;
+		 }
+
 		 .connection-details .disconnect {
 		 	border-top: 1px #ddd solid;
 		 }
@@ -58,7 +62,7 @@
 								<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com', 'jetpack' ); ?></h3>
 									<# if ( !data.connectionLogic.isMasterUser && !data.connectionLogic.isUserConnected ) { #>
-										<a href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
+										<div class="wpuser-02"><a href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a></div>
 										<# } else if ( !data.connectionLogic.isMasterUser ) { #>
 											<div class="wpuser-02">{{{ data.userComData.login }}}</div> 
 											<# } #>

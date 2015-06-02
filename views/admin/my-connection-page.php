@@ -59,6 +59,17 @@
 				padding: 6px;
 			}
 		}
+
+		@media (max-width: 450px) {
+			.j-actions .button {
+				width: 100%;
+				margin-bottom: 5px;
+				text-align: center;
+			}
+			.j-actions .button.alignright {
+				float: none;
+			}
+		}
 	</style>
 
 <div class="page-content landing">

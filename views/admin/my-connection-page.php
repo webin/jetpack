@@ -2,16 +2,32 @@
 
 	<style>
 		#jetpack-disconnect-content {
-			display: none;
+			/*display: none;*/
 		}
 
 		#my-connection-page-template {
-			max-width: 500px;
-			margin: 0 auto;
+			/*max-width: 500px;*/
 		 }
+		 .connection-details {
+		 	border: 1px #ddd solid;
+		 }
+
+		 .jp-user {
+		 	border-right: 1px #ddd solid;
+		 }
+
+		 .connection-details .disconnect {
+		 	border-top: 1px #ddd solid;
+		 }
+
+		 .connection-details h3 {
+		 	margin: 0 0 20px 0;
+		 }
+
+
 		@media (min-width: 782px) {
 		  #my-connection-page-template {
-			    max-width: 700px;
+			   /* max-width: 700px;*/
 			  }
 		}
 	</style>
@@ -49,15 +65,17 @@
 												<div class="wpuser-02">{{{ data.masterComData.login }}}</div>
 								</div><?php // wp-user ?>
 							</div><?php // j-row ?>
-						</div>
-						<div class="j-col j-lrg-12 j-md-12 j-sm-12">
-							<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
-								<a class="button button-primary" title="Make me the primary account holder" id="set-self-as-master"><?php esc_html_e( 'Make me primary', 'jetpack' ); ?></a>
-								<# } #>
-									<a class="button alignright" id="jetpack-disconnect" title="Disconnect Jetpack"><?php esc_html_e( 'Disconnect Jetpack', 'jetpack' ); ?></a>
-									<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
-										<a class="button alignright" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"  title="Disconnect your WordPress.com account from Jetpack" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect your WordPress.com account?', 'jetpack' ), ENT_QUOTES ); ?>');" ><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
-										<# } #>
+							<div class="j-row disconnect">
+							<div class="j-col j-lrg-12 j-md-12 j-sm-12">
+								<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
+									<a class="button button-primary" title="Make me the primary account holder" id="set-self-as-master"><?php esc_html_e( 'Make me primary', 'jetpack' ); ?></a>
+									<# } #>
+										<a class="button alignright" id="jetpack-disconnect" title="Disconnect Jetpack"><?php esc_html_e( 'Disconnect Jetpack', 'jetpack' ); ?></a>
+										<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
+											<a class="button alignright" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"  title="Disconnect your WordPress.com account from Jetpack" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect your WordPress.com account?', 'jetpack' ), ENT_QUOTES ); ?>');" ><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
+											<# } #>
+							</div>
+						</div><?php // j-row ?>
 						</div>
 						<# } else { #><?php /* User doesn't have admin privledges */ ?>
 							<div class="connection-details">
@@ -74,14 +92,15 @@
 												<a href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
 												<# } #>
 									</div><?php // wp-user ?>
-
+								</div><?php // j-row ?>
+								<div class="j-row">
+									<div class="j-col j-lrg-12 j-md-12 j-sm-12">
+									<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
+										<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
+										<# } #>
+									</div>
 								</div><?php // j-row ?>
 							</div><?php // connection-details ?>
-							<div class="j-col j-lrg-12 j-md-12 j-sm-12">
-								<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
-									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
-									<# } #>
-							</div>
 							<# } #><?php /* end data.isAdmin */ ?>
 				</div>
 				<div id="jetpack-disconnect-content">

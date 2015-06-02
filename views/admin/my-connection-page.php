@@ -1,38 +1,52 @@
 <div class="clouds-sm"></div>
 
 	<style>
-		#jetpack-disconnect-content {
-			/*display: none;*/
-		}
+	#jetpack-disconnect-content {
+		display: none;
+	}
 
-		#my-connection-page-template {
-			/*max-width: 500px;*/
-		 }
-		 .connection-details {
-		 	border: 1px #ddd solid;
-		 }
+	#my-connection-page-template {
+		/*max-width: 500px;*/
+	}
+	.connection-details {
+		border: 1px #ddd solid;
+	}
 
-		 .jp-user {
-		 	border-right: 1px #ddd solid;
-		 }
+	.connection-details .j-col.jp-user, .connection-details .j-col.wp-user {
+		padding: 0;
+	}
 
-		 .user-01, .wpuser-02 {
-		 	padding: 10px;
-		 }
+	.jp-user {
+		border-right: 1px #ddd solid;
+	}
 
-		 .connection-details .disconnect {
-		 	border-top: 1px #ddd solid;
-		 }
+	.user-01, .wpuser-02 {
+		padding: 12px;
+	}
 
-		 .connection-details h3 {
-		 	margin: 0 0 20px 0;
-		 }
+	.connection-details .disconnect {
+		border-top: 1px #ddd solid;
+	}
 
+	.connection-details h3 {
+		padding: 10px;
+		margin: 0;
+		background: #eee;
+		border-bottom: 1px #ddd solid;
+		font-size: 14px;
+	}
 
-		@media (min-width: 782px) {
-		  #my-connection-page-template {
-			   /* max-width: 700px;*/
-			  }
+		@media (max-width: 500px) {
+			.connection-details {
+				font-size: 11px;
+			}
+			.connection-details h3 {
+				font-size: 12px;
+				padding: 5px;
+			}
+			.user-01, .wpuser-02 {
+				padding: 6px;
+			}
 		}
 	</style>
 

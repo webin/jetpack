@@ -1,5 +1,21 @@
 <div class="clouds-sm"></div>
 
+	<style>
+		#jetpack-disconnect-content {
+			display: none;
+		}
+
+		#my-connection-page-template {
+			max-width: 500px;
+			margin: 0 auto;
+		 }
+		@media (min-width: 782px) {
+		  #my-connection-page-template {
+			    max-width: 700px;
+			  }
+		}
+	</style>
+
 <div class="page-content landing">
 	<?php Jetpack::init()->load_view( 'admin/network-activated-notice.php' ); ?>
 
@@ -12,7 +28,7 @@
 			<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
 
 				<div id="my-connection-content" class="content">
-					<h2><?php _e( 'Jetpack Connection Status' ); ?></h2>
+					<h2><?php _e( 'Your Jetpack Connection Status' ); ?></h2>
 					<# if ( data.isAdmin ) { #><?php /* if user has admin privledges */ ?>
 						<div class="connection-details">
 							<div class="j-row">
@@ -22,7 +38,7 @@
 										<div class="user-01">{{{ data.connectionLogic.adminUsername }}} (you)</div>
 										<# } #>
 											<div class="user-01">{{{ data.connectionLogic.masterUserLink }}} (primary)</div>
-								</div><!-- // jp-user -->
+								</div><?php // jp-user ?>
 								<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com', 'jetpack' ); ?></h3>
 									<# if ( !data.connectionLogic.isMasterUser && !data.connectionLogic.isUserConnected ) { #>
@@ -31,8 +47,8 @@
 											<div class="wpuser-02">{{{ data.userComData.login }}}</div> 
 											<# } #>
 												<div class="wpuser-02">{{{ data.masterComData.login }}}</div>
-								</div><!-- // wp-user -->
-							</div><!-- // j-row -->
+								</div><?php // wp-user ?>
+							</div><?php // j-row ?>
 						</div>
 						<div class="j-col j-lrg-12 j-md-12 j-sm-12">
 							<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
@@ -57,10 +73,10 @@
 											<# } else { #>
 												<a href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
 												<# } #>
-									</div><!-- // wp-user -->
+									</div><?php // wp-user ?>
 
-								</div><!-- // j-row -->
-							</div><!-- // connection-details -->
+								</div><?php // j-row ?>
+							</div><?php // connection-details ?>
 							<div class="j-col j-lrg-12 j-md-12 j-sm-12">
 								<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
 									<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
@@ -100,21 +116,3 @@
 		</div>
 	</div>
 <?php endif; ?>
-
-	<style>
-		#jetpack-disconnect-content {
-			display: none;
-		}
-
-		#my-connection-page-template {
-		   max-width: 500px;
-		   margin: 0 auto;
-		   max-height: 500px;
-		   overflow: scroll;
-		 }
-		@media (min-width: 782px) {
-		  #my-connection-page-template {
-			    max-width: 700px;
-			  }
-		}
-	</style>

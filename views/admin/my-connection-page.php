@@ -12,7 +12,14 @@
 		border: 1px #ddd solid;
 	}
 
-	.connection-details .j-col.jp-user, .connection-details .j-col.wp-user {
+	.connection-details .jp-user div,
+	.connection-details .wp-user div {
+		display: inline-block;
+		width: 100%;
+	}
+
+	.connection-details .j-col.jp-user, 
+	.connection-details .j-col.wp-user {
 		padding: 0;
 	}
 
@@ -26,6 +33,10 @@
 
 	.connection-details .disconnect {
 		border-top: 1px #ddd solid;
+	}
+
+	.j-actions .button:nth-child(3) {
+		margin-right: 5px;
 	}
 
 	.connection-details h3 {
@@ -84,7 +95,7 @@
 								</div><?php // wp-user ?>
 							</div><?php // j-row ?>
 							<div class="j-row disconnect">
-							<div class="j-col j-lrg-12 j-md-12 j-sm-12">
+							<div class="j-col j-lrg-12 j-md-12 j-sm-12 j-actions">
 								<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
 									<a class="button button-primary" title="Make me the primary account holder" id="set-self-as-master"><?php esc_html_e( 'Make me primary', 'jetpack' ); ?></a>
 									<# } #>
@@ -101,7 +112,7 @@
 									<div class="j-col j-lrg-6 j-md-6 j-sm-6 jp-user">
 										<h3 title="<?php _e( 'Site', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
 										<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
-									</div><!-- // jp-user -->
+									</div><?php // jp-user ?>
 									<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
 										<h3 title="<?php _e( 'WordPress.com', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
 										<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>

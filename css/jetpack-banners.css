@@ -10,7 +10,6 @@
   background: #81a844;
   color: #fff;
   overflow: hidden;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #message.jp-banner:after {
@@ -52,7 +51,6 @@
 #message .jp-banner__content {
   color: #dfffcc;
   padding: 0 0 0 20px;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 50%;
 }
@@ -92,7 +90,6 @@
   padding-left: 20px;
   width: 50%;
   height: 100%;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 @media (max-width: 768px) {
@@ -134,7 +131,6 @@
   margin-top: -23px;
   padding: 0.57143em 0.85714em 0.38095em 0.57143em;
   border-radius: 6px;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   background: #518d2a;
   box-shadow: 0 4px 0 #3e6c20, 0 2px 3px rgba(0, 0, 0, 0.2);
@@ -172,8 +168,6 @@
 }
 #message .jp-banner__button:active {
   outline: none;
-  -webkit-transform: translateY(2px);
-  -ms-transform: translateY(2px);
   transform: translateY(2px);
   box-shadow: 0 0px 0 #3e6c20, 0 0 0 rgba(0, 0, 0, 0.2);
 }

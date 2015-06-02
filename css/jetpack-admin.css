@@ -2082,6 +2082,14 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   .jp-frame .header-nav .jetpack-modules + .jetpack-modules {
     text-align: left;
   }
+  .jp-frame .header-nav .jetpack-modules:nth-child(4) {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .jp-frame .header-nav .jetpack-modules:nth-child(4) a {
+    padding: 0 10px;
+  }
 }
 @media (max-width: 320px) {
   .jetpack_page_jetpack_modules .wrap {

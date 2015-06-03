@@ -58,6 +58,10 @@
 
 			.user-01, .wpuser-02 {
 				padding: 6px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+		 		max-width: 100px;
 			}
 		} // .connection-details
 	}

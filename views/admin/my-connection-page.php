@@ -18,10 +18,10 @@
 							<div class="j-row">
 								<div class="j-col j-lrg-6 j-md-6 j-sm-6 jp-user">
 									<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
-									<# if ( !data.connectionLogic.isMasterUser ) { #>
-										<div class="user-01">{{{ data.connectionLogic.adminUsername }}} (you)</div>
+									<# if ( !data.connectionLogic.isMasterUser ) { console.log( data ); #>
+										<div class="user-01"><span>{{{ data.userGrav }}}</span>{{{ data.connectionLogic.adminUsername }}} (you)</div>
 										<# } #>
-											<div class="user-01">{{{ data.connectionLogic.masterUserLink }}} (primary)</div>
+											<div class="user-01"><span>{{{ data.masterUserGrav }}}</span>{{{ data.connectionLogic.masterUserLink }}} (primary)</div>
 								</div><?php // jp-user ?>
 								<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com', 'jetpack' ); ?></h3>

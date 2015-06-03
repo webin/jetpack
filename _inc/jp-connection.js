@@ -13,7 +13,9 @@
             'isActive'          : jpConnection.jetpackIsActive,
             'isAdmin'           : jpConnection.isAdmin,
             'masterComData'     : jpConnection.masterComData,
-            'userComData'       : jpConnection.userComData
+            'userComData'       : jpConnection.userComData,
+            'userGrav'          : jpConnection.userGrav,
+            'masterUserGrav'    : jpConnection.masterUserGrav
         };
 
     $( document ).ready(function () {

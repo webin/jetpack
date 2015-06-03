@@ -78,6 +78,22 @@ class Jetpack {
 		'subscriber'    => 'read',
 	);
 
+	static $module_headers = array(
+		'name'                  => 'Module Name',
+		'description'           => 'Module Description',
+		'jumpstart_desc'        => 'Jumpstart Description',
+		'sort'                  => 'Sort Order',
+		'recommendation_order'  => 'Recommendation Order',
+		'introduced'            => 'First Introduced',
+		'changed'               => 'Major Changes In',
+		'deactivate'            => 'Deactivate',
+		'free'                  => 'Free',
+		'requires_connection'   => 'Requires Connection',
+		'auto_activate'         => 'Auto Activate',
+		'module_tags'           => 'Module Tags',
+		'feature'               => 'Feature',
+	);
+
 	/**
 	 * Map of modules that have conflicts with plugins and should not be auto-activated
 	 * if the plugins are active.  Used by filter_default_modules
@@ -376,6 +392,20 @@ class Jetpack {
 				add_action( 'init', array( __CLASS__, 'activate_new_modules' ) );
 				do_action( 'jetpack_sync_all_registered_options' );
 			}
+
+			$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
+
+			$available_modules = $this->jetpack->get_available_modules();
+
+			foreach ( $available_modules as $module ) {
+
+				$mod = Jetpack::get_file_data( $file, Jetpack::$module_headers );
+			}
+
+			if ( empty( $mod['name'] ) ) {
+				return false;
+			}
+
 		}
 
 		if ( get_option( 'jetpack_json_api_full_management' ) ) {
@@ -1741,25 +1771,10 @@ class Jetpack {
 	 * plugins on the WordPress plugins page.
 	 */
 	public static function get_module( $module ) {
-		$headers = array(
-			'name'                  => 'Module Name',
-			'description'           => 'Module Description',
-			'jumpstart_desc'        => 'Jumpstart Description',
-			'sort'                  => 'Sort Order',
-			'recommendation_order'  => 'Recommendation Order',
-			'introduced'            => 'First Introduced',
-			'changed'               => 'Major Changes In',
-			'deactivate'            => 'Deactivate',
-			'free'                  => 'Free',
-			'requires_connection'   => 'Requires Connection',
-			'auto_activate'         => 'Auto Activate',
-			'module_tags'           => 'Module Tags',
-			'feature'               => 'Feature',
-		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
 
-		$mod = Jetpack::get_file_data( $file, $headers );
+		$mod = Jetpack::get_file_data( $file, Jetpack::$module_headers );
 		if ( empty( $mod['name'] ) ) {
 			return false;
 		}

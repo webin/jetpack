@@ -61,7 +61,7 @@
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
-		 		max-width: 100px;
+				max-width: 200px;
 			}
 		} // .connection-details
 	}
@@ -75,5 +75,11 @@
 			&.alignright {
 				float: none;
 			}
+		}
+	}
+
+	@media screen and (max-width: 350px) {
+		.user-01, .wpuser-02 {
+	 		max-width: 100px;
 		}
 	}

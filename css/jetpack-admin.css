@@ -2702,7 +2702,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100px;
+    max-width: 200px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -2713,6 +2713,11 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   }
   .j-actions .button.alignright {
     float: none;
+  }
+}
+@media screen and (max-width: 350px) {
+  .user-01, .wpuser-02 {
+    max-width: 100px;
   }
 }
 .jp-content .hide {

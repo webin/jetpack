@@ -1742,20 +1742,20 @@ class Jetpack {
 	 */
 	public static function get_module( $module ) {
 		$headers = array(
-			'name'                  => 'Module Name',
-			'description'           => 'Module Description',
-			'jumpstart_desc'        => 'Jumpstart Description',
-			'sort'                  => 'Sort Order',
-			'recommendation_order'  => 'Recommendation Order',
-			'introduced'            => 'First Introduced',
-			'changed'               => 'Major Changes In',
-			'deactivate'            => 'Deactivate',
-			'free'                  => 'Free',
-			'requires_connection'   => 'Requires Connection',
-			'auto_activate'         => 'Auto Activate',
-			'module_tags'           => 'Module Tags',
-			'feature'               => 'Feature',
-			'search_terms'          => 'Search Terms',
+			'name'                      => 'Module Name',
+			'description'               => 'Module Description',
+			'jumpstart_desc'            => 'Jumpstart Description',
+			'sort'                      => 'Sort Order',
+			'recommendation_order'      => 'Recommendation Order',
+			'introduced'                => 'First Introduced',
+			'changed'                   => 'Major Changes In',
+			'deactivate'                => 'Deactivate',
+			'free'                      => 'Free',
+			'requires_connection'       => 'Requires Connection',
+			'auto_activate'             => 'Auto Activate',
+			'module_tags'               => 'Module Tags',
+			'feature'                   => 'Feature',
+			'additional_search_queries' => 'Additional Search Queries',
 		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
@@ -1812,10 +1812,10 @@ class Jetpack {
 		 */
 		$mod['feature'] = apply_filters( 'jetpack_module_feature', $mod['feature'], $module, $mod );
 
-		if ( $mod['search_terms'] ) {
-			$mod['search_terms'] = _x( $mod['search_terms'], 'Search Terms', 'jetpack' );
+		if ( $mod['additional_search_queries'] ) {
+			$mod['additional_search_queries'] = _x( $mod['additional_search_queries'], 'Keywords that can be used to describe a module', 'jetpack' );
 		} else {
-			$mod['search_terms'] = $mod['name'];
+			$mod['additional_search_queries'] = $mod['name'];
 		}
 
 		return $mod;

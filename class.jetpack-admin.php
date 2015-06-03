@@ -108,7 +108,7 @@ class Jetpack_Admin {
 				/**
 				 * Filter the search terms for a module
 				 *
-				 * Search terms are typically added to the module headers, under "Search Terms"..
+				 * Search terms are typically added to the module headers, under "Additional Search Queries".
 				 *
 				 * Use syntax:
 				 * function jetpack_$module_search_terms( $terms ) {
@@ -120,8 +120,8 @@ class Jetpack_Admin {
 				 * @since 3.5.0
 				 * @param string The search terms (comma separated)
 				 */
-				echo apply_filters( 'jetpack_search_terms_' . $module, $module_array['search_terms'] );
-				$module_array['search_terms'] = ob_get_clean();
+				echo apply_filters( 'jetpack_search_terms_' . $module, $module_array['additional_search_queries'] );
+				$module_array['additional_search_queries'] = ob_get_clean();
 
 				$module_array['configurable'] = false;
 				if ( current_user_can( 'manage_options' ) && apply_filters( 'jetpack_module_configurable_' . $module, false ) ) {

@@ -50,7 +50,7 @@
 								<div class="j-row">
 									<div class="j-col j-lrg-6 j-md-6 j-sm-6 jp-user">
 										<h3 title="<?php _e( 'Site', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
-										<div class="user-01"><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
+										<div class="user-01"><span>{{{ data.userGrav }}}</span><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
 									</div><?php // jp-user ?>
 									<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
 										<h3 title="<?php _e( 'WordPress.com', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>

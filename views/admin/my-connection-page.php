@@ -12,7 +12,8 @@
 			<div class="content-container <# if ( data.available ) { #>modal-footer<# } #>">
 				<div id="my-connection-content" class="content">
 					<h2><?php _e( 'Your Jetpack Connection Status' ); ?></h2>
-					<div class="connection-details">
+
+					<div class="connection-details local-user">
 						<?php
 						/*
 						 * Local user row: Shown to all users
@@ -50,7 +51,9 @@
 								</div>
 							</div>
 						</div>
+						</div><?php // connection details ?>
 
+						<div class="connection-details master-user">
 						<?php
 						/*
 						 * Master user row & Disconnect button

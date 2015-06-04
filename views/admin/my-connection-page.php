@@ -34,7 +34,7 @@
 								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
 								<div class="wpuser-02">
 									<# if ( data.connectionLogic.isUserConnected ) { #>
-										<span>{{{ data.userComData.login }}}</span>
+										{{{ data.userComData.login }}}
 									<# } else { #>
 										<a class="button button-primary" href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
 									<# } #>

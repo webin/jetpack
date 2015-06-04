@@ -40,17 +40,31 @@
 	.jp-user,
 	.wp-user,
 	.wp-action {
+
 		div {
 			display: inline-block;
 			width: 100%;
 		}
+
+		/*.user-01 {
+			position: relative;
+
+			div {
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				-ms-transform: translate(0,-50%);
+				-webkit-transform: translate(0,-50%);
+				transform: translate(0,-50%);
+			}
+		} */
 	}
 
 	.j-col.jp-user,
 	.j-col.wp-user,
 	.j-col.wp-action {
 		padding: 0;
-		min-height: 100px;
+		//min-height: 100px;
 	}
 
 	.jp-user, .wp-user {

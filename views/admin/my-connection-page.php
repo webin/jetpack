@@ -9,68 +9,95 @@
 		<div id="my-connection-page-template"></div>
 
 		<script id="tmpl-connection-page" type="text/html">
-			<div class="content-container <# if ( data.available) { #>modal-footer<# } #>">
-
+			<div class="content-container <# if ( data.available ) { #>modal-footer<# } #>">
 				<div id="my-connection-content" class="content">
 					<h2><?php _e( 'Your Jetpack Connection Status' ); ?></h2>
-					<# if ( data.isAdmin ) { #><?php /* if user has admin privledges */ ?>
-						<div class="connection-details">
-							<div class="j-row">
-								<div class="j-col j-lrg-6 j-md-6 j-sm-6 jp-user">
-									<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
-									<# if ( !data.connectionLogic.isMasterUser ) { console.log( data ); #>
-										<div class="user-01"><span>{{{ data.userGrav }}}</span>{{{ data.connectionLogic.adminUsername }}} (you)</div>
-										<# } #>
-											<div class="user-01"><span>{{{ data.masterUserGrav }}}</span>{{{ data.connectionLogic.masterUserLink }}} (primary)</div>
-								</div><?php // jp-user ?>
-								<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
-									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com', 'jetpack' ); ?></h3>
-									<# if ( !data.connectionLogic.isMasterUser && !data.connectionLogic.isUserConnected ) { #>
-										<div class="wpuser-02"><a href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a></div>
-										<# } else if ( !data.connectionLogic.isMasterUser ) { #>
-											<div class="wpuser-02">{{{ data.userComData.login }}}</div> 
-											<# } #>
-												<div class="wpuser-02">{{{ data.masterComData.login }}}</div>
-								</div><?php // wp-user ?>
-							</div><?php // j-row ?>
-							<div class="j-row disconnect">
-							<div class="j-col j-lrg-12 j-md-12 j-sm-12 j-actions">
-								<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
-									<a class="button button-primary" title="Make me the primary account holder" id="set-self-as-master"><?php esc_html_e( 'Make me primary', 'jetpack' ); ?></a>
-									<# } #>
-										<a class="button alignright" id="jetpack-disconnect" title="Disconnect Jetpack"><?php esc_html_e( 'Disconnect Jetpack', 'jetpack' ); ?></a>
-										<# if ( !data.connectionLogic.isMasterUser && data.connectionLogic.isUserConnected ) { #>
-											<a class="button alignright" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"  title="Disconnect your WordPress.com account from Jetpack" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect your WordPress.com account?', 'jetpack' ), ENT_QUOTES ); ?>');" ><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
-											<# } #>
+					<div class="connection-details">
+						<?php
+						/*
+						 * Local user row: Shown to all users
+						 */
+						?>
+						<div class="j-row">
+
+							<!-- left col -->
+							<div class="j-col j-lrg-4 j-md-4 j-sm-4 jp-user">
+								<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
+								<div class="user-01">
+									<span>{{{ data.userGrav }}}</span><span>{{{ data.connectionLogic.adminUsername }}}</span>
+								</div>
 							</div>
-						</div><?php // j-row ?>
-						</div>
-						<# } else { #><?php /* User doesn't have admin privledges */ ?>
-							<div class="connection-details">
-								<div class="j-row">
-									<div class="j-col j-lrg-6 j-md-6 j-sm-6 jp-user">
-										<h3 title="<?php _e( 'Site', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
-										<div class="user-01"><span>{{{ data.userGrav }}}</span><span>{{{ data.connectionLogic.adminUsername }}}</span></div>
-									</div><?php // jp-user ?>
-									<div class="j-col j-lrg-6 j-md-6 j-sm-6 wp-user">
-										<h3 title="<?php _e( 'WordPress.com', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-										<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
-											<div class="wpuser-02">{{{ data.userComData.login }}}</div>
-											<# } else { #>
-												<a href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
-												<# } #>
-									</div><?php // wp-user ?>
-								</div><?php // j-row ?>
-								<div class="j-row">
-									<div class="j-col j-lrg-12 j-md-12 j-sm-12">
-									<# if ( data.connectionLogic.isUserConnected ) { #><?php /* user is connected to Jetpack */ ?>
+
+							<!-- middle col -->
+							<div class="j-col j-lrg-4 j-md-4 j-sm-4 wp-user">
+								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+								<div class="wpuser-02">
+									<# if ( data.connectionLogic.isUserConnected ) { #>
+										<span>{{{ data.userComData.login }}}</span>
+									<# } else { #>
+										<a class="button button-primary" href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
+									<# } #>
+								</div> 
+							</div>
+
+							<!-- right col ( Link/Unlink my account ) -->
+							<div class="j-col j-lrg-4 j-md-4 j-sm-4 wp-action">
+								<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
+								<div class="wpuser-02">
+									<# if ( data.connectionLogic.isUserConnected ) { #>
 										<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
+									<# } #>
+								</div>
+							</div>
+						</div>
+
+						<?php
+						/*
+						 * Master user row & Disconnect button
+						 * Only shown to admins.
+						 */
+						?>
+						<# if ( data.isAdmin ) { #>
+							<!-- Master User Row -->
+							<div class="j-row">
+
+								<!-- left col -->
+								<div class="j-col j-lrg-4 j-md-4 j-sm-4 jp-user">
+									<h3 title="<?php _e( 'Primary User', 'jetpack' ); ?>"><?php _e( 'Primary User', 'jetpack' ); ?></h3>
+									<div class="user-01">
+										<div class="user-01"><span>{{{ data.masterUserGrav }}}</span>{{{ data.connectionLogic.masterUserLink }}}</div>
+									</div>
+								</div>
+
+								<!-- middle col -->
+								<div class="j-col j-lrg-4 j-md-4 j-sm-4 wp-user">
+									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+									<div class="wpuser-02">
+										<span>{{{ data.masterComData.login }}}</span>
+									</div> 
+								</div>
+
+								<!-- right col ( Change primary user ) -->
+								<div class="j-col j-lrg-4 j-md-4 j-sm-4 wp-action">
+									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
+									<div class="wpuser-02">
+										<# if ( data.connectionLogic.isUserConnected ) { #>
+											<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
 										<# } #>
 									</div>
-								</div><?php // j-row ?>
-							</div><?php // connection-details ?>
-							<# } #><?php /* end data.isAdmin */ ?>
+								</div>
+							</div>
+
+							<!-- Disconnect Site Button -->
+							<div class="j-row disconnect">
+								<div class="j-col j-lrg-12 j-md-12 j-sm-12 j-actions">
+									<a class="button alignright" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect site from WordPress.com', 'jetpack' ); ?></a>
+								</div>
+							</div>
+						<# } #><?php /* end if admin */ ?>
+					</div>
 				</div>
+
 				<div id="jetpack-disconnect-content">
 					<h2>Disconnecting Jetpack</h2>
 					<p>Before you completely disconnect Jetpack is there anything we can do to help?</p>

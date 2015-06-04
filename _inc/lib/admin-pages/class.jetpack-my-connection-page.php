@@ -23,7 +23,8 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ), array( 'jquery', 'wp-util' ), JETPACK__VERSION . 'yep' );
 
 		$master_user_com_data = Jetpack::jetpack_my_connection_logic();
-		$jetpack_user_data = Jetpack::get_connected_user_data();
+		$jetpack_user_data    = Jetpack::get_connected_user_data();
+		$current_user         = wp_get_current_user();
 		wp_localize_script( 'jp-connection-js', 'jpConnection',
 			array(
 				'connectionLogic'   => Jetpack::jetpack_my_connection_logic(),
@@ -33,7 +34,7 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 				'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
 				'masterComData'     => $master_user_com_data['master_data_com'],
 				'userComData'       => $jetpack_user_data,
-				'userGrav'          => get_avatar( $jetpack_user_data['email'], 40 ),
+				'userGrav'          => get_avatar( $current_user->ID, 40 ),
 				'masterUserGrav'    => get_avatar( Jetpack_Options::get_option( 'master_user' ), 40 ),
 			)
 		);

@@ -11,14 +11,21 @@
             'masterComData'      : jpConnection.masterComData,
             'userComData'        : jpConnection.userComData,
             'userGrav'           : jpConnection.userGrav,
-            'masterUserGrav'     : jpConnection.masterUserGrav
+            'masterUserGrav'     : jpConnection.masterUserGrav,
+            'potentialPrimaries' : jpConnection.potentialPrimaries
         };
 
     $( document ).ready(function () {
         renderPageTemplate( data );
 
         // Set someone as master.
-        $( '#change-primary-btn' ).click( function(){
+        $( '#change-primary-btn' ).click( function() {
+
+            if ( false == data.potentialPrimaries ) {
+                alert( 'You must link another admin account before switching primary account holders.' );
+                return;
+            }
+
             $( '#change-primary-btn' ).hide();
             $( '#user-list' ).show();
             $( '#save-primary-btn' ).show();

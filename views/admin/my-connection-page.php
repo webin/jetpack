@@ -20,6 +20,7 @@
 						 */
 						?>
 						<div class="j-row">
+						<# console.log( data.potentialPrimaries ); #>
 
 							<!-- left col -->
 							<div class="j-col j-lrg-4 j-md-6 j-sm-6 jp-user">
@@ -36,7 +37,7 @@
 									<# if ( data.connectionLogic.isUserConnected ) { #>
 										{{{ data.userComData.login }}}
 									<# } else { #>
-										<a class="button button-primary" href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
+										<span><em>Not connected</em></span>
 									<# } #>
 								</div> 
 							</div>
@@ -45,8 +46,10 @@
 							<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
 								<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
 								<div class="wpuser-02">
-									<# if ( data.connectionLogic.isUserConnected && ! data.connectionLogic.isMasterUser ) { #>
+									<# if ( data.connectionLogic.isUserConnected ) { #>
 										<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
+									<# } else { #>
+										<a class="button button-primary" href="<?php echo Jetpack::init()->build_connect_url() ?>" ><?php esc_html_e( 'Link your account', 'jetpack' ); ?></a>
 									<# } #>
 								</div>
 							</div>
@@ -85,24 +88,22 @@
 								<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
 									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Change Primary User', 'jetpack' ); ?></h3>
 									<div class="wpuser-02">
-										<# if ( data.connectionLogic.isUserConnected ) { #>
-											<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
+										<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
 
-											<form action="" method="post">
-												<select name="jetpack-new-master" id="user-list">
-													<?php
-													$all_users = get_users();
-													foreach ( $all_users as $user ) {
-														if ( $user->ID != Jetpack_Options::get_option( 'master_user' ) && Jetpack::is_user_connected( $user->ID ) && $user->caps['administrator'] ) {
-															echo "<option value='{$user->ID}'>$user->display_name</option>";
-														}
+										<form action="" method="post">
+											<select name="jetpack-new-master" id="user-list">
+												<?php
+												$all_users = get_users();
+												foreach ( $all_users as $user ) {
+													if ( $user->ID != Jetpack_Options::get_option( 'master_user' ) && Jetpack::is_user_connected( $user->ID ) && $user->caps['administrator'] ) {
+														echo "<option value='{$user->ID}'>$user->display_name</option>";
 													}
-													?>
-												</select>
-												<?php wp_nonce_field( 'jetpack_change_primary_user', '_my_connect_nonce' ); ?>
-												<input type="submit" name="jetpack-set-master-user" id="save-primary-btn" class="button button-primary" value="Save" title="Set the primary account holder"/>
-											</form>
-										<# } #>
+												}
+												?>
+											</select>
+											<?php wp_nonce_field( 'jetpack_change_primary_user', '_my_connect_nonce' ); ?>
+											<input type="submit" name="jetpack-set-master-user" id="save-primary-btn" class="button button-primary" value="Save" title="Set the primary account holder"/>
+										</form>
 									</div>
 								</div>
 							</div>

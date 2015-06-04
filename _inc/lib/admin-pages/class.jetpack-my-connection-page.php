@@ -50,11 +50,41 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		}
 
 		// If only one admin
-		if ( 2 >= $all_users['avail_roles']['administrator'] ) {
+		if ( 2 > $all_users['avail_roles']['administrator'] ) {
 			return false;
 		}
 
 		return true;
+	}
+
+	/*
+	 * Checks to see if there are any other users available to become primary
+	 * Users must both:
+	 * - Be linked to wpcom
+	 * - Be an admin
+	 *
+	 * @return bool
+	 */
+	function jetpack_potential_primary_users_available() {
+		// If not admin, or only one admin
+		if ( false === $this->jetpack_show_primary_user_row() ) {
+			return false;
+		}
+
+		$users = get_users();
+		$available = array();
+		// If no one else is linked to dotcom
+		foreach ( $users as $user ) {
+			if ( isset( $user->caps['administrator'] ) && Jetpack::is_user_connected( $user->ID ) ) {
+				$available[] = $user->ID;
+			}
+		}
+
+		if ( 2 > count( $available ) ) {
+			return false;
+		}
+
+		return 'true';
 	}
 
 	/*
@@ -93,13 +123,14 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		$current_user         = wp_get_current_user();
 		wp_localize_script( 'jp-connection-js', 'jpConnection',
 			array(
-				'connectionLogic'   => $this->jetpack_my_connection_logic(),
-				'jetpackIsActive'   => Jetpack::is_active(),
-				'showPrimaryUserRow'    => $this->jetpack_show_primary_user_row(),
-				'masterComData'     => $master_user_com_data['master_data_com'],
-				'userComData'       => $jetpack_user_data,
-				'userGrav'          => get_avatar( $current_user->ID, 40 ),
-				'masterUserGrav'    => get_avatar( Jetpack_Options::get_option( 'master_user' ), 40 ),
+				'connectionLogic'    => $this->jetpack_my_connection_logic(),
+				'jetpackIsActive'    => Jetpack::is_active(),
+				'showPrimaryUserRow' => $this->jetpack_show_primary_user_row(),
+				'masterComData'      => $master_user_com_data['master_data_com'],
+				'userComData'        => $jetpack_user_data,
+				'userGrav'           => get_avatar( $current_user->ID, 40 ),
+				'masterUserGrav'     => get_avatar( Jetpack_Options::get_option( 'master_user' ), 40 ),
+				'potentialPrimaries' => $this->jetpack_potential_primary_users_available(),
 			)
 		);
 	}

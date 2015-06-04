@@ -11,7 +11,7 @@
         data = {
             'connectionLogic'   : jpConnection.connectionLogic,
             'isActive'          : jpConnection.jetpackIsActive,
-            'isAdmin'           : jpConnection.isAdmin,
+            'showPrimaryRow'    : jpConnection.showPrimaryRow,
             'masterComData'     : jpConnection.masterComData,
             'userComData'       : jpConnection.userComData,
             'userGrav'          : jpConnection.userGrav,

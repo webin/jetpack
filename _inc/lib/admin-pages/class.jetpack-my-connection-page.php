@@ -37,6 +37,26 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		}
 	}
 
+	/*
+	 * Determine if we should show the primary user info
+	 * on the My Connection page
+	 *
+	 * @return (bool) True = show | False = Don't show
+	 */
+	function jetpack_show_primary_user_row() {
+		$all_users = count_users();
+		if ( ! current_user_can( 'jetpack_manage_modules' ) ) {
+			return false;
+		}
+
+		// If only one admin
+		if ( 2 >= $all_users['avail_roles']['administrator'] ) {
+			return false;
+		}
+
+		return true;
+	}
+
 	// Load up admin scripts
 	function page_admin_scripts() {
 		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ), array( 'jquery', 'wp-util' ), JETPACK__VERSION . 'yep' );
@@ -47,10 +67,8 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		wp_localize_script( 'jp-connection-js', 'jpConnection',
 			array(
 				'connectionLogic'   => Jetpack::jetpack_my_connection_logic(),
-				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
-				'myConnectionNonce' => wp_create_nonce( 'jetpack-my-connection-nonce' ),
 				'jetpackIsActive'   => Jetpack::is_active(),
-				'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
+				'showPrimaryRow'    => $this->jetpack_show_primary_user_row(),
 				'masterComData'     => $master_user_com_data['master_data_com'],
 				'userComData'       => $jetpack_user_data,
 				'userGrav'          => get_avatar( $current_user->ID, 40 ),

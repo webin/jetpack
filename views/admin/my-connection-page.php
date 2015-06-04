@@ -45,7 +45,7 @@
 							<div class="j-col j-lrg-4 j-md-4 j-sm-4 wp-action">
 								<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
 								<div class="wpuser-02">
-									<# if ( data.connectionLogic.isUserConnected ) { #>
+									<# if ( data.connectionLogic.isUserConnected && ! data.connectionLogic.isMasterUser ) { #>
 										<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
 									<# } #>
 								</div>
@@ -58,9 +58,10 @@
 						/*
 						 * Master user row & Disconnect button
 						 * Only shown to admins.
+						 * Only shown if there are other as well, because if there aren't it's obvious who is primary.
 						 */
 						?>
-						<# if ( data.isAdmin ) { #>
+						<# if ( data.showPrimaryRow ) { #>
 							<!-- Master User Row -->
 							<div class="j-row">
 

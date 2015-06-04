@@ -82,10 +82,25 @@
 
 								<!-- right col ( Change primary user ) -->
 								<div class="j-col j-lrg-4 j-md-4 j-sm-4 wp-action">
-									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
+									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Change Primary User', 'jetpack' ); ?></h3>
 									<div class="wpuser-02">
 										<# if ( data.connectionLogic.isUserConnected ) { #>
 											<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
+
+											<form action="" method="post">
+												<select name="jetpack-new-master" id="user-list">
+													<?php
+													$all_users = get_users();
+													foreach ( $all_users as $user ) {
+														if ( $user->ID != Jetpack_Options::get_option( 'master_user' ) && Jetpack::is_user_connected( $user->ID ) && $user->caps['administrator'] ) {
+															echo "<option value='{$user->ID}'>$user->display_name</option>";
+														}
+													}
+													?>
+												</select>
+												<?php wp_nonce_field( 'jetpack_change_primary_user', '_my_connect_nonce' ); ?>
+												<input type="submit" name="jetpack-set-master-user" id="save-primary-btn" class="button button-primary" value="Save" title="Set the primary account holder"/>
+											</form>
 										<# } #>
 									</div>
 								</div>
@@ -111,10 +126,6 @@
 
 		</script>
 
-		<script id="tmpl-connection-page-loading" type="text/html">
-			<p>Loading...</p>
-		</script>
-
 <?php else : ?>
 	<div class="wpcom-connect">
 		<h1 title="Boost traffic, enhance security, and improve performance."><?php esc_html_e( 'Boost traffic, enhance security, and improve performance.', 'jetpack' ); ?></h1>
@@ -133,3 +144,9 @@
 		</div>
 	</div>
 <?php endif; ?>
+
+	<style>
+		#user-list, #save-primary-btn, .sweet {
+			display: none;
+		}
+	</style>

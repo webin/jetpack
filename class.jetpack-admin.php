@@ -33,6 +33,10 @@ class Jetpack_Admin {
 		jetpack_require_lib( 'admin-pages/class.jetpack-my-connection-page' );
 		$this->my_connection_page = new Jetpack_My_Connection_Page;
 
+		if ( isset( $_POST['jetpack-set-master-user'] ) ) {
+			add_action( 'init', array( $this->my_connection_page, 'jetpack_my_connection_change_user' ) );
+		}
+
 		// Add hooks for admin menus
 		add_action( 'admin_menu',                    array( $this->landing_page, 'add_actions' ), 998 );
 		add_action( 'jetpack_admin_menu',            array( $this, 'admin_menu_debugger' ) );

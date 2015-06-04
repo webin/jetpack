@@ -18,6 +18,25 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		Jetpack::init()->load_view( 'admin/my-connection-page.php' );
 	}
 
+	/*
+	 * Handle the change in master user
+	 */
+	function jetpack_my_connection_change_user() {
+		if ( ! isset( $_POST['_my_connect_nonce'] ) || ! wp_verify_nonce( $_POST['_my_connect_nonce'], 'jetpack_change_primary_user' ) ) {
+			wp_die( __( 'Failed permissions, please try again.', 'jetpack' ) );
+			exit;
+		}
+
+		if ( isset( $_POST['jetpack-new-master'] ) ) {
+			$new_master_user   = $_POST['jetpack-new-master'];
+			$user_token        = Jetpack_Data::get_access_token( $new_master_user   );
+			$is_user_connected = $user_token && ! is_wp_error( $user_token );
+			if ( is_admin() && $is_user_connected ) {
+				Jetpack_Options::update_option( 'master_user', $new_master_user );
+			}
+		}
+	}
+
 	// Load up admin scripts
 	function page_admin_scripts() {
 		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ), array( 'jquery', 'wp-util' ), JETPACK__VERSION . 'yep' );

@@ -25,6 +25,13 @@
 
         renderPageTemplate( data );
 
+        // Set someone as master.
+        $( '#change-primary-btn' ).click( function(){
+            $( '#change-primary-btn' ).hide();
+            $( '#user-list' ).show();
+            $( '#save-primary-btn' ).show();
+        });
+
         // Call the ajax function to switch master user
         $( '#set-self-as-master' ).click(function(){
             setSelfAsMaster();

@@ -579,36 +579,6 @@ class Jetpack {
 	}
 
 	/*
-	 * Ajax callback for the My Connection actions
-	 */
-	function jetpack_my_connection_ajax_callback() {
-		// Check for nonce
-		if ( ! isset( $_REQUEST['myConnectionNonce'] ) || ! wp_verify_nonce( $_REQUEST['myConnectionNonce'], 'jetpack-my-connection-nonce' ) )
-			wp_die( 'permissions check failed' );
-		if ( isset( $_REQUEST['switchMasterUser'] ) && 'switch-master-user' == $_REQUEST['switchMasterUser'] ) {
-			$current_user      = get_current_user_id();
-			$user_token        = Jetpack_Data::get_access_token( $current_user );
-			$is_user_connected = $user_token && ! is_wp_error( $user_token );
-			if ( is_admin() && $is_user_connected ) {
-				Jetpack_Options::update_option( 'master_user', $current_user );
-				$this->user_role_change( $current_user ); // Not sure if this is necessary
-				echo self::jetpack_my_connection_ajax_reload();
-			}
-		}
-		wp_die();
-	}
-	static function jetpack_my_connection_ajax_reload() {
-		$master_user_com_data = self::jetpack_my_connection_logic();
-		$response = array(
-			'connectionLogic'   => $master_user_com_data,
-			'jetpackIsActive'   => self::is_active(),
-			'isAdmin'           => current_user_can( 'jetpack_manage_modules' ),
-			'masterComData'     => $master_user_com_data['master_data_com'],
-			'userComData'       => self::get_connected_user_data()
-		);
-		return json_encode( $response );
-	}
-	/*
 	 * Info about the user's connection relationship with the site.
 	 *
 	 * @return array

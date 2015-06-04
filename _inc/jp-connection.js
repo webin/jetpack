@@ -5,24 +5,16 @@
     ///////////////////////////////////////
     // INIT
     ///////////////////////////////////////
-    var originPoint,
-        ajaxNonce,
-        action,
-        data = {
-            'connectionLogic'   : jpConnection.connectionLogic,
-            'isActive'          : jpConnection.jetpackIsActive,
-            'showPrimaryRow'    : jpConnection.showPrimaryRow,
-            'masterComData'     : jpConnection.masterComData,
-            'userComData'       : jpConnection.userComData,
-            'userGrav'          : jpConnection.userGrav,
-            'masterUserGrav'    : jpConnection.masterUserGrav
+    var data = {
+            'connectionLogic'    : jpConnection.connectionLogic,
+            'showPrimaryUserRow' : jpConnection.showPrimaryUserRow,
+            'masterComData'      : jpConnection.masterComData,
+            'userComData'        : jpConnection.userComData,
+            'userGrav'           : jpConnection.userGrav,
+            'masterUserGrav'     : jpConnection.masterUserGrav
         };
 
     $( document ).ready(function () {
-
-        ajaxNonce = jpConnection.myConnectionNonce;
-        action = 'jetpack_my_connection_ajax';
-
         renderPageTemplate( data );
 
         // Set someone as master.
@@ -32,11 +24,6 @@
             $( '#save-primary-btn' ).show();
         });
 
-        // Call the ajax function to switch master user
-        $( '#set-self-as-master' ).click(function(){
-            setSelfAsMaster();
-        });
-
     });
 
     function renderPageTemplate( data ) {
@@ -44,27 +31,6 @@
         // Save the focused element, then shift focus to the modal window.
         confirmJetpackDisconnect();
     }
-
-    /*
-     The ajax function to handle switching the master user
-     */
-    function setSelfAsMaster() {
-        if ( ! confirm( 'Are you sure?' ) ) {
-            return false;
-        } else {
-            $( '#my-connection-page-template' ).html( wp.template( 'connection-page-loading' ) );
-            var postData = {
-                switchMasterUser : 'switch-master-user',
-                action: action,
-                myConnectionNonce: ajaxNonce
-            };
-            $.post( jpConnection.ajaxurl, postData, function( response ) {
-                renderPageTemplate( response );
-                data = response;
-            }, 'json' );
-        }
-    }
-
 
     /*
      The function used to display the disconnect confirmation and support buttons

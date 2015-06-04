@@ -57,18 +57,45 @@ class Jetpack_My_Connection_Page extends Jetpack_Admin_Page {
 		return true;
 	}
 
+	/*
+	 * Info about the user's connection relationship with the site.
+	 *
+	 * @return array
+	 */
+	function jetpack_my_connection_logic() {
+		global $current_user;
+		$is_user_connected    = Jetpack::is_user_connected( $current_user->ID );
+		$is_master_user       = $current_user->ID == Jetpack_Options::get_option( 'master_user' );
+		$master_user_id       = Jetpack_Options::get_option( 'master_user' );
+		$master_user_data_org = get_userdata( $master_user_id );
+		$master_user_data_com = Jetpack::get_connected_user_data( $master_user_id );
+		if ( $master_user_data_org ) {
+			$edit_master_user_link = sprintf( __( '<a href="%s">%s</a>', 'jetpack' ), get_edit_user_link( $master_user_id ), $master_user_data_org->user_login );
+		} else {
+			$edit_master_user_link = __( 'No master user set!', 'jetpack' );
+		}
+		$connection_info = array(
+			'isMasterUser'    => $is_master_user,
+			'masterUserLink'  => $edit_master_user_link,
+			'isUserConnected' => $is_user_connected,
+			'master_data_com' => $master_user_data_com,
+			'adminUsername'   => $current_user->user_login
+		);
+		return $connection_info;
+	}
+
 	// Load up admin scripts
 	function page_admin_scripts() {
 		wp_enqueue_script( 'jp-connection-js', plugins_url( '_inc/jp-connection.js', JETPACK__PLUGIN_FILE ), array( 'jquery', 'wp-util' ), JETPACK__VERSION . 'yep' );
 
-		$master_user_com_data = Jetpack::jetpack_my_connection_logic();
+		$master_user_com_data = $this->jetpack_my_connection_logic();
 		$jetpack_user_data    = Jetpack::get_connected_user_data();
 		$current_user         = wp_get_current_user();
 		wp_localize_script( 'jp-connection-js', 'jpConnection',
 			array(
-				'connectionLogic'   => Jetpack::jetpack_my_connection_logic(),
+				'connectionLogic'   => $this->jetpack_my_connection_logic(),
 				'jetpackIsActive'   => Jetpack::is_active(),
-				'showPrimaryRow'    => $this->jetpack_show_primary_user_row(),
+				'showPrimaryUserRow'    => $this->jetpack_show_primary_user_row(),
 				'masterComData'     => $master_user_com_data['master_data_com'],
 				'userComData'       => $jetpack_user_data,
 				'userGrav'          => get_avatar( $current_user->ID, 40 ),

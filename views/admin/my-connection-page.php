@@ -61,7 +61,7 @@
 						 * Only shown if there are other as well, because if there aren't it's obvious who is primary.
 						 */
 						?>
-						<# if ( data.showPrimaryRow ) { #>
+						<# if ( data.showPrimaryUserRow ) { #>
 							<!-- Master User Row -->
 							<div class="j-row">
 

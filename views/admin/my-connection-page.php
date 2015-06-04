@@ -25,7 +25,7 @@
 							<div class="j-col j-lrg-4 j-md-4 j-sm-4 jp-user">
 								<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
 								<div class="user-01">
-									<span>{{{ data.userGrav }}}</span><span>{{{ data.connectionLogic.adminUsername }}}</span>
+									{{{ data.userGrav }}} {{{ data.connectionLogic.adminUsername }}}
 								</div>
 							</div>
 
@@ -68,7 +68,7 @@
 								<div class="j-col j-lrg-4 j-md-4 j-sm-4 jp-user">
 									<h3 title="<?php _e( 'Primary User', 'jetpack' ); ?>"><?php _e( 'Primary User', 'jetpack' ); ?></h3>
 									<div class="user-01">
-										<div class="user-01"><span>{{{ data.masterUserGrav }}}</span>{{{ data.connectionLogic.masterUserLink }}}</div>
+										{{{ data.masterUserGrav }}} {{{ data.connectionLogic.masterUserLink }}}
 									</div>
 								</div>
 

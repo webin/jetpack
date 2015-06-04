@@ -45,7 +45,7 @@
 							<!-- right col ( Link/Unlink my account ) -->
 							<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
 								<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
-								<div class="wpuser-02">
+								<div class="action-btns">
 									<# if ( data.connectionLogic.isUserConnected ) { #>
 										<a class="button" title="Disconnect your WordPress.com account from Jetpack" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><?php esc_html_e( 'Unlink my account ', 'jetpack' ); ?></a>
 									<# } else { #>
@@ -87,7 +87,7 @@
 								<!-- right col ( Change primary user ) -->
 								<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
 									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Change Primary User', 'jetpack' ); ?></h3>
-									<div class="wpuser-02">
+									<div class="action-btns">
 										<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
 
 										<form action="" method="post">

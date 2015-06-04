@@ -2662,8 +2662,13 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 .connection-details .disconnect {
   border-top: 1px #ddd solid;
 }
-.connection-details .user-01, .connection-details .wpuser-02 {
+.connection-details .user-01,
+.connection-details .wpuser-02,
+.connection-details .action-btns {
   padding: 12px;
+}
+.connection-details .wpuser-02 {
+  margin-top: 10px;
 }
 .connection-details h3 {
   padding: 10px;

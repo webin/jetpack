@@ -17,8 +17,14 @@
 			border-top: 1px #ddd solid;
 		}
 
-		.user-01, .wpuser-02 {
+		.user-01, 
+		.wpuser-02, 
+		.action-btns {
 			padding: 12px;
+		}
+
+		.wpuser-02 {
+			margin-top: 10px;
 		}
 
 		h3 {

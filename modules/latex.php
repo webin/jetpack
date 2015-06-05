@@ -7,7 +7,6 @@
  * Requires Connection: No
  * Auto Activate: Yes
  * Module Tags: Writing
- * Search Queries: hello, goodbye
  */
 
 /**

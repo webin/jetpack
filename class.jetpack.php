@@ -327,6 +327,15 @@ class Jetpack {
 	 * Must never be called statically
 	 */
 	function plugin_upgrade() {
+
+		//refresh jetpack_file_data option
+		$available_modules = Jetpack::get_available_modules();
+
+		foreach ( $available_modules as $module ) {
+			$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
+			$mod = Jetpack::get_file_data( $file, Jetpack::$module_headers );
+		}
+
 		// Upgrade: 1.1 -> 1.2
 		if ( get_option( 'jetpack_id' ) ) {
 			// Move individual jetpack options to single array of options
@@ -392,17 +401,6 @@ class Jetpack {
 			if ( JETPACK__VERSION != $version ) {
 				add_action( 'init', array( __CLASS__, 'activate_new_modules' ) );
 				do_action( 'jetpack_sync_all_registered_options' );
-			}
-
-			$available_modules = Jetpack::get_available_modules();
-
-			foreach ( $available_modules as $module ) {
-				$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
-				$mod = Jetpack::get_file_data( $file, Jetpack::$module_headers );
-			}
-
-			if ( empty( $mod['name'] ) ) {
-				return false;
 			}
 
 		}

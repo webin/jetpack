@@ -92,6 +92,7 @@ class Jetpack {
 		'auto_activate'         => 'Auto Activate',
 		'module_tags'           => 'Module Tags',
 		'feature'               => 'Feature',
+		'search_queries'        => 'Search Queries',
 	);
 
 	/**
@@ -393,12 +394,10 @@ class Jetpack {
 				do_action( 'jetpack_sync_all_registered_options' );
 			}
 
-			$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
-
-			$available_modules = $this->jetpack->get_available_modules();
+			$available_modules = Jetpack::get_available_modules();
 
 			foreach ( $available_modules as $module ) {
-
+				$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
 				$mod = Jetpack::get_file_data( $file, Jetpack::$module_headers );
 			}
 

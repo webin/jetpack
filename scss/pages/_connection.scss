@@ -88,6 +88,13 @@
 		} // .connection-details
 	}
 
+	@include breakpoint(large-phone){
+		.connection-details .wpuser-02 {
+			margin-top: 0;
+			padding: 12px;
+		}		
+	};
+
 	@media screen and (max-width: 450px) {
 
 		.j-actions .button {

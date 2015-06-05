@@ -2657,7 +2657,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   border: 1px #ddd solid;
 }
 .connection-details.local-user {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .connection-details .disconnect {
   border-top: 1px #ddd solid;

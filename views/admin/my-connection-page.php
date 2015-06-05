@@ -22,7 +22,7 @@
 						<div class="j-row">
 						<# console.log( data.potentialPrimaries ); #>
 
-							<!-- left col -->
+							<?php // left col ?>
 							<div class="j-col j-lrg-4 j-md-6 j-sm-6 jp-user">
 								<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
 								<div class="user-01">
@@ -30,7 +30,7 @@
 								</div>
 							</div>
 
-							<!-- middle col -->
+							<?php // middle col ?>
 							<div class="j-col j-lrg-4 j-md-6 j-sm-6 wp-user">
 								<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
 								<div class="wpuser-02">
@@ -42,7 +42,7 @@
 								</div> 
 							</div>
 
-							<!-- right col ( Link/Unlink my account ) -->
+							<?php // right col ( Link/Unlink my account ) ?>
 							<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
 								<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Account Actions', 'jetpack' ); ?></h3>
 								<div class="action-btns">
@@ -65,10 +65,10 @@
 						 */
 						?>
 						<# if ( data.showPrimaryUserRow ) { #>
-							<!-- Master User Row -->
+							<?php // Master User Row ?>
 							<div class="j-row">
 
-								<!-- left col -->
+								<?php //left col ?>
 								<div class="j-col j-lrg-4 j-md-6 j-sm-6 jp-user">
 									<h3 title="<?php _e( 'Primary User', 'jetpack' ); ?>"><?php _e( 'Primary User', 'jetpack' ); ?></h3>
 									<div class="user-01">
@@ -76,7 +76,7 @@
 									</div>
 								</div>
 
-								<!-- middle col -->
+								<?php // middle col ?>
 								<div class="j-col j-lrg-4 j-md-6 j-sm-6 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
 									<div class="wpuser-02">
@@ -84,7 +84,7 @@
 									</div> 
 								</div>
 
-								<!-- right col ( Change primary user ) -->
+								<?php // right col ( Change primary user ) ?>
 								<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
 									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Change Primary User', 'jetpack' ); ?></h3>
 									<div class="action-btns">
@@ -108,7 +108,7 @@
 								</div>
 							</div>
 
-							<!-- Disconnect Site Button -->
+							<?php // Disconnect Site Button ?>
 							<div class="j-row disconnect">
 								<div class="j-col j-lrg-12 j-md-12 j-sm-12 j-actions">
 									<a class="button alignright" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect site from WordPress.com', 'jetpack' ); ?></a>

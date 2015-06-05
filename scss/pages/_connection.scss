@@ -13,15 +13,11 @@
 			margin-bottom: 10px;
 		}
 
-		.disconnect {
-			border-top: 1px #ddd solid;
-		}
-
 		.user-01, 
 		.wpuser-02, 
 		.action-btns {
 			padding: 10px;
-			.button {
+			.button, select {
 				margin-top: 5px;
 			}
 		}
@@ -37,12 +33,12 @@
 			border-bottom: 1px #ddd solid;
 			font-size: 14px;
 		}
-
 	} // .connection-details
 
 	.jp-user {
 		img {
 			margin-right: 10px;
+			border-radius: 50%;
 		}
 	}
 
@@ -63,6 +59,13 @@
 
 	.j-actions .button:nth-child(3) {
 		margin-right: 5px;
+	}
+
+	.j-row.disconnect {
+		text-align: center;
+		.button {
+			margin: 0 auto;
+		}
 	}
 
 	@media screen and (max-width: 500px) {

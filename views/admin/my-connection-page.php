@@ -11,7 +11,7 @@
 		<script id="tmpl-connection-page" type="text/html">
 			<div class="content-container <# if ( data.available ) { #>modal-footer<# } #>">
 				<div id="my-connection-content" class="content">
-					<h2><?php _e( 'Your Jetpack Connection Status' ); ?></h2>
+					<h2><?php _e( 'Jetpack Connection Status' ); ?></h2>
 
 					<div class="connection-details local-user">
 						<?php
@@ -107,16 +107,16 @@
 									</div>
 								</div>
 							</div>
-
-							<?php // Disconnect Site Button ?>
-							<div class="j-row disconnect">
-								<div class="j-col j-lrg-12 j-md-12 j-sm-12 j-actions">
-									<a class="button alignright" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect site from WordPress.com', 'jetpack' ); ?></a>
-								</div>
-							</div>
-						<# } #><?php /* end if admin */ ?>
 					</div>
 				</div>
+
+				<?php // Disconnect Site Button ?>
+					<div class="j-row disconnect">
+						<div class="j-col j-lrg-12 j-md-12 j-sm-12">
+							<a class="button" href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>" onclick="return confirm('<?php echo htmlspecialchars( __( 'Are you sure you want to disconnect from WordPress.com?', 'jetpack' ), ENT_QUOTES ); ?>');"><?php esc_html_e( 'Disconnect site from WordPress.com', 'jetpack' ); ?></a>
+						</div>
+					</div>
+				<# } #><?php /* end if admin */ ?>
 
 				<div id="jetpack-disconnect-content">
 					<h2>Disconnecting Jetpack</h2>

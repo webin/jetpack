@@ -146,7 +146,7 @@ body {
 }
 .header-nav {
 	li {
-		line-height: 60px;
+		line-height: 55px;
 		
 	}
 	a {
@@ -163,7 +163,7 @@ body {
 			background: url(../images/jetpack-logo.svg) center center no-repeat, none;
 			background-size: 183px auto;
 			color: #fff;
-			line-height: 60px;
+			line-height: 55px;
 			font-weight: normal;
 			
 			span {
@@ -185,7 +185,7 @@ body {
 		}
 	}
 	.jetpack-modules + .jetpack-modules {
-		margin-left:15px
+		margin-left: 15px;
 	}
 }
 

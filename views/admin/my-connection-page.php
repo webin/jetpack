@@ -13,14 +13,13 @@
 				<div id="my-connection-content" class="content">
 					<h2><?php _e( 'Jetpack Connection Status' ); ?></h2>
 
-					<div class="connection-details local-user">
 						<?php
 						/*
 						 * Special row if there is only one admin on the site
 						 */
 						?>
 						<# if ( ! data.showPrimaryUserRow && data.connectionLogic.isMasterUser ) { #>
-							<div class="j-row">
+							<div class="connection-details local-user j-row">
 								<?php // left col ?>
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 jp-user">
 									<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
@@ -32,10 +31,9 @@
 								<?php // right col ?>
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-										<div class="wpuser-02">
-											{{{ data.userComData.login }}}
-										</div>
-									</div> 
+									<div class="wpuser-02">
+										{{{ data.userComData.login }}}
+									</div>
 								</div>
 							</div>
 						<# } #>
@@ -47,8 +45,7 @@
 						 */
 						?>
 						<# if ( ! data.connectionLogic.isMasterUser ) { #>
-							<div class="j-row">
-
+							<div class="connection-details local-user j-row">
 								<?php // left col ?>
 								<div class="j-col j-lrg-4 j-md-6 j-sm-12 jp-user">
 									<h3 title="<?php _e( 'Username', 'jetpack' ); ?>"><?php _e( 'Site Username', 'jetpack' ); ?></h3>
@@ -92,47 +89,43 @@
 						 */
 						?>
 						<# if ( data.showPrimaryUserRow ) { #>
-							<div class="connection-details master-user">
-								<?php // Master User Row ?>
-								<div class="j-row">
-
-									<?php //left col ?>
-									<div class="j-col j-lrg-4 j-md-6 j-sm-12 jp-user">
-										<h3 title="<?php _e( 'Primary User', 'jetpack' ); ?>"><?php _e( 'Primary User', 'jetpack' ); ?></h3>
-										<div class="user-01">
-											{{{ data.masterUserGrav }}} {{{ data.connectionLogic.masterUserLink }}}
-										</div>
+							<div class="connection-details master-user j-row">
+								<?php // Master User Row, Left col ?>
+								<div class="j-col j-lrg-4 j-md-6 j-sm-12 jp-user">
+									<h3 title="<?php _e( 'Primary User', 'jetpack' ); ?>"><?php _e( 'Primary User', 'jetpack' ); ?></h3>
+									<div class="user-01">
+										{{{ data.masterUserGrav }}} {{{ data.connectionLogic.masterUserLink }}}
 									</div>
+								</div>
 
-									<?php // middle col ?>
-									<div class="j-col j-lrg-4 j-md-6 j-sm-12 wp-user">
-										<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-										<div class="wpuser-02">
-											<span>{{{ data.masterComData.login }}}</span>
-										</div> 
-									</div>
+								<?php // middle col ?>
+								<div class="j-col j-lrg-4 j-md-6 j-sm-12 wp-user">
+									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
+									<div class="wpuser-02">
+										<span>{{{ data.masterComData.login }}}</span>
+									</div> 
+								</div>
 
-									<?php // right col ( Change primary user ) ?>
-									<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
-										<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Change Primary User', 'jetpack' ); ?></h3>
-										<div class="action-btns">
-											<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
+								<?php // right col ( Change primary user ) ?>
+								<div class="j-col j-lrg-4 j-md-12 j-sm-12 wp-action">
+									<h3 title="<?php _e( 'Account Actions', 'jetpack' ); ?>"><?php _e( 'Change Primary User', 'jetpack' ); ?></h3>
+									<div class="action-btns">
+										<a class="button" title="Change the primary account holder" id="change-primary-btn"><?php esc_html_e( 'Change Primary', 'jetpack' ); ?></a>
 
-											<form action="" method="post">
-												<select name="jetpack-new-master" id="user-list">
-													<?php
-													$all_users = get_users();
-													foreach ( $all_users as $user ) {
-														if ( $user->ID != Jetpack_Options::get_option( 'master_user' ) && Jetpack::is_user_connected( $user->ID ) && $user->caps['administrator'] ) {
-															echo "<option value='{$user->ID}'>$user->display_name</option>";
-														}
+										<form action="" method="post">
+											<select name="jetpack-new-master" id="user-list">
+												<?php
+												$all_users = get_users();
+												foreach ( $all_users as $user ) {
+													if ( $user->ID != Jetpack_Options::get_option( 'master_user' ) && Jetpack::is_user_connected( $user->ID ) && $user->caps['administrator'] ) {
+														echo "<option value='{$user->ID}'>$user->display_name</option>";
 													}
-													?>
-												</select>
-												<?php wp_nonce_field( 'jetpack_change_primary_user', '_my_connect_nonce' ); ?>
-												<input type="submit" name="jetpack-set-master-user" id="save-primary-btn" class="button button-primary" value="Save" title="Set the primary account holder"/>
-											</form>
-										</div>
+												}
+												?>
+											</select>
+											<?php wp_nonce_field( 'jetpack_change_primary_user', '_my_connect_nonce' ); ?>
+											<input type="submit" name="jetpack-set-master-user" id="save-primary-btn" class="button button-primary" value="Save" title="Set the primary account holder"/>
+										</form>
 									</div>
 								</div>
 							</div>

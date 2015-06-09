@@ -24,9 +24,9 @@
 	padding: 0;
 }
 
-ul#adminmenu a.toplevel_page_jetpack:after {
+/* ul#adminmenu a.toplevel_page_jetpack:after {
 	border-right-color: $green;
-}
+} */
 
 .folded #wpcontent {
 	margin-left: 36px;
@@ -369,7 +369,7 @@ body {
 		padding: 47px 15px 39px;
 	};
 }
-.clouds-sm {
+/* .clouds-sm {
 	$start: $green; // top gradient color and fallback
 	$end: lighten($green, 3%); // bottom gradient color
 
@@ -400,7 +400,7 @@ body {
 	@include breakpoint(large-phone){
 		height: 90px;
 	};
-}
+} */
 
 // ==========================================================================
 // Featured
@@ -1554,14 +1554,6 @@ body {
 	.single .type-post,
 	.single .type-jetpack_support {
 		width: 100%;
-	}
-};
-
-
-@include breakpoint(phablet){
-	// clouds are nice, but occupy too much vert space on mobile
-	.clouds-sm {
-		display: none;
 	}
 };
 

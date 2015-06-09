@@ -531,10 +531,9 @@ img {
   padding: 0;
 }
 
-ul#adminmenu a.toplevel_page_jetpack:after {
-  border-right-color: #81a844;
-}
-
+/* ul#adminmenu a.toplevel_page_jetpack:after {
+	border-right-color: $green;
+} */
 .folded #wpcontent {
   margin-left: 36px;
 }
@@ -868,32 +867,38 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   }
 }
 
-.clouds-sm {
-  height: 100px;
-  position: relative;
-  text-align: center;
-  z-index: 1;
-  background-color: #81a844;
-  background-image: linear-gradient(top, #81a844, #89b348);
-}
-.clouds-sm:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-bottom: -1px;
-  width: 100%;
-  height: 137px;
-  background: url("../images/the-cloud-sm.svg") center bottom repeat-x;
-  pointer-events: none;
-  z-index: 2;
-}
-@media (max-width: 530px) {
-  .clouds-sm {
-    height: 90px;
-  }
-}
+/* .clouds-sm {
+	$start: $green; // top gradient color and fallback
+	$end: lighten($green, 3%); // bottom gradient color
 
+	height: 100px;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+	background-color: $start;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($start),to($end));
+	background-image: -webkit-linear-gradient(top, $start, $end);
+	background-image: -moz-linear-gradient(top, $start, $end);
+	background-image: -o-linear-gradient(top, $start, $end);
+	background-image: -ms-linear-gradient(top, $start, $end);
+	background-image: linear-gradient(top, $start, $end);
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin-bottom: -1px; // Removes subpixel gap on retina landscape
+		width: 100%;
+		height: 137px;
+		background: url('../images/the-cloud-sm.svg') center bottom repeat-x;
+		pointer-events: none;
+		z-index: 2;
+	}
+	@include breakpoint(large-phone){
+		height: 90px;
+	};
+} */
 .featured {
   border-top: 1px solid #d6d6d6;
   border-bottom: 1px solid #d6d6d6;
@@ -2039,11 +2044,6 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   .single .type-post,
   .single .type-jetpack_support {
     width: 100%;
-  }
-}
-@media (max-width: 600px) {
-  .clouds-sm {
-    display: none;
   }
 }
 @media (max-width: 530px) {

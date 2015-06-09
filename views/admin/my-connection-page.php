@@ -32,7 +32,9 @@
 								<?php // right col ?>
 								<div class="j-col j-lrg-6 j-md-6 j-sm-12 wp-user">
 									<h3 title="<?php _e( 'WordPress.com Username', 'jetpack' ); ?>"><?php _e( 'WordPress.com Username', 'jetpack' ); ?></h3>
-										<span>{{{ data.userComData.login }}}</span>
+										<div class="wpuser-02">
+											{{{ data.userComData.login }}}
+										</div>
 									</div> 
 								</div>
 							</div>

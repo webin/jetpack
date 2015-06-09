@@ -173,7 +173,7 @@ button,
 input,
 select,
 textarea {
-  color: #222222;
+  color: #222;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4;
@@ -251,12 +251,10 @@ img {
     -webkit-transform: scale(0.3);
     transform: scale(0.3);
   }
-
   60% {
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
   }
-
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -268,12 +266,10 @@ img {
     -webkit-transform: scale(0.3);
     transform: scale(0.3);
   }
-
   60% {
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
   }
-
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -284,17 +280,14 @@ img {
     -webkit-transform: scale(1);
     transform: scale(1);
   }
-
   20% {
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
   }
-
   60% {
     -webkit-transform: scale(0.95);
     transform: scale(0.95);
   }
-
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -305,17 +298,14 @@ img {
     -webkit-transform: scale(1);
     transform: scale(1);
   }
-
   20% {
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
   }
-
   60% {
     -webkit-transform: scale(0.95);
     transform: scale(0.95);
   }
-
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -326,7 +316,6 @@ img {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
   }
-
   100% {
     -webkit-transform: translate3d(680px, -680px, 0px);
     transform: translate3d(680px, -680px, 0px);
@@ -337,7 +326,6 @@ img {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
   }
-
   100% {
     -webkit-transform: translate3d(680px, -680px, 0px);
     transform: translate3d(680px, -680px, 0px);
@@ -556,16 +544,12 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 }
 
 .jp-content {
-  background: #f9f9f9;
   margin: 0;
   height: auto;
   min-height: 100%;
   width: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
-}
-.jp-content .wrapper {
-  background: #f9f9f9;
 }
 
 @media (max-width: 900px) {
@@ -1588,6 +1572,14 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   position: relative;
   padding: 10em 0 4.28571em;
   text-align: center;
+  /* &:after {
+  	bottom: 0;
+  	width: 100%;
+  	height: 50px;
+  	background: url('../images/the-footcloud.svg') center bottom no-repeat;
+  	background-size: auto 45px;
+  	z-index: 1;
+  } */
 }
 .footer:before, .footer:after {
   content: '';
@@ -1600,14 +1592,6 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   margin-top: -1px;
   width: 100%;
   height: 195px;
-}
-.footer:after {
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background: url("../images/the-footcloud.svg") center bottom no-repeat;
-  background-size: auto 45px;
-  z-index: 1;
 }
 .footer .download-jetpack {
   margin-bottom: 33px;
@@ -1690,7 +1674,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 
 .primary {
   padding: 25px 15px 10px 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .secondary-footer {
@@ -1813,7 +1797,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   opacity: 0.6;
   position: absolute;
   top: 23px;
-  top: calc(50% - 22px );
+  top: calc( 50% - 22px );
 }
 @media (max-width: 530px) {
   .jetpack-message .squeezer {
@@ -2442,7 +2426,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   font-size: 14px;
 }
 .configure-module p.success, .configure-module p.error {
-  color: white;
+  color: #fff;
   padding: 10px;
 }
 .configure-module p.success {
@@ -2844,7 +2828,6 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
   }
-
   100% {
     -webkit-transform: translate3d(900px, -900px, 0px);
     transform: translate3d(900px, -900px, 0px);
@@ -2855,7 +2838,6 @@ ul#adminmenu a.toplevel_page_jetpack:after {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
   }
-
   100% {
     -webkit-transform: translate3d(900px, -900px, 0px);
     transform: translate3d(900px, -900px, 0px);
@@ -2907,3 +2889,5 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 .nav-horizontal:after, .features:after, .modules:after, .load-more:after {
   clear: both;
 }
+
+/*# sourceMappingURL=jetpack-admin.css.map */

@@ -36,7 +36,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 }
 
 .jp-content {
-	background: $clouds;
+	// background: $clouds;
 	margin: 0;
 	height: auto;
 	min-height: 100%;
@@ -45,7 +45,7 @@ ul#adminmenu a.toplevel_page_jetpack:after {
 	-webkit-font-smoothing: antialiased;
 
 	.wrapper {
-		background: $clouds;
+		// background: $clouds;
 	}
 }
 
@@ -1118,14 +1118,14 @@ body {
 		height: 195px;
 		//background: url('../images/the-undercloud.svg') center top repeat-x;
 	}
-	&:after {
+	/* &:after {
 		bottom: 0;
 		width: 100%;
 		height: 50px;
 		background: url('../images/the-footcloud.svg') center bottom no-repeat;
 		background-size: auto 45px;
 		z-index: 1;
-	}
+	} */
 	.download-jetpack {
 		margin-bottom: 33px;
 	}
@@ -1201,7 +1201,7 @@ body {
 }
 .primary {
 	padding: 25px 15px 10px 15px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid darken($clouds, 10%);
 }
 .secondary-footer {
 	margin: 0 auto;

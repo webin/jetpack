@@ -1,0 +1,19 @@
+
+.landing-content-wrapper {
+	> h2 {
+		font-size: 3.2em;
+		text-align: center;
+	}
+	> h3 {
+		font-size: 1.8em;
+	}
+	> p {
+		font-size: 1.1em;
+		line-height: 1.8;
+	}
+	.see-all {
+		padding-top: 1em;
+		clear: both;
+		text-align: center;
+	}
+}

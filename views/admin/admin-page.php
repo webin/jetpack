@@ -46,7 +46,7 @@
 			<div class="module-grid">
 				<h2 title="<?php esc_attr_e( 'Get the most out of Jetpack with these features', 'jetpack' ); ?>"><?php esc_html_e( 'Get the most out of Jetpack with...', 'jetpack' ); ?></h2>
 				<?php if ( current_user_can( 'jetpack_manage_modules' ) ) : ?>
-				<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'See all %d Jetpack features', 'jetpack' ), count( Jetpack::get_available_modules() ) ); ?></a>
+					<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'See all %d Jetpack features', 'jetpack' ), count( Jetpack::get_available_modules() ) ); ?></a>
 				<?php endif; ?>
 			</div><!-- .module-grid -->
 

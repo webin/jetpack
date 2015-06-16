@@ -69,9 +69,12 @@
 				<div class="module-grid js-security_modules" data-modules='<?php echo esc_js( json_encode( $data['security_modules'] ) ); ?>'></div>
 
 
+				<hr class="clear" />
+
 				<?php if ( current_user_can( 'jetpack_manage_modules' ) ) : ?>
 					<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'See all %d Jetpack features', 'jetpack' ), count( Jetpack::get_available_modules() ) ); ?></a>
 				<?php endif; ?>
+
 			</div><!-- .landing-content-wrapper -->
 
 

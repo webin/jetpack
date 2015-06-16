@@ -46,7 +46,7 @@
 			<div class="landing-content-wrapper">
 				<h2 title="<?php esc_attr_e( 'Get the most out of Jetpack with these features', 'jetpack' ); ?>"><?php esc_html_e( 'Get the most out of Jetpack with...', 'jetpack' ); ?></h2>
 
-				<p>Jetpack lets you supercharge your [marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<p><?php esc_html_e( 'Connecting Jetpack to your site means that you can customize your site to make it uniquely yours. Your content will be richer and more engaging and we\'ll help you reach more visitors and keep them coming back. You can keep your site and plugins up to date, manage their settings and post content from a centralized dashboard from any device. Your content will be delivered faster, saving you bandwidth, and we give you accurate usage stats for who\'s reading it and from where. Finally, under the hood, we keep your site safe from attacks, spam, downtime and data loss.', 'jetpack' ); ?></p>
 
 
 				<h3><?php esc_html_e( 'Make your WordPress site uniquely yours', 'jetpack' ); ?></h3>

@@ -22,7 +22,7 @@
 
 		initEvents();
 		loadModules( 'Recommended', 'mod-recommended', '.modules' );
-		if('1' === data.showJumpstart) {
+		if ( '1' === data.showJumpstart ) {
 			loadModules( 'Jumpstart', 'mod-jumpstart', '#jp-config-list' );
 		}
 		jumpStartAJAX();

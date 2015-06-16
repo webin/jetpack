@@ -45,6 +45,34 @@
 
 			<div class="landing-content-wrapper">
 				<h2 title="<?php esc_attr_e( 'Get the most out of Jetpack with these features', 'jetpack' ); ?>"><?php esc_html_e( 'Get the most out of Jetpack with...', 'jetpack' ); ?></h2>
+
+				<p>Jetpack lets you supercharge your [marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+
+
+				<h3><?php esc_html_e( 'Make your WordPress site uniquely yours', 'jetpack' ); ?></h3>
+				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<pre><?php print_r( $data['site_modules'] ); ?></pre>
+				<div class="module-grid" data-modules='<?php echo esc_js( json_encode( $data['site_modules'] ) ); ?>'></div>
+
+
+				<h3><?php esc_html_e( 'Create and publish rich and engaging content', 'jetpack' ); ?></h3>
+				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<pre><?php print_r( $data['content_modules'] ); ?></pre>
+				<div class="module-grid" data-modules='<?php echo esc_js( json_encode( $data['content_modules'] ) ); ?>'></div>
+
+
+				<h3><?php esc_html_e( 'Increase your traffic and keep visitors coming back', 'jetpack' ); ?></h3>
+				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<pre><?php print_r( $data['traffic_modules'] ); ?></pre>
+				<div class="module-grid" data-modules='<?php echo esc_js( json_encode( $data['traffic_modules'] ) ); ?>'></div>
+
+
+				<h3><?php esc_html_e( 'Keep your WordPress site up, safe, and protected', 'jetpack' ); ?></h3>
+				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<pre><?php print_r( $data['security_modules'] ); ?></pre>
+				<div class="module-grid" data-modules='<?php echo esc_js( json_encode( $data['security_modules'] ) ); ?>'></div>
+
+
 				<?php if ( current_user_can( 'jetpack_manage_modules' ) ) : ?>
 					<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'See all %d Jetpack features', 'jetpack' ), count( Jetpack::get_available_modules() ) ); ?></a>
 				<?php endif; ?>

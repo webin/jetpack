@@ -125,7 +125,7 @@
 
 	/*
 	Load Modules for a template
-	@param string: The module tag you'd like to filter by
+	@param string|array: The module tag you'd like to filter by, or an array of module slugs.
 	@param string: The template name
 	@param string: The target element to display the template
 	 */
@@ -138,15 +138,27 @@
 			length,
 			renderingmodules = [];
 
-		// create the map
-		for ( i = 0, length = modules.length; i < length; i++ ) {
-			if( modules[i].feature.indexOf(prop) !== -1 ) {
-				val = modules[i].name.toLowerCase();
-				result.push( {
-					index: i,
-					value: val,
-					order: modules[i].recommendation_order
-				});
+		if ( Array.isArray( prop ) ) {
+			for ( i = 0; i < modules.length; i++ ) {
+				if ( -1 !== prop.indexOf( modules[i].module ) ) {
+					result.push( {
+						index: i,
+						value: modules[i].name.toLowerCase(),
+						order: modules[i].recommendation_order
+					} );
+				}
+			}
+		} else {
+			// create the map
+			for ( i = 0, length = modules.length; i < length; i ++ ) {
+				if ( modules[i].feature.indexOf( prop ) !== - 1 ) {
+					val = modules[i].name.toLowerCase();
+					result.push( {
+						index: i,
+						value: val,
+						order: modules[i].recommendation_order
+					} );
+				}
 			}
 		}
 

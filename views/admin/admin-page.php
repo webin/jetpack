@@ -50,30 +50,34 @@
 
 
 				<h3><?php esc_html_e( 'Make your WordPress site uniquely yours', 'jetpack' ); ?></h3>
-				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<p><?php printf( __( 'Jetpack comes with tools to help you get your site how you want it. Everything from our <a href="%1$s">Custom CSS</a> editor, to <a href="%2$s">Contact Forms</a>, <a href="%3$s">Extra Sidebar Widgets</a>, <a href="%4$s">and more</a> -- we\'re here to help.', 'jetpack' ),
+								'#', '#', '#', '#' ); ?></p>
 				<div class="module-grid modules js-site_modules" data-modules='<?php echo esc_js( json_encode( $data['site_modules'] ) ); ?>'></div>
 
 
 				<h3><?php esc_html_e( 'Create and publish rich and engaging content', 'jetpack' ); ?></h3>
-				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<p><?php printf( __( 'Need help getting your content looking stellar? Jetpack can help with <a href="%1$s">Spelling and Grammar Checking</a>, <a href="%2$s">LaTeX Math and Formulas</a>, <a href="%3$s">Rich Embeddable Content</a>, our <a href="%4$s">Photon Image CDN</a>, and <a href="%5$s">more</a>!', 'jetpack' ),
+								'#', '#', '#', '#', '#' ); ?></p>
 				<div class="module-grid modules js-content_modules" data-modules='<?php echo esc_js( json_encode( $data['content_modules'] ) ); ?>'></div>
 
 
 				<h3><?php esc_html_e( 'Increase your traffic and keep visitors coming back', 'jetpack' ); ?></h3>
-				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<p><?php printf( __( 'Leverage user engagement tools to pull in new visitors, and keep your existing visitors delighted. Whether it\'s <a href="%1$s">Publicizing</a> your content automatically to social networks, making it quicker for visitors to leave <a href="%2$s">comments</a> and <a href="%3$s">likes</a>, or helping them to <a href="%4$s">share your content</a>, we\'ve got you covered.', 'jetpack' ),
+								'#', '#', '#', '#' ); ?></p>
 				<div class="module-grid modules js-traffic_modules" data-modules='<?php echo esc_js( json_encode( $data['traffic_modules'] ) ); ?>'></div>
 
 
 				<h3><?php esc_html_e( 'Keep your WordPress site up, safe, and protected', 'jetpack' ); ?></h3>
-				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
+				<p><?php printf( __( 'What good are visitors if your site is down?  We\'ll do everything in our power to keep your site secure, by helping to <a href="%1$s">secure your login page against brute force attacks</a>, making it easier to <a href="%2$s">keep your software up-to-date</a>, and if there ever is a problem, <a href="%3$s">we can drop you a line right away</a>.', 'jetpack' ),
+								'#', '#', '#' ); ?></p>
 				<div class="module-grid modules js-security_modules" data-modules='<?php echo esc_js( json_encode( $data['security_modules'] ) ); ?>'></div>
 
 
-				<hr class="clear" />
-
+				<div class="see-all">
 				<?php if ( current_user_can( 'jetpack_manage_modules' ) ) : ?>
-					<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'See all %d Jetpack features', 'jetpack' ), count( Jetpack::get_available_modules() ) ); ?></a>
+					<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'Need to manage all %d Jetpack features individually?', 'jetpack' ), count( Jetpack::get_available_modules() ) ); ?></a>
 				<?php endif; ?>
+				</div>
 
 			</div><!-- .landing-content-wrapper -->
 

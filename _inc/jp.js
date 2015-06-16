@@ -138,7 +138,7 @@
 			length,
 			renderingmodules = [];
 
-		if ( Array.isArray( prop ) ) {
+		if ( $.isArray( prop ) ) {
 			for ( i = 0; i < modules.length; i++ ) {
 				if ( -1 !== prop.indexOf( modules[i].module ) ) {
 					result.push( {

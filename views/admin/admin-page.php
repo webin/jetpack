@@ -45,7 +45,7 @@
 
 			<?php // Recommended modules on the landing page ?>
 			<div class="module-grid">
-				<h2 title="Get the most out of Jetpack with these features"><?php _e( 'Get the most out of Jetpack with...', 'jetpack' ); ?></h2>
+				<h2 title="<?php esc_attr_e( 'Get the most out of Jetpack with these features', 'jetpack' ); ?>"><?php esc_html_e( 'Get the most out of Jetpack with...', 'jetpack' ); ?></h2>
 				<div class="modules"></div>
 				<?php if ( current_user_can( 'jetpack_manage_modules' ) ) : ?>
 				<a href="<?php echo admin_url( 'admin.php?page=jetpack_modules' ); ?>" class="button" ><?php echo sprintf( __( 'See the other %s Jetpack features', 'jetpack' ), count( Jetpack::get_available_modules() ) - count( $data['recommended_list'] ) ); ?></a>

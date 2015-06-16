@@ -173,6 +173,31 @@ class Jetpack_Landing_Page extends Jetpack_Admin_Page {
 			'show_jumpstart'    => $this->jetpack_show_jumpstart(),
 			'jumpstart_list'    => $this->jumpstart_list_modules(),
 		//	'recommended_list'  => $this->jumpstart_module_tag( 'Recommended' ),
+			'site_modules'      => array(
+										'custom-css',
+										'contact-form',
+										'widgets',
+										'widget-visibility',
+									),
+			'content_modules'   => array(
+										'shortcodes',
+										'after-the-deadline',
+										'tiled-galleries',
+										'photon',
+									),
+			'traffic_modules'   => array(
+										'stats',
+										'publicize',
+										'sharedaddy',
+										'related-posts',
+										'enhanced-distribution',
+									),
+			'security_modules'  => array(
+										'protect',
+										'monitor',
+										'manage',
+										'sso',
+									),
 		);
 		Jetpack::init()->load_view( 'admin/admin-page.php', $data );
 	}

@@ -21,7 +21,15 @@
 		};
 
 		initEvents();
-		loadModules( 'Recommended', 'mod-recommended', '.modules' );
+
+		// Load each of the module grids.
+		$('.module-grid').each( function() {
+			var showTheseModules = $(this).data('modules');
+			if ( $.isArray( showTheseModules ) && showTheseModules.length ) {
+				loadModules( showTheseModules, 'mod-recommended', this );
+			}
+		});
+
 		if ( '1' === data.showJumpstart ) {
 			loadModules( 'Jumpstart', 'mod-jumpstart', '#jp-config-list' );
 		}

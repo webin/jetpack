@@ -2639,6 +2639,23 @@ ul#adminmenu a.toplevel_page_jetpack:after {
   }
 }
 /* end < 400px */
+.landing-content-wrapper > h2 {
+  font-size: 3.2em;
+  text-align: center;
+}
+.landing-content-wrapper > h3 {
+  font-size: 1.8em;
+}
+.landing-content-wrapper > p {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+.landing-content-wrapper .see-all {
+  padding-top: 1em;
+  clear: both;
+  text-align: center;
+}
+
 .jp-content .hide {
   display: none;
 }

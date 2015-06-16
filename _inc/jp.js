@@ -177,7 +177,6 @@
 			renderingmodules[i].index =  result[i].index; // make sure we set the index to the right order*/
 		}
 
-
 		// Render modules
 		for ( i = 0; i < renderingmodules.length; i++ ) {
 			html += wp.template( template )( renderingmodules[i] );

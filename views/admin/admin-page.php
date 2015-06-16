@@ -51,22 +51,22 @@
 
 				<h3><?php esc_html_e( 'Make your WordPress site uniquely yours', 'jetpack' ); ?></h3>
 				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
-				<div class="module-grid js-site_modules" data-modules='<?php echo esc_js( json_encode( $data['site_modules'] ) ); ?>'></div>
+				<div class="module-grid modules js-site_modules" data-modules='<?php echo esc_js( json_encode( $data['site_modules'] ) ); ?>'></div>
 
 
 				<h3><?php esc_html_e( 'Create and publish rich and engaging content', 'jetpack' ); ?></h3>
 				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
-				<div class="module-grid js-content_modules" data-modules='<?php echo esc_js( json_encode( $data['content_modules'] ) ); ?>'></div>
+				<div class="module-grid modules js-content_modules" data-modules='<?php echo esc_js( json_encode( $data['content_modules'] ) ); ?>'></div>
 
 
 				<h3><?php esc_html_e( 'Increase your traffic and keep visitors coming back', 'jetpack' ); ?></h3>
 				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
-				<div class="module-grid js-traffic_modules" data-modules='<?php echo esc_js( json_encode( $data['traffic_modules'] ) ); ?>'></div>
+				<div class="module-grid modules js-traffic_modules" data-modules='<?php echo esc_js( json_encode( $data['traffic_modules'] ) ); ?>'></div>
 
 
 				<h3><?php esc_html_e( 'Keep your WordPress site up, safe, and protected', 'jetpack' ); ?></h3>
 				<p>[marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here … marketing copy goes here]</p>
-				<div class="module-grid js-security_modules" data-modules='<?php echo esc_js( json_encode( $data['security_modules'] ) ); ?>'></div>
+				<div class="module-grid modules js-security_modules" data-modules='<?php echo esc_js( json_encode( $data['security_modules'] ) ); ?>'></div>
 
 
 				<hr class="clear" />
